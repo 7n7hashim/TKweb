@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Blu display type =====
+   Montserrat, set the way Blu's logo sets it: a light word against a heavy one ("blu" / "real").
+   Display headings are light (300); any <em>, <strong> or <b> inside one turns heavy (800). Never
+   italic — no italic is shipped, and the logo never slants. The emphasis rule needs real
+   specificity: Tailwind's preflight sets `b, strong { font-weight: bolder }` (0,0,1), which
+   beat a zero-specificity :where() version and left "heavy" words at 400. */
+@layer base {
+  .font-display { font-weight: 300; letter-spacing: -0.02em; }
+  .font-display :is(em, strong, b), h1 :is(em, strong, b), h2 :is(em, strong, b), h3 :is(em, strong, b) { font-style: normal; font-weight: 800; }
+}
+
+@layer components {
+  /* ===== Brand plate =====
+     Blu's logo exactly as they designed it — white and gold on navy — hung from the top edge
+     of the header like a tag. The lockup is only legible on its own navy, so it never sits on
+     the light header directly. */
+  .brand-plate {
+    display: inline-flex; align-items: flex-end; justify-content: center;
+    align-self: flex-start; background: #002865; color: #fff;
+    padding: 18px 14px 12px; border-radius: 0 0 10px 10px;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 16px 30px -16px rgba(0,27,69,0.6);
+    transition: background-color 0.3s ease, transform 0.45s cubic-bezier(0.22,1,0.36,1), box-shadow 0.45s ease;
+  }
+  .brand-plate img { display: block; height: 52px; width: auto; }
+  @media (min-width: 1024px) {
+    .brand-plate { padding: 20px 17px 14px; }
+    .brand-plate img { height: 60px; }
+  }
+  .brand-plate:hover { background: #001B45; transform: translateY(2px); box-shadow: 0 20px 36px -16px rgba(0,27,69,0.7); }
+  .brand-plate:active { transform: translateY(3px); }
+  .brand-plate:focus-visible { outline: 2px solid #C59332; outline-offset: 3px; }
+
+  /* ===== The spec strip — Blu's own flyer panel, set as type =====
+     Every Blu flyer opens "BOOK A HOME IN NYALI FOR" over three cells: bedrooms, square feet,
+     price, split by thin rules, the numbers heavy and the units small. That panel is the
+     signature of this site: on the hero, under each listing's hero, and on every card. */
+  .spec { display: flex; flex-direction: column; gap: 10px; }
+  .spec-lead {
+    font-family: Montserrat, "Helvetica Neue", Arial, sans-serif; font-weight: 700;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  }
+  .spec-cells { display: flex; align-items: stretch; }
+  .spec-cell { display: flex; flex-direction: column; justify-content: flex-end; min-width: 0; }
+  .spec-cell:first-child { padding-left: 0; }
+  .spec-cell + .spec-cell { border-left: 1px solid currentColor; border-left-color: var(--spec-rule, rgba(255,255,255,0.35)); }
+  .spec-num {
+    display: flex; align-items: baseline; gap: 3px; white-space: nowrap;
+    font-family: Montserrat, "Helvetica Neue", Arial, sans-serif; font-weight: 800;
+    font-size: 28px; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;
+  }
+  .spec-num small { font-size: 0.46em; font-weight: 800; letter-spacing: 0; }
+  .spec-num .pre { font-size: 0.32em; font-weight: 700; letter-spacing: 0.06em; writing-mode: vertical-rl; transform: rotate(180deg); align-self: center; margin-right: 2px; }
+  /* Phones: smaller figures, tighter cells, and labels allowed to wrap under their figure, so the
+     three cells always fit a 360px screen (measured: the widest set is ~295px at 28px). */
+  .spec-cell { padding: 0 12px; }
+  .spec-note { margin-top: 6px; font-size: 9px; font-weight: 600; letter-spacing: 0.08em; line-height: 1.35; text-transform: uppercase; max-width: 10.5em; }
+  @media (min-width: 400px) { .spec-num { font-size: 31px; } }
+  @media (min-width: 640px) {
+    .spec-num { font-size: 42px; }
+    .spec-cell { padding: 0 24px; }
+    .spec-note { font-size: 9.5px; letter-spacing: 0.14em; white-space: nowrap; max-width: none; }
+  }
+  /* On navy: white figures, gold units, quiet labels */
+  .spec--dark { color: #fff; }
+  .spec--dark .spec-lead { color: #E2BE73; }
+  .spec--dark .spec-num small { color: #C59332; }
+  .spec--dark .spec-note { color: rgba(255,255,255,0.66); }
+  /* On a light card: navy figures, gold-ink units */
+  .spec--light { color: #002865; --spec-rule: rgba(0,40,101,0.18); }
+  .spec--light .spec-lead { color: #82601C; }
+  .spec--light .spec-num small { color: #82601C; }
+  .spec--light .spec-note { color: #4F5B6E; }
+  .spec--compact .spec-num { font-size: 23px; }
+  .spec--compact .spec-cell { padding: 0 10px; }
+  .spec--compact .spec-cell:first-child { padding-left: 0; }
+  .spec--compact .spec-note { font-size: 8.5px; letter-spacing: 0.08em; white-space: normal; max-width: 10em; }
+  @media (min-width: 400px) { .spec--compact .spec-num { font-size: 25px; } .spec--compact .spec-cell { padding: 0 13px; } }
+  @media (min-width: 640px) { .spec--compact .spec-num { font-size: 27px; } }
+
+  /* ===== WhatsApp / call buttons ===== */
+  .btn-gold {
+    display: inline-flex; align-items: center; gap: 10px; border-radius: 6px;
+    background: #C59332; color: #001B45; font-size: 12.5px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 15px 26px;
+    box-shadow: 0 14px 30px -14px rgba(130,96,28,0.55);
+    transition: background-color 0.3s ease, transform 0.35s cubic-bezier(0.22,1,0.36,1);
+  }
+  .btn-gold:hover { background: #D4A54A; transform: translateY(-2px); }
+  .btn-gold:active { transform: translateY(0); }
+  .btn-gold svg, .btn-navy svg, .btn-ghost svg { width: 17px; height: 17px; flex: none; }
+  .btn-navy {
+    display: inline-flex; align-items: center; gap: 10px; border-radius: 6px;
+    background: #002865; color: #fff; font-size: 12.5px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 15px 26px;
+    box-shadow: 0 14px 30px -14px rgba(0,27,69,0.6);
+    transition: background-color 0.3s ease, transform 0.35s cubic-bezier(0.22,1,0.36,1);
+  }
+  .btn-navy:hover { background: #001B45; transform: translateY(-2px); }
+  .btn-navy:active { transform: translateY(0); }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 10px; border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.4); color: #fff; font-size: 12.5px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 24px;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  }
+  .btn-ghost:hover { background: #fff; border-color: #fff; color: #001B45; }
+  .btn-ghost:active { background: #E9EFF7; }
+}

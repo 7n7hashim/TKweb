@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Local tooling & working files
+temporary screenshots/
+.claude/settings.local.json
+
+# Logs
+*.log
+npm-debug.log*

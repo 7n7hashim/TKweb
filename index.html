@@ -1,0 +1,1393 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blu Real Estate — New Homes in Nyali, Kizingo &amp; Stadium, Mombasa</title>
+  <meta name="description" content="Blu Real Estate lists new apartments in Nyali, Kizingo and Stadium, Mombasa, with the floor areas, prices and payment plans it has published. Call or WhatsApp +254 740 777 888." />
+  <link rel="icon" type="image/svg+xml" href="brand_assets/favicon.svg?v=blu1" />
+  <link rel="icon" type="image/png" sizes="32x32" href="brand_assets/favicon-32.png?v=blu1" />
+  <link rel="apple-touch-icon" href="brand_assets/favicon-180.png?v=blu1" />
+  <meta name="theme-color" content="#001B45" />
+  <!-- Preload only the LCP hero image: the Wavecrest aerial, AVIF where supported -->
+  <link rel="preload" as="image" type="image/avif" fetchpriority="high" imagesizes="100vw" imagesrcset="brand_assets/optimized/wavecrest-hero-768.avif 768w, brand_assets/optimized/wavecrest-hero-1152.avif 1152w, brand_assets/optimized/wavecrest-hero-1536.avif 1536w, brand_assets/optimized/wavecrest-hero-1920.avif 1920w" />
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/Montserrat-var-latin.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/Inter-var-latin.woff2" crossorigin />
+  <link rel="stylesheet" href="assets/fonts.css?v=blu1" />
+  <link rel="stylesheet" href="assets/tailwind.css?v=blu1" />
+  <style>
+    ::selection { background: #002865; color: #F9FBFD; }
+    body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+    /* Scroll reveal */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: var(--reveal-delay, 0ms);
+      will-change: opacity, transform;
+    }
+    [data-reveal].is-revealed { opacity: 1; transform: translateY(0); }
+
+    /* Image reveal — slow settle */
+    .img-reveal img {
+      transform: scale(1.06);
+      transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .img-reveal.is-revealed img { transform: scale(1); }
+
+    /* ===== Buying off-plan — scroll-scrubbed build sequence =====
+       How Blu's off-plan payment plan maps onto a building going up. Same pinned stage as the sections around it: progress is a
+       pure function of scroll, so scrubbing back reverses the build exactly. Frames are
+       pre-extracted WebP stills (see extract-frames.mjs) — no video-seek stutter and no
+       HTTP Range dependency. Lazy: the set only warms once the section is ~1.5 screens away. */
+    .build-scroll { position: relative; height: 340vh; background: #EEF2F7; }
+    .build-stage {
+      position: sticky; top: 0; height: 100vh; overflow: hidden;
+      display: grid; place-items: center;
+      /* One flat warm champagne, matched exactly to the Contact page (#EEF2F7), so the
+         pinned stage reads as a seamless continuation of that palette with no lighter
+         feather bands or white patches anywhere across the section. The framed video's
+         own warm shadow grounds it on the tone, mirroring Contact's glass-card treatment. */
+      background: #EEF2F7;
+    }
+    .build-frame-wrap {
+      /* The third term caps the frame by viewport height (aspect 864/496 = 1.742) so a
+         centred frame never grows tall enough to crowd the timeline beneath it. It only
+         bites below ~880px tall; on taller screens the frame stays at its 1100px width. */
+      width: min(92vw, 1100px, calc((86vh - 128px) * 1.742));
+      opacity: var(--build-fo, 1);
+      transform: translateY(var(--build-fy, 0px)) scale(var(--build-fs, 1));
+      will-change: opacity, transform;
+    }
+    .build-frame {
+      position: relative; aspect-ratio: 864 / 496; border-radius: 14px; overflow: hidden;
+      border: 1px solid rgba(0,30,72,0.12); background: #D5DDE8;
+      box-shadow: 0 2px 8px rgba(0,40,101,0.10),
+                  0 24px 60px -24px rgba(0,40,101,0.26),
+                  0 52px 120px -50px rgba(0,40,101,0.28);
+    }
+    .build-canvas, .build-poster {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    }
+    /* default (before JS / static): show finished-home poster */
+    .build-canvas { display: none; }
+    .build-poster { display: block; }
+    /* Scrub mode layers the (transparent-until-drawn) canvas OVER the poster, so while the
+       frames stream in the poster stays visible underneath — the section never flashes a
+       blank/black frame. Once a frame is decoded and drawn, the opaque canvas covers it. */
+    .build-mode-scrub .build-canvas { display: block; }
+    .build-grade {
+      position: absolute; inset: 0; pointer-events: none; mix-blend-mode: multiply;
+      background: linear-gradient(to top, rgba(0,20,50,0.16) 0%, rgba(0,20,50,0) 38%);
+    }
+    .build-overlay {
+      position: absolute; left: 0; right: 0; top: 17vh; text-align: center;
+      color: #001B45; pointer-events: none;
+      opacity: var(--build-ho, 1); transform: translateY(var(--build-hy, 0px));
+      will-change: opacity, transform;
+    }
+    .build-eyebrow {
+      font-family: Inter, sans-serif; text-transform: uppercase; font-weight: 600;
+      letter-spacing: 0.32em; font-size: 12px; color: #82601C;
+    }
+    .build-headline {
+      font-family: Montserrat, "Helvetica Neue", Arial, sans-serif; font-weight: 300;
+      font-size: clamp(30px, 3.9vw, 54px); line-height: 1.06; letter-spacing: -0.035em;
+      margin-top: 12px;
+    }
+    .build-headline em { font-style: normal; font-weight: 800; color: #82601C; }
+    .build-sub {
+      margin: 14px auto 0; max-width: 60ch; padding: 0 24px;
+      font-family: Inter, sans-serif; font-size: 15px; line-height: 1.65; color: #4F5B6E;
+    }
+    .build-captions {
+      position: absolute; left: 0; right: 0; bottom: 7vh;
+      display: flex; justify-content: center; gap: clamp(22px, 5vw, 68px);
+      font-family: Inter, sans-serif; font-size: 14px; font-weight: 600;
+      letter-spacing: 0.05em; text-transform: uppercase; pointer-events: none;
+    }
+    /* Inactive stages stay legible on the limestone — a solid, dark ink at full weight,
+       its number the same ink (a quiet index marker). The active stage flips to deep
+       forest + a gold number, so it reads as the clear focal label on its own. */
+    .build-cap {
+      display: inline-flex; align-items: center; gap: 10px; opacity: 1;
+      color: #24395E; transition: color 0.35s ease;
+    }
+    .build-cap i {
+      font-style: normal; font-weight: 700; font-size: 13px; color: currentColor;
+      opacity: 0.62; transition: color 0.35s ease, opacity 0.35s ease;
+    }
+    .build-cap.is-on { color: #001B45; font-weight: 700; }
+    .build-cap.is-on i { color: #82601C; opacity: 1; }
+    .build-progress {
+      position: absolute; left: 50%; bottom: 3.75vh; transform: translateX(-50%);
+      width: min(58vw, 500px); height: 2px; border-radius: 2px; overflow: hidden;
+      background: rgba(0,27,69,0.12);
+    }
+    .build-progress-bar {
+      display: block; height: 100%; width: 100%; background: #C59332;
+      transform: scaleX(0); transform-origin: left center; will-change: transform;
+    }
+    /* Collapsed layout — the non-pinned modes (reduced motion / screenshot tooling,
+       and mobile). Stack title, framed still and stage list in normal flow so there is
+       no tall empty scroll region and nothing overlaps. */
+    .build-scroll.build-mode-static { height: auto; }
+    .build-mode-static .build-stage {
+      position: static; height: auto;
+      display: flex; flex-direction: column; align-items: center;
+      padding: clamp(52px, 7vw, 92px) 24px; gap: clamp(24px, 3vw, 34px);
+    }
+    .build-mode-static .build-overlay { position: static; opacity: 1; transform: none; margin: 0; }
+    .build-mode-static .build-captions { position: static; bottom: auto; }
+    .build-mode-static .build-cap { opacity: 1; }
+    .build-mode-static .build-progress { display: none; }
+
+    @media (max-width: 1023px) {
+      /* Mobile scrubs a lighter frame set over a shorter pinned run. Setting the pin
+         height here (not via JS) means the pre-JS layout already matches the scrub, so
+         there is no tall-then-collapse jump before the deferred script runs. */
+      .build-scroll { height: 220vh; }
+      .build-frame-wrap { width: min(92vw, 720px); }
+      .build-headline { font-size: clamp(30px, 8vw, 46px); }
+      .build-captions {
+        left: 0; right: 0; bottom: 5vh;
+        flex-direction: row; flex-wrap: wrap; gap: 8px 22px;
+        font-size: 12px; padding: 0 20px;
+      }
+    }
+
+    /* Hero load-in sequence */
+    .hero-in {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: heroIn 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation-delay: var(--d, 0ms);
+    }
+    @keyframes heroIn { to { opacity: 1; transform: translateY(0); } }
+
+    /* Underlined text link (inspo CTA style) */
+    .rule-link { position: relative; padding-bottom: 10px; }
+    .rule-link::after {
+      content: ''; position: absolute; left: 0; bottom: 0; height: 1px; width: 100%;
+      background: currentColor; transform-origin: left;
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .rule-link:hover::after { transform: scaleX(0.6); }
+    .rule-link .arrow, .btn .arrow { transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+    .rule-link:hover .arrow, .btn:hover .arrow { transform: translateX(6px); }
+
+    /* Nav links */
+    .nav-link { position: relative; transition: color 0.3s ease; }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; right: 0; bottom: -10px; height: 2px;
+      background: #C59332; transform: scaleX(0); transform-origin: left;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .nav-link:hover { color: #002865; }
+    /* the homepage header sits on the dark hero */
+    .site-header--hero .nav-link:hover, .site-header--hero .nav-link[aria-current="page"] { color: #fff; }
+    .nav-link:hover::after, .nav-link[aria-current="page"]::after { transform: scaleX(1); }
+    .nav-link[aria-current="page"] { color: #002865; }
+
+    /* ===== Three Promises — pinned, line-led scroll section ===== */
+    .values-scroll { position: relative; }
+    .values-stage { position: relative; }
+    .values-canvas { position: relative; margin: 0 auto; max-width: 1180px; padding: 72px 24px 80px; }
+
+    .values-head { position: relative; z-index: 3; text-align: center; }
+    .values-block { position: relative; z-index: 2; margin: 0 auto 64px; max-width: 320px; }
+    .values-block:last-child { margin-bottom: 0; }
+
+    .values-photo { position: relative; overflow: hidden; aspect-ratio: 4 / 5; background: #E3E9F1; width: 100%; border-radius: 12px; }
+    .values-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .values-photo::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(to top, rgba(0,27,69,0.14), rgba(0,27,69,0) 58%); }
+
+    .values-grid { display: none; z-index: 0; pointer-events: none; }
+    /* The line sits behind the photos: it slips under each image and re-emerges on the far side,
+       so it reads as passing through the centre while the photo stays the focal point. */
+    .values-line-wrap { display: none; z-index: 1; pointer-events: none; }
+    .values-line { fill: none; stroke: #C59332; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
+      vector-effect: non-scaling-stroke; }
+    .values-dot { fill: #C59332; opacity: 0; transition: opacity 0.35s ease; }
+    .values-dot.is-on { opacity: 1; }
+
+    /* Staged, reversible reveal, snapped to the line. Each photo emerges from the very edge
+       the line touches (transform-origin), fast enough to feel tied to the leading edge. */
+    [data-values-block] .values-photo,
+    [data-values-block] .values-title,
+    [data-values-block] p { opacity: 0; will-change: opacity, transform; }
+    [data-values-block] .values-photo { transform: translateY(12px) scale(0.95);
+      transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: 0.12s; }   /* hiding: photo leaves last */
+    [data-values-block] .values-title { transform: translateY(12px);
+      transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: 0.05s; }   /* hiding: title leaves second */
+    [data-values-block] p { transform: translateY(12px);
+      transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: 0s; }      /* hiding: description leaves first */
+    [data-values-block].is-revealed .values-photo { opacity: 1; transform: none; transition-delay: 0s; }    /* showing: photo the instant the line arrives */
+    [data-values-block].is-revealed .values-title { opacity: 1; transform: none; transition-delay: 0.1s; }  /* +100ms */
+    [data-values-block].is-revealed p { opacity: 1; transform: none; transition-delay: 0.18s; }             /* +180ms */
+    [data-values-line] { transition: stroke-dashoffset 0.06s linear; }
+
+    @media (min-width: 1024px) {
+      .values-scroll { height: 360vh; }
+      .values-stage { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+      .values-canvas { height: 100%; max-width: 1440px; padding: 0 48px; }
+      .values-grid, .values-line-wrap { display: block; position: absolute; inset: 0; }
+      .values-grid, .values-line-wrap svg { width: 100%; height: 100%; }
+      .values-head { position: absolute; top: 8%; left: 0; right: 0; }
+      .values-block { position: absolute; width: 19%; max-width: none; margin: 0; }
+      .values-photo { width: 82%; }
+      .values-block-1 { left: 7%;  top: 22%; }
+      .values-block-2 { left: 40%; top: 40%; }
+      .values-block-3 { left: 75%; top: 30%; }
+
+      .values-scroll.values-static { height: 100vh; }
+      .values-scroll.values-static .values-stage { position: static; }
+    }
+
+    /* ===== Mobile-only blueprint spine (desktop above is untouched) =====
+       On phones the three promises stack, and an architectural line is inked down their left
+       margin as you scroll. Each photo is wiped in from that line (not faded), its node lights
+       and a short connector draws across to the card, while the heading + copy stagger in — the
+       same premium language as the desktop line-draw, tuned for a single vertical column. */
+    .values-mspine { display: none; }
+    @media (max-width: 1023px) {
+      .values-canvas { max-width: 560px; padding: 60px 22px 72px; }
+      .values-head { text-align: left; }
+      .values-head p { margin-left: 0; }
+
+      /* stack, left-aligned beside the spine */
+      .values-block { margin: 0 0 clamp(46px, 10vw, 76px); max-width: none; padding-left: 56px; }
+
+      /* the inked spine, spanning the first photo's centre to the last */
+      .values-mspine { display: block; position: absolute; left: 34px; width: 2px; z-index: 1; pointer-events: none; }
+      /* always-present architectural line (visible at rest); the solid ink draws over it */
+      .values-mspine-guide { position: absolute; inset: 0; background: rgba(197,147,50, 0.30); }
+      .values-mspine-ink { position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+        background: #C59332; transform: scaleY(var(--mline, 0)); transform-origin: top center; }
+      .values-mnode { position: absolute; left: 50%; width: 12px; height: 12px; margin: -6px 0 0 -6px;
+        border-radius: 50%; background: #C59332; box-shadow: 0 0 0 5px rgba(197,147,50, 0.18);
+        opacity: 0; transform: scale(0.4);
+        transition: opacity 0.5s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1); }
+      .values-mnode.is-on { opacity: 1; transform: scale(1); }
+      /* connector drawn from the node across to the card as it reveals */
+      .values-mnode::after { content: ''; position: absolute; left: 6px; top: 50%; height: 2px; width: 0;
+        background: #C59332; transform: translateY(-50%); transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+      .values-mnode.is-on::after { width: 26px; }
+
+      /* photos wipe in from the spine side instead of fading */
+      [data-values-block] .values-photo { opacity: 1; transform: none;
+        clip-path: inset(0 100% 0 0);
+        transition: clip-path 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+      [data-values-block].is-revealed .values-photo { clip-path: inset(0 0 0 0); }
+    }
+
+    /* mobile spine — final composed state under screenshot tooling / reduced motion */
+    .no-anim .values-mspine-ink { transform: scaleY(1); }
+    .no-anim .values-mnode { opacity: 1; transform: none; }
+    .no-anim .values-mnode::after { width: 26px; }
+    .no-anim [data-values-block] .values-photo { clip-path: inset(0 0 0 0); }
+    @media (prefers-reduced-motion: reduce) {
+      .values-mspine-ink { transform: scaleY(1); }
+      .values-mnode { opacity: 1; transform: none; }
+      .values-mnode::after { width: 26px; }
+      [data-values-block] .values-photo { clip-path: inset(0 0 0 0); }
+    }
+
+    /* screenshot tooling / reduced motion — show final composed state */
+    .no-anim [data-values-block] .values-photo,
+    .no-anim [data-values-block] .values-title,
+    .no-anim [data-values-block] p { opacity: 1; transform: none; transition: none; }
+    .no-anim [data-values-line] { transition: none; }
+    .no-anim .values-dot { opacity: 1; transition: none; }
+    @media (prefers-reduced-motion: reduce) {
+      [data-values-block] .values-photo,
+      [data-values-block] .values-title,
+      [data-values-block] p { opacity: 1; transform: none; transition: none; }
+    }
+
+    :focus-visible { outline: 2px solid #82601C; outline-offset: 3px; }
+    /* gold ink is too dark to see on navy — dark grounds get the logo gold */
+    .hero :focus-visible, .bg-deep :focus-visible, footer :focus-visible, .why-bar :focus-visible { outline-color: #C59332; }
+
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal], .hero-in { opacity: 1; transform: none; animation: none; transition: none; }
+      .img-reveal img { transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+    }
+    /* Applied by site.js under reduced motion or screenshot tooling */
+    .no-anim [data-reveal], .no-anim .hero-in { opacity: 1; transform: none; animation: none; transition: none; }
+    .no-anim .img-reveal img { transform: none; transition: none; }
+
+    /* ===== Why Blu — pinned, image-stack scroll ===== */
+    /* Base (mobile + static fallback): a clean stacked list of the four topics */
+    .why-scroll { position: relative; background: #EEF2F7; }
+    .why-stage { position: relative; }
+    .why-canvas { position: relative; margin: 0 auto; max-width: 1180px; padding: 80px 24px 96px; }
+
+    .why-grid { display: none; }
+
+    .why-head { position: relative; z-index: 6; text-align: center; margin-bottom: 56px; }
+    .why-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: #82601C; }
+    .why-title { margin-top: 18px; font-family: Montserrat, "Helvetica Neue", Arial, sans-serif; font-weight: 300;
+      text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.08; color: #001B45;
+      font-size: clamp(26px, 6.4vw, 50px); }
+
+    .why-topics { position: relative; z-index: 2; }
+    .why-topic { display: grid; gap: 28px; margin: 0 auto 80px; max-width: 640px; }
+    .why-topic:last-child { margin-bottom: 0; }
+
+    .why-media { position: relative; overflow: visible; aspect-ratio: 22 / 25; width: 100%;
+      background: #E3E9F1;
+      box-shadow: 16px 18px 0 -1px rgba(0,27,69,0.07), 0 32px 64px -30px rgba(0,27,69,0.38); }
+    .why-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
+      /* one consistent grade across all five photographs */
+      filter: saturate(0.96) contrast(1.03) brightness(0.99); }
+
+    /* numbered badge straddles the photo's top-right corner, as in the reference */
+    .why-badge { position: absolute; top: -16px; right: -10px; z-index: 3;
+      height: 44px; width: 44px; border-radius: 999px; background: #001B45; color: #F9FBFD;
+      display: grid; place-items: center; font-family: Montserrat, "Helvetica Neue", Arial, sans-serif;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.02em;
+      box-shadow: 0 10px 24px -10px rgba(0,27,69,0.75), inset 0 0 0 1px rgba(255,255,255,0.08); }
+
+    .why-body { align-self: center; }
+    .why-topic-title { font-family: Montserrat, "Helvetica Neue", Arial, sans-serif; font-weight: 800;
+      text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.04; color: #002865;
+      font-size: clamp(26px, 6vw, 38px); }
+    .why-topic-desc { margin-top: 20px; max-width: 30rem; font-size: 15px; line-height: 1.75; color: #4F5B6E; }
+    .why-points { margin-top: 34px; display: grid; gap: 24px; max-width: 34rem; }
+    .why-point { font-size: 14px; line-height: 1.65; color: #4F5B6E; }
+    .why-point b { color: #002865; font-weight: 600; }
+    .why-point svg { display: block; width: 24px; height: 24px; color: #82601C; margin-bottom: 12px; }
+    @media (min-width: 640px) { .why-points { grid-template-columns: 1fr 1fr; gap: 24px 44px; } }
+
+    /* rails, hairline divider and topic bar — pinned stage only (≥1024px, motion on) */
+    .why-rail-l { display: none; position: absolute; left: 5.6%; top: 46.5vh; z-index: 6;
+      flex-direction: column; align-items: center; gap: 12px; }
+    .why-rail-l .cur { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: #002865; }
+    .why-rail-l .tick { width: 1px; height: 54px; background: #D2DAE5; }
+    .why-rail-l .tot { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; color: #4F5B6E; }
+    .why-rail-r { display: none; position: absolute; right: 3.6%; top: 46vh; z-index: 6; width: 92px;
+      flex-direction: column; align-items: center; gap: 16px; text-align: center;
+      transition: opacity 0.3s ease; }
+    .why-rail-r span { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+      color: #5E6A7C; line-height: 1.8; }
+    .why-divider { display: none; position: absolute; left: 44.6%; top: 39vh; width: 1px; height: 36vh;
+      background: #DCE3EC; z-index: 1; }
+    .why-bar { display: none; position: absolute; left: 0; right: 0; bottom: 0; z-index: 7;
+      height: clamp(76px, 10.5vh, 100px); background: #001B45; align-items: stretch; padding: 0 3%; }
+    .why-bar-item { flex: 1; position: relative; display: flex; align-items: center; justify-content: center;
+      gap: 12px; background: none; border: 0; cursor: pointer;
+      font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.45);
+      transition: color 0.35s ease; }
+    .why-bar-item + .why-bar-item::before { content: ''; position: absolute; left: 0; top: 50%;
+      transform: translateY(-50%); width: 1px; height: 38%; background: rgba(255,255,255,0.12); }
+    .why-bar-item .n { color: rgba(255,255,255,0.3); transition: color 0.35s ease; }
+    .why-bar-item .lab { position: relative; padding-bottom: 7px; }
+    .why-bar-item .lab::after { content: ''; position: absolute; left: 0; bottom: 0; height: 2px; width: 100%;
+      background: #C59332; transform: scaleX(0); transform-origin: left;
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+    .why-bar-item:hover { color: #fff; }
+    .why-bar-item:hover .n { color: rgba(197,147,50,0.85); }
+    .why-bar-item.is-on { color: #fff; }
+    .why-bar-item.is-on .n { color: #C59332; }
+    .why-bar-item.is-on .lab::after { transform: scaleX(1); }
+    @media (max-width: 1279px) { .why-bar-item { font-size: 11px; letter-spacing: 0.1em; gap: 8px; } }
+
+    /* stacked-mode entrance (mobile + static) */
+    .why-media, .why-body { opacity: 0; transform: translateY(26px);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+    .why-topic.is-in .why-media, .why-topic.is-in .why-body { opacity: 1; transform: none; }
+
+    /* Desktop: pinned stage. The incoming photo rises from the bottom of the viewport
+       (emerging from behind the topic bar), lands in its slot and physically pushes the
+       previous photo up and away; the copy moves in the same instant. Cards are driven
+       per-frame from scroll via --cy/--co, text via --ty/--to — perfectly reversible. */
+    @media (min-width: 1024px) {
+      .why-scroll:not(.why-static) { height: 430vh; }
+      .why-scroll:not(.why-static) .why-stage { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+      .why-scroll:not(.why-static) .why-canvas { height: 100%; max-width: none; padding: 0; }
+
+      .why-scroll:not(.why-static) .why-grid { display: block; position: absolute; inset: 0;
+        width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+
+      .why-scroll:not(.why-static) .why-head { position: absolute; top: 13.8vh; left: 50%;
+        transform: translateX(-50%); width: 100%; margin: 0; z-index: 6; pointer-events: none; }
+
+      .why-scroll:not(.why-static) .why-rail-l,
+      .why-scroll:not(.why-static) .why-rail-r,
+      .why-scroll:not(.why-static) .why-bar { display: flex; }
+      .why-scroll:not(.why-static) .why-divider { display: block; }
+
+      .why-scroll:not(.why-static) .why-topics { position: static; }
+      .why-scroll:not(.why-static) .why-topic { display: contents; }
+
+      /* photo card, sized and placed to the reference grid */
+      .why-scroll:not(.why-static) .why-media { position: absolute; top: 41vh; left: 25.6%;
+        width: clamp(203px, 16.05vw, 278px); z-index: 2; margin: 0;
+        opacity: var(--co, 1); transform: translate3d(0, var(--cy, 120vh), 0);
+        transition: none; will-change: transform, opacity; }
+      .why-scroll:not(.why-static) .why-topic:first-child .why-media { --cy: 0px; }
+
+      /* text column, right of the hairline divider */
+      .why-scroll:not(.why-static) .why-body { position: absolute; top: 38.5vh; left: 49.2%;
+        width: min(29vw, 432px); margin: 0; z-index: 3; pointer-events: none;
+        opacity: var(--to, 0); transform: translate3d(0, var(--ty, 24px), 0);
+        transition: none; will-change: transform, opacity; }
+      .why-scroll:not(.why-static) .why-topic:first-child .why-body { --to: 1; --ty: 0px; }
+      .why-scroll:not(.why-static) .why-topic-title { font-size: clamp(28px, 2.7vw, 40px); letter-spacing: -0.01em; }
+      .why-scroll:not(.why-static) .why-topic-desc { margin-top: 22px; max-width: 24rem; }
+    }
+
+    /* screenshot tooling / reduced motion — composed final state */
+    .no-anim .why-media, .no-anim .why-body { opacity: 1; transform: none; transition: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .why-media, .why-body { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ===== What We Do — a fanlight window into the work, set in a drafted grid ===== */
+    .wwd-frame { display: flex; flex-direction: column; margin: 0 auto; width: 100%;
+      max-width: 1680px; padding: 76px 24px 92px; }
+
+    .wwd-head { flex: none; text-align: center; }
+    .wwd-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.3em;
+      text-transform: uppercase; color: #82601C; }
+    .wwd-title { margin-top: 18px; font-family: Montserrat, "Helvetica Neue", Arial, sans-serif;
+      font-weight: 300; line-height: 1.08; letter-spacing: -0.035em; color: #001B45;
+      font-size: max(30px, min(3.9vw, 6vh, 48px)); }
+    .wwd-title em { font-style: normal; font-weight: 800; color: #82601C; }
+
+    /* drafting frame: 2×2 content grid over four-column hairlines */
+    .wwd-grid { position: relative; margin-top: clamp(58px, 9.5vh, 94px);
+      display: grid; grid-template-columns: 1fr 1fr; border: 1px solid #DCE3EC; }
+    .wwd-lines { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+    .wwd-v { position: absolute; top: 0; bottom: 0; width: 1px; background: #DCE3EC; }
+    .wwd-hline { position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: #DCE3EC; }
+
+    /* the four stages, framing the window from the corners */
+    .wwd-cell { position: relative; z-index: 2; display: flex; flex-direction: column;
+      padding: clamp(26px, 4.8vh, 48px) clamp(24px, 3.2vw, 60px); }
+    .wwd-cell--tl, .wwd-cell--bl { align-items: flex-start; text-align: left; }
+    .wwd-cell--tr, .wwd-cell--br { align-items: flex-end; text-align: right; }
+
+    .wwd-num { font-size: 11px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: #82601C; }
+    .wwd-cell-title { margin-top: 12px; font-family: Montserrat, "Helvetica Neue", Arial, sans-serif;
+      font-weight: 700; font-size: clamp(20px, 1.6vw, 25px); line-height: 1.15;
+      letter-spacing: -0.02em; color: #002865; }
+    .wwd-cell-copy { margin-top: clamp(10px, 2vh, 18px); max-width: 30ch;
+      font-size: 15px; line-height: 1.72; color: #4F5B6E; }
+    .wwd-cell--tr .wwd-cell-copy, .wwd-cell--br .wwd-cell-copy { margin-left: auto; }
+
+    /* centrepiece — an arched fanlight window cut from the video; its crown breaks the frame */
+    .wwd-media-layer { position: absolute; left: 0; right: 0; top: -46px; bottom: 26px;
+      z-index: 3; display: flex; justify-content: center; pointer-events: none; }
+    .wwd-media { position: relative; margin: 0; height: 100%; aspect-ratio: 0.78;
+      max-width: min(44vw, 470px); pointer-events: auto;
+      border-radius: 999px 999px 6px 6px; background: #001B45;
+      box-shadow: 0 2px 6px rgba(0,27,69,0.07), 0 40px 80px -30px rgba(0,27,69,0.5),
+        0 14px 36px -18px rgba(0,27,69,0.25); }
+    .wwd-media-clip { position: absolute; inset: 0; overflow: hidden; border-radius: inherit;
+      transform: translateZ(0); }
+    .wwd-media-clip::after { content: ''; position: absolute; inset: 0; border-radius: inherit;
+      box-shadow: inset 0 0 0 1px rgba(249,251,253,0.45); pointer-events: none; }
+    .wwd-video { display: block; width: 100%; height: 100%; object-fit: cover;
+      filter: saturate(1.05) contrast(1.04) brightness(0.98); }
+    .wwd-media-grade { position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(180deg, rgba(0,27,69,0.08) 0%, rgba(0,27,69,0) 30%,
+        rgba(0,27,69,0) 66%, rgba(0,27,69,0.2) 100%); }
+    /* plaque — the brand promise, set on the window's sill */
+    .wwd-plaque { position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 50%);
+      z-index: 4; white-space: nowrap;
+      background: #F9FBFD; border: 1px solid #DCE3EC; padding: 12px 24px 12px 27px;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase;
+      color: #002865; box-shadow: 0 18px 36px -18px rgba(0,27,69,0.35); }
+    .wwd-plaque-row { display: inline-flex; align-items: center; gap: 13px; }
+    .wwd-plaque i { width: 3px; height: 3px; border-radius: 999px; background: #C59332; }
+
+    /* desktop: the whole section composes into one viewport */
+    @media (min-width: 1024px) {
+      .wwd-frame { height: calc(100vh - 1px); min-height: 700px; max-height: 1120px;
+        padding: clamp(44px, 6.5vh, 68px) clamp(20px, 2.5vw, 44px) clamp(40px, 6vh, 60px); }
+      .wwd-grid { flex: 1 1 auto; min-height: 0; grid-template-rows: 1fr 1fr; }
+    }
+
+    /* stacked layout — window first, plaque on its sill, stages as a clean list */
+    @media (max-width: 1023px) {
+      .wwd-grid { display: flex; flex-direction: column; border: 0; margin-top: 40px; }
+      .wwd-lines { display: none; }
+      .wwd-media-layer { position: static; order: -2; }
+      .wwd-media { height: auto; width: min(80vw, 400px); max-width: none; aspect-ratio: 0.78;
+        margin: 0 auto; }
+      .wwd-plaque { position: static; order: -1; transform: none; align-self: center;
+        margin: -19px auto 0; }
+      .wwd-cell { align-items: flex-start; text-align: left; border-top: 1px solid #DCE3EC;
+        padding: 26px 2px; }
+      .wwd-cell:first-of-type { margin-top: 36px; }
+      .wwd-cell--tr .wwd-cell-copy, .wwd-cell--br .wwd-cell-copy { margin-left: 0; }
+      .wwd-cell-copy { max-width: 46ch; }
+    }
+
+    /* ===== Featured listings — horizontal showcase (matches projectinspo2) ===== */
+    /* Smooth cross-document page transition (Chromium); no-op elsewhere & under screenshot tooling */
+    @view-transition { navigation: auto; }
+
+    .projects { position: relative; background: #EEF2F7; }
+    .projects-inner { position: relative; margin: 0 auto; max-width: 1440px; padding: 18px 24px 16px; }
+    @media (min-width: 1024px) { .projects-inner { padding: 20px 32px 16px; } }
+
+    /* ---- header ---- */
+    .projects-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 28px 48px; }
+    .projects-head-l { max-width: 640px; }
+    .projects-eyebrow { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.28em;
+      text-transform: uppercase; color: #82601C; }
+    .projects-eyebrow::after { content: ''; display: block; width: 34px; height: 2px; margin-top: 6px; background: #C59332; }
+    .projects-title { margin-top: 8px; font-family: Montserrat, "Helvetica Neue", Arial, sans-serif; font-weight: 300;
+      font-size: clamp(28px, 3.1vw, 40px); line-height: 1.04; letter-spacing: -0.035em; color: #0B1A33; }
+    .projects-title em { font-style: normal; font-weight: 800; color: #82601C; }
+    .projects-desc { margin-top: 9px; max-width: 74ch; font-size: 14px; line-height: 1.5; color: #4F5B6E; }
+
+    /* ---- long outlined button ---- */
+    .projects-viewall { flex: none; display: inline-flex; align-items: center; justify-content: space-between; gap: 44px;
+      width: min(100%, 448px); padding: 21px 40px; border: 1px solid rgba(0,40,101,0.30);
+      color: #002865; font-size: 12.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+      transition: background-color .5s cubic-bezier(.22,1,.36,1), color .5s cubic-bezier(.22,1,.36,1), border-color .5s cubic-bezier(.22,1,.36,1); }
+    .projects-viewall:hover { background: #002865; border-color: #002865; color: #F9FBFD; }
+    .projects-viewall .arrow { font-size: 18px; transition: transform .45s cubic-bezier(.22,1,.36,1); }
+    .projects-viewall:hover .arrow { transform: translateX(8px); }
+
+    /* ---- showcase stage ---- */
+    .projects-stage { position: relative; margin-top: 10px; }
+    @media (min-width: 1280px) { .projects-stage { padding: 0 40px; } }
+    .proj-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x proximity;
+      -webkit-overflow-scrolling: touch; padding: 6px 2px 8px; scrollbar-width: none; }
+    .proj-track::-webkit-scrollbar { display: none; }
+
+    /* Responsive card widths so a full set is visible the instant the section is reached —
+       the user never has to scroll horizontally to discover it is a carousel:
+         mobile  → 1 card (+ a sliver of the next as a scroll affordance)
+         tablet  → 2 cards
+         desktop → 3 cards
+       Each basis subtracts the 16px inter-card gaps so the cards sit flush within the track. */
+    .proj-card { flex: 0 0 87%; scroll-snap-align: start; text-decoration: none; outline: none; }
+    @media (min-width: 640px)  { .proj-card { flex-basis: calc((100% - 16px) / 2); } }
+    @media (min-width: 1024px) { .proj-card { flex-basis: calc((100% - 2 * 16px) / 3); } }
+    .proj-media { position: relative; aspect-ratio: 300 / 430; border-radius: 2px; overflow: hidden; background: #001B45;
+      box-shadow: 0 2px 6px rgba(0,27,69,0.10), 0 22px 48px -28px rgba(0,27,69,0.42);
+      transition: transform .55s cubic-bezier(.22,1,.36,1), box-shadow .55s cubic-bezier(.22,1,.36,1); }
+    .proj-card:hover .proj-media { transform: translateY(-7px);
+      box-shadow: 0 8px 16px rgba(0,27,69,0.14), 0 40px 84px -34px rgba(0,27,69,0.6); }
+    .proj-card:focus-visible .proj-media { outline: 2px solid #82601C; outline-offset: 4px; }
+    .proj-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.02);
+      transition: transform 1.1s cubic-bezier(.22,1,.36,1); }
+    .proj-card:hover .proj-img { transform: scale(1.08); }
+    .proj-tint { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: multiply;
+      background: linear-gradient(to top, rgba(0,27,69,0.42), rgba(0,27,69,0) 55%); }
+    .proj-scrim { position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(to top, #001B45 0%, rgba(0,22,56,0.97) 23%, rgba(0,22,56,0.58) 42%, rgba(0,22,56,0.12) 62%, rgba(0,22,56,0) 78%); }
+
+    /* status pill — sharp, minimal (matches reference) */
+    .proj-status { position: absolute; left: 16px; top: 16px; padding: 7px 12px; border-radius: 2px;
+      background: rgba(0,14,36,0.72); border: 1px solid rgba(255,255,255,0.14); color: #fff;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
+    .proj-status[data-status="type"] { background: rgba(197,147,50,0.92); border-color: rgba(197,147,50,0.5); color: #001B45; }
+
+    /* caption bottom-left */
+    .proj-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 24px 24px 24px; color: #fff; }
+    .proj-name { font-family: Montserrat, "Helvetica Neue", Arial, sans-serif; font-weight: 700;
+      font-size: clamp(22px, 1.65vw, 27px); line-height: 1.1; letter-spacing: -0.025em; }
+    .proj-loc { margin-top: 10px; display: flex; align-items: center; gap: 7px; font-size: 14px; color: rgba(255,255,255,0.88); }
+    .proj-loc svg { width: 15px; height: 15px; color: #C59332; flex: none; }
+    .proj-meta { margin-top: 9px; font-size: 12.5px; letter-spacing: 0.03em; color: rgba(255,255,255,0.66); }
+    .proj-price { margin-top: 14px; padding-top: 13px; border-top: 1px solid rgba(255,255,255,0.16);
+      font-size: 13px; font-weight: 600; letter-spacing: 0.07em; color: #C59332; }
+
+    /* open arrow — bottom-right, thin outlined circle */
+    .proj-open { position: absolute; right: 20px; bottom: 20px; width: 48px; height: 48px; border-radius: 50%;
+      display: grid; place-items: center; border: 1px solid rgba(255,255,255,0.42); color: #fff; background: transparent;
+      transition: background-color .45s ease, border-color .45s ease, color .45s ease, transform .45s cubic-bezier(.22,1,.36,1); }
+    .proj-card:hover .proj-open { background: #C59332; border-color: #C59332; color: #001B45; }
+    .proj-open svg { width: 16px; height: 16px; transition: transform .45s cubic-bezier(.22,1,.36,1); }
+    .proj-card:hover .proj-open svg { transform: translateX(2px); }
+
+    /* glide-in reveal (armed by JS only when motion is on) */
+    .proj-track.is-armed .proj-card { opacity: 0; transform: translateX(28px) scale(0.98);
+      transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1);
+      transition-delay: var(--proj-delay, 0ms); will-change: opacity, transform; }
+    .proj-track.is-armed .proj-card.is-in { opacity: 1; transform: none; }
+
+    /* prev / next controls — thin outlined circles in the side gutters */
+    .proj-nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 5;
+      width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center;
+      background: transparent; border: 1px solid rgba(0,40,101,0.32); color: #002865; cursor: pointer;
+      transition: background-color .35s ease, color .35s ease, border-color .35s ease, opacity .35s ease, transform .35s cubic-bezier(.22,1,.36,1); }
+    .proj-nav:hover { background: #002865; border-color: #002865; color: #fff; }
+    .proj-nav:active { transform: translateY(-50%) scale(0.94); }
+    .proj-nav[disabled] { opacity: 0.3; pointer-events: none; }
+    /* nothing to scroll (every card already fits): no arrows at all, rather than two dead ones */
+    .proj-nav.is-idle { visibility: hidden; }
+    .proj-nav svg { width: 18px; height: 18px; }
+    .proj-nav-prev { left: 2px; }
+    .proj-nav-next { right: 2px; }
+    @media (max-width: 1279px) { .proj-nav { display: none; } }
+
+    /* ---- bottom emblem + tagline divider ---- */
+    .projects-note { margin-top: 10px; }
+    .projects-emblem { display: flex; justify-content: center; color: #82601C; }
+    .projects-emblem svg { width: 22px; height: 22px; }
+    .projects-note-row { display: flex; align-items: center; justify-content: center; gap: 36px; margin-top: 9px; }
+    .projects-note-rule { flex: 1; max-width: 300px; height: 1px; background: #DCE3EC; }
+    .projects-tagline { flex: none; max-width: 760px; text-align: center; font-size: 11.5px; font-weight: 500;
+      letter-spacing: 0.2em; line-height: 1.6; text-transform: uppercase; color: #4F5B6E; }
+
+    @media (max-width: 1023px) {
+      .projects-note-row { gap: 0; }
+      .projects-note-rule { display: none; }
+      .projects-tagline { max-width: 100%; font-size: 10.5px; letter-spacing: 0.12em; }
+    }
+    @media (prefers-reduced-motion: reduce) { .proj-track.is-armed .proj-card { opacity: 1; transform: none; } }
+    .no-anim .proj-track.is-armed .proj-card { opacity: 1; transform: none; }
+
+    /* ===== Project Overview — portfolio analytics ===== */
+    .stats-head { display: grid; gap: 20px; align-items: end; }
+    @media (min-width: 900px) { .stats-head { grid-template-columns: 1.12fr 0.88fr; gap: 52px; } }
+    .stats-eyebrow { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: #82601C; }
+    .stats-title { margin-top: 15px; font-family: Montserrat, "Helvetica Neue", Arial, sans-serif; font-weight: 300;
+      font-size: clamp(30px, 3.9vw, 48px); line-height: 1.06; letter-spacing: -0.035em; color: #0B1A33; }
+    .stats-title span { font-weight: 800; color: #82601C; }
+    .stats-lead { font-size: 15.5px; line-height: 1.8; color: #4F5B6E; max-width: 34rem; }
+    @media (min-width: 900px) { .stats-lead { padding-bottom: 6px; } }
+
+    .stats-grid { margin-top: 46px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    @media (max-width: 900px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px) { .stats-grid { grid-template-columns: 1fr; } }
+
+    .stat-card { position: relative; overflow: hidden; background: #F9FBFD; border: 1px solid #E2E8F0;
+      border-radius: 16px; padding: 24px 24px 26px; box-shadow: 0 10px 30px -24px rgba(0,27,69, 0.4);
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease, border-color 0.5s ease; }
+    .stat-card:hover { transform: translateY(-6px); box-shadow: 0 26px 52px -28px rgba(0,27,69, 0.5); border-color: #E3CF9F; }
+    .stat-card-top { display: flex; align-items: center; justify-content: space-between; }
+    .stat-label { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #4B586C; }
+    .stat-ico { flex: none; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center;
+      background: rgba(197,147,50, 0.13); color: #82601C; transition: background 0.5s ease; }
+    .stat-ico svg { width: 18px; height: 18px; }
+    .stat-num { margin-top: 30px; font-family: Montserrat, "Helvetica Neue", Arial, sans-serif; font-weight: 800;
+      font-size: clamp(40px, 3.9vw, 52px); line-height: 1; letter-spacing: -0.04em; color: #001B45; font-variant-numeric: tabular-nums; }
+    .stat-num small { font-size: 0.5em; font-weight: 800; letter-spacing: -0.01em; margin-right: 4px; }
+    .stat-cap { margin-top: 14px; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.5; color: #4F5B6E; }
+
+    .stat-card--feature { background: #F9FBFD; border-color: #E8D9B5; }
+    .stat-card--feature::before { content: ''; position: absolute; top: -45%; right: -35%; width: 80%; height: 130%;
+      background: radial-gradient(circle, rgba(197,147,50, 0.2), transparent 70%); pointer-events: none; }
+    .stat-card--feature .stat-num { color: #82601C; }
+    .stat-card--feature .stat-ico { background: rgba(197,147,50, 0.22); }
+
+    .no-anim .stat-card { transition: none; }
+  </style>
+</head>
+<body class="bg-limestone font-sans text-ink">
+
+  <!-- ============ HERO (nav overlaid on the render) ============ -->
+  <section class="hero relative isolate flex min-h-[780px] flex-col overflow-hidden bg-deep lg:h-[900px] lg:min-h-0" aria-label="Blu Real Estate introduction">
+
+    <!-- Wavecrest Residency, 2nd Avenue: the developer's render that Blu posted, cropped clear of its
+         flyer panel. The listing on the strip below is the building in the picture. -->
+    <picture>
+      <source type="image/avif" sizes="100vw" srcset="brand_assets/optimized/wavecrest-hero-768.avif 768w, brand_assets/optimized/wavecrest-hero-1152.avif 1152w, brand_assets/optimized/wavecrest-hero-1536.avif 1536w, brand_assets/optimized/wavecrest-hero-1920.avif 1920w" />
+      <img src="brand_assets/optimized/wavecrest-hero-1536.webp" sizes="100vw" srcset="brand_assets/optimized/wavecrest-hero-768.webp 768w, brand_assets/optimized/wavecrest-hero-1152.webp 1152w, brand_assets/optimized/wavecrest-hero-1536.webp 1536w, brand_assets/optimized/wavecrest-hero-1920.webp 1920w" width="1920" height="866" alt="Artist&rsquo;s impression of Wavecrest Residency above the beach on 2nd Avenue, Nyali &mdash; the developer&rsquo;s render, posted by Blu Real Estate" fetchpriority="high"
+           class="pointer-events-none absolute inset-0 -z-20 h-full w-full object-cover object-[50%_60%] lg:object-[0%_50%]" />
+    </picture>
+
+    <!-- Colour treatment: Blu navy, deepest where the copy sits, clearing toward the building.
+         Phones stack the copy over the top of the picture; desktop sets it left, beside the tower. -->
+    <div class="pointer-events-none absolute inset-0 -z-10 lg:hidden" aria-hidden="true"
+         style="background:linear-gradient(180deg, rgba(0,17,43,0.95) 0%, rgba(0,17,43,0.84) 34%, rgba(0,17,43,0.4) 66%, rgba(0,17,43,0.78) 100%)"></div>
+    <div class="pointer-events-none absolute inset-0 -z-10 hidden lg:block" aria-hidden="true"
+         style="background:linear-gradient(90deg, rgba(0,17,43,0.96) 0%, rgba(0,17,43,0.88) 30%, rgba(0,17,43,0.5) 50%, rgba(0,17,43,0.32) 70%, rgba(0,17,43,0.4) 100%), linear-gradient(180deg, rgba(0,17,43,0.55) 0%, rgba(0,17,43,0) 22%, rgba(0,17,43,0) 70%, rgba(0,17,43,0.6) 100%)"></div>
+    <div class="pointer-events-none absolute inset-0 -z-10 mix-blend-multiply" aria-hidden="true" style="background:rgba(0,40,101,0.16)"></div>
+
+    <!-- NAV -->
+    <!-- GEN:header -->
+<header class="site-header--hero relative z-40">
+      <div class="mx-auto flex h-24 max-w-[1400px] items-center justify-between px-6 lg:px-10">
+        <a href="index.html" class="brand-plate"><img src="brand_assets/blu-logo.svg?v=blu1" width="775" height="564" alt="Blu Real Estate — home" /></a>
+        <nav class="hidden items-center gap-7 lg:flex xl:gap-12" aria-label="Primary">
+          <a href="index.html" aria-current="page" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-white">Home</a>
+          <a href="index.html#about" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-white/80 hover:text-white">About</a>
+          <a href="properties.html" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-white/80 hover:text-white">Listings</a>
+          <a href="index.html#services" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-white/80 hover:text-white">Services</a>
+          <a href="index.html#sell" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-white/80 hover:text-white">Sell</a>
+          <a href="contact.html" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-white/80 hover:text-white">Contact</a>
+        </nav>
+        <a href="https://wa.me/254740777888?text=Hi%20Blu%2C%20I%20found%20you%20through%20your%20website.%20" target="_blank" rel="noopener" class="btn-gold hidden lg:inline-flex"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/><path d="M9.2 9.3c.2 1.9 1.6 3.6 3.6 4.3l1-1 1.8.8-.4 1.6c-3 .2-6.2-2.6-6.4-5.7l1.5-.5.9 1.7-1 .8"/></svg>WhatsApp Blu</a>
+        <button id="nav-toggle" aria-expanded="false" aria-controls="nav-panel" class="inline-flex h-11 w-11 items-center justify-center text-white lg:hidden" aria-label="Open menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+      <div id="nav-panel" class="hidden border-t border-white/10 bg-deep/95 px-6 pb-8 pt-4 lg:hidden">
+        <nav class="flex flex-col gap-5" aria-label="Mobile">
+          <a href="index.html" aria-current="page" class="text-sm font-medium uppercase tracking-[0.08em] text-gold">Home</a>
+          <a href="index.html#about" class="text-sm font-medium uppercase tracking-[0.08em] text-white/80">About</a>
+          <a href="properties.html" class="text-sm font-medium uppercase tracking-[0.08em] text-white/80">Listings</a>
+          <a href="index.html#services" class="text-sm font-medium uppercase tracking-[0.08em] text-white/80">Services</a>
+          <a href="index.html#sell" class="text-sm font-medium uppercase tracking-[0.08em] text-white/80">Sell</a>
+          <a href="contact.html" class="text-sm font-medium uppercase tracking-[0.08em] text-white/80">Contact</a>
+          <a href="https://wa.me/254740777888?text=Hi%20Blu%2C%20I%20found%20you%20through%20your%20website.%20" target="_blank" rel="noopener" class="btn-gold mt-2 w-fit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/><path d="M9.2 9.3c.2 1.9 1.6 3.6 3.6 4.3l1-1 1.8.8-.4 1.6c-3 .2-6.2-2.6-6.4-5.7l1.5-.5.9 1.7-1 .8"/></svg>WhatsApp Blu</a>
+        </nav>
+      </div>
+    </header>
+<!-- /GEN:header -->
+
+    <!-- Hero copy -->
+    <div class="relative z-20 mx-auto flex w-full max-w-[1400px] flex-col items-center px-6 pt-4 text-center sm:pt-8 lg:items-start lg:px-10 lg:pt-20 lg:text-left">
+      <p class="hero-in text-[10px] font-semibold uppercase tracking-[0.18em] text-[#E2BE73] sm:text-[12px] sm:tracking-[0.32em]" style="--d:100ms">
+        Nyali <span class="mx-1.5 font-normal text-white/40 sm:mx-3">&middot;</span> Kizingo <span class="mx-1.5 font-normal text-white/40 sm:mx-3">&middot;</span> Stadium <span class="mx-1.5 font-normal text-white/40 sm:mx-3">&middot;</span> Mombasa
+      </p>
+      <h1 class="hero-in mt-5 font-display text-white" style="--d:220ms">
+        <span class="block text-[27px] leading-[1.08] tracking-[-0.035em] sm:text-[44px] lg:text-[52px] xl:text-[58px]">New homes in Mombasa,</span>
+        <strong class="block text-[27px] leading-[1.08] tracking-[-0.035em] text-gold sm:text-[44px] lg:text-[52px] xl:text-[58px]">prices on the page.</strong>
+      </h1>
+      <p class="hero-in mx-auto mt-6 max-w-2xl text-[15px] leading-[1.75] text-white/80 sm:text-base lg:mx-0 lg:max-w-[34rem]" style="--d:340ms">
+        Blu Real Estate sells apartments in Nyali, Kizingo and Stadium. Every listing here gives the
+        floor areas, prices and payment plan Blu has published, and one number to call or WhatsApp.
+      </p>
+      <div class="hero-in mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start" style="--d:460ms">
+        <a href="properties.html" class="btn-gold">See the eight listings <span class="arrow" aria-hidden="true">&#10230;</span></a>
+        <a href="https://wa.me/254740777888?text=Hi%20Blu%2C%20I%20found%20you%20through%20your%20website.%20" target="_blank" rel="noopener" class="btn-ghost">WhatsApp Blu</a>
+      </div>
+    </div>
+
+    <!-- The building in the picture, in Blu's own flyer format -->
+    <div class="hero-in relative z-20 mt-auto border-t border-white/15 bg-[rgba(0,17,43,0.72)] backdrop-blur-md" style="--d:560ms">
+      <div class="mx-auto flex max-w-[1400px] flex-wrap items-end justify-between gap-x-10 gap-y-6 px-6 py-6 lg:px-10 lg:py-7">
+        <div class="min-w-0">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/60">In the picture</p>
+          <p class="mt-2 font-display text-[19px] font-bold tracking-[-0.02em] text-white sm:text-[22px]">Wavecrest Residency <span class="font-light text-white/70">&middot; 2nd Avenue, Nyali</span></p>
+        </div>
+        <!-- GEN:hero-spec -->
+<div class="spec spec--dark"><p class="spec-lead">Book a home in Nyali for</p><div class="spec-cells"><div class="spec-cell"><span class="spec-num">3<small>BR</small></span><span class="spec-note">plus DSQ</span></div><div class="spec-cell"><span class="spec-num">2,850</span><span class="spec-note">square feet</span></div><div class="spec-cell"><span class="spec-num"><span class="pre">KES</span>16<small>M</small></span><span class="spec-note">3-bed price</span></div></div></div>
+<!-- /GEN:hero-spec -->
+        <a href="listing-wavecrest-residency.html" class="rule-link inline-flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-white">View the listing <span class="arrow" aria-hidden="true">&#10230;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BUYING OFF-PLAN (scroll-scrubbed build) ============ -->
+  <section data-build-scroll class="build-scroll" aria-label="Buying off-plan: the payment plan as the building goes up">
+    <div class="build-stage">
+      <div class="build-overlay">
+        <p class="build-eyebrow">Buying off-plan</p>
+        <h2 class="build-headline">Pay as it rises.<br /><em>Move in when it&rsquo;s done.</em></h2>
+        <p class="build-sub">Most of the homes Blu sells are bought before they are built, in four payments
+          spread over the build. This is the schedule in Blu&rsquo;s round-up of its Nyali and Kizingo listings;
+          some developments offer longer plans or a discount for cash.</p>
+      </div>
+
+      <div class="build-frame-wrap">
+        <div class="build-frame">
+          <img class="build-poster" src="brand_assets/build-frames/frame-119.webp" alt="Construction footage of a building going up &mdash; stock imagery, not a Blu development" />
+          <canvas class="build-canvas" aria-hidden="true"></canvas>
+          <div class="build-grade" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="build-captions" aria-hidden="true">
+        <span class="build-cap" data-build-cap="0"><i>30%</i>Deposit</span>
+        <span class="build-cap" data-build-cap="1"><i>30%</i>Within 6 months</span>
+        <span class="build-cap" data-build-cap="2"><i>30%</i>The next 6</span>
+        <span class="build-cap" data-build-cap="3"><i>10%</i>Handover</span>
+      </div>
+
+      <div class="build-progress" aria-hidden="true"><span class="build-progress-bar"></span></div>
+    </div>
+  </section>
+
+  <!-- ============ BUY · SELL · RENT (integrated About) ============ -->
+  <section id="about" data-values-scroll class="values-scroll bg-limestone scroll-mt-24" aria-labelledby="values-heading">
+    <div data-values-stage class="values-stage">
+      <div class="values-canvas">
+
+        <!-- faint architectural grid -->
+        <svg class="values-grid" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 1440 900" fill="none">
+          <line x1="360" y1="0" x2="360" y2="900" stroke="#002865" stroke-opacity="0.05"/>
+          <line x1="720" y1="0" x2="720" y2="900" stroke="#002865" stroke-opacity="0.05"/>
+          <line x1="1080" y1="0" x2="1080" y2="900" stroke="#002865" stroke-opacity="0.05"/>
+          <line x1="0" y1="450" x2="1440" y2="450" stroke="#002865" stroke-opacity="0.04"/>
+        </svg>
+
+        <!-- the line weaves through the centre of each photo, tying the three services together -->
+        <div class="values-line-wrap" aria-hidden="true">
+          <svg preserveAspectRatio="none" viewBox="0 0 1440 900" fill="none">
+            <path data-values-line class="values-line" d="M -60 420 C 20 428 60 380 102 352 C 140 328 175 330 213 338 C 290 355 340 380 380 430 C 420 480 430 560 490 560 C 540 560 552 512 507 496 C 468 483 462 524 505 543 C 555 563 625 528 688 500 C 755 472 800 442 852 420 C 920 392 952 330 1002 340 C 1050 350 1042 408 992 404 C 952 400 958 352 1010 346 C 1075 340 1125 378 1192 410 C 1258 440 1302 428 1340 392 C 1368 366 1386 344 1392 328" />
+            <circle class="values-dot" data-values-dot-end cx="1392" cy="328" r="6" />
+          </svg>
+        </div>
+
+        <!-- mobile-only spine: inked down the stack as you scroll (positioned + lit by site.js) -->
+        <div class="values-mspine" data-values-mspine aria-hidden="true">
+          <span class="values-mspine-guide"></span>
+          <span class="values-mspine-ink"></span>
+          <i class="values-mnode" data-values-mnode></i>
+          <i class="values-mnode" data-values-mnode></i>
+          <i class="values-mnode" data-values-mnode></i>
+        </div>
+
+        <!-- heading -->
+        <div class="values-head" data-reveal>
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-goldtext">About Blu</p>
+          <h2 id="values-heading" class="mx-auto mt-5 max-w-3xl font-display text-[34px] leading-[1.08] tracking-[-0.04em] text-forest sm:text-5xl lg:text-[54px]">
+            Buy, sell or rent, <em class="text-goldtext">on the coast.</em>
+          </h2>
+          <p class="mx-auto mt-6 max-w-md text-sm leading-[1.7] text-sage">Blu Real Estate is a property consultancy in Mombasa. One number handles all three, by call or WhatsApp.</p>
+        </div>
+
+        <!-- buy -->
+        <article class="values-block values-block-1" data-values-block data-attach="center">
+          <div class="values-photo">
+            <img src="brand_assets/optimized/kizingo-tower-p-620.webp" width="620" height="755" alt="Artist&rsquo;s impression of the Family Residential Resort tower in Kizingo &mdash; the developer&rsquo;s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
+          </div>
+          <h3 class="values-title mt-6 font-display text-[30px] font-extrabold tracking-[-0.03em] text-forest lg:text-[34px]">Buy</h3>
+          <p class="mt-3 text-sm leading-[1.7] text-sage">New apartments in Nyali, Kizingo and Stadium: eight developments on this site, each with the prices Blu published.</p>
+        </article>
+
+        <!-- sell -->
+        <article class="values-block values-block-2" data-values-block data-attach="center">
+          <div class="values-photo">
+            <img src="brand_assets/optimized/living-lounge-640.webp" sizes="(min-width:1024px) 18vw, 320px" srcset="brand_assets/optimized/living-lounge-640.webp 640w, brand_assets/optimized/living-lounge-1080.webp 1080w" width="1080" height="920" alt="Artist&rsquo;s impression of a living room at Modern Luxury Living, Nyali &mdash; developer&rsquo;s render" loading="lazy" decoding="async" />
+          </div>
+          <h3 class="values-title mt-6 font-display text-[30px] font-extrabold tracking-[-0.03em] text-forest lg:text-[34px]">Sell</h3>
+          <p class="mt-3 text-sm leading-[1.7] text-sage">Selling a home in Mombasa? Blu markets property on Instagram and TikTok, to more than 15,000 followers between them.</p>
+        </article>
+
+        <!-- rent -->
+        <article class="values-block values-block-3" data-values-block data-attach="center">
+          <div class="values-photo">
+            <img src="brand_assets/optimized/seaside-dining-640.webp" sizes="(min-width:1024px) 18vw, 320px" srcset="brand_assets/optimized/seaside-dining-640.webp 640w, brand_assets/optimized/seaside-dining-1080.webp 1080w" width="1080" height="920" alt="Artist&rsquo;s impression of a dining room with a sea view at Seaside Elegance, Nyali &mdash; developer&rsquo;s render" loading="lazy" decoding="async" />
+          </div>
+          <h3 class="values-title mt-6 font-display text-[30px] font-extrabold tracking-[-0.03em] text-forest lg:text-[34px]">Rent</h3>
+          <p class="mt-3 text-sm leading-[1.7] text-sage">Looking for a place to rent? Tell Blu the area, the number of bedrooms and your budget.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LISTINGS (horizontal showcase) ============ -->
+  <section class="projects scroll-mt-24" aria-labelledby="projects-heading">
+    <div class="projects-inner">
+
+      <div class="projects-head" data-reveal>
+        <div class="projects-head-l">
+          <span class="projects-eyebrow">Listings</span>
+          <h2 id="projects-heading" class="projects-title">Eight developments, <em>priced.</em></h2>
+          <p class="projects-desc">Sizes and prices as Blu published them between March and July 2026. Availability moves, so ask before you visit.</p>
+        </div>
+        <a href="properties.html" class="projects-viewall">All eight listings <span class="arrow" aria-hidden="true">&#10230;</span></a>
+      </div>
+
+      <div class="projects-stage" data-reveal style="--reveal-delay:120ms">
+        <button type="button" class="proj-nav proj-nav-prev" data-proj-prev aria-label="Previous listings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button type="button" class="proj-nav proj-nav-next" data-proj-next aria-label="Next listings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+
+        <div class="proj-track" data-proj-track>
+          <!-- GEN:proj-cards -->
+<a href="listing-award-winning-skyline.html" class="proj-card group" aria-label="Award-Winning Skyline, Nyali — from KES 12M">
+            <div class="proj-media">
+              <img class="proj-img" src="brand_assets/optimized/skyline-tower-520.webp" srcset="brand_assets/optimized/skyline-tower-520.webp 520w" sizes="(min-width:1024px) 31vw, (min-width:640px) 48vw, 87vw" width="520" height="830" alt="Artist’s impression of the Award-Winning Skyline tower in Nyali — the developer’s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
+              <div class="proj-tint" aria-hidden="true"></div>
+              <div class="proj-scrim" aria-hidden="true"></div>
+              <span class="proj-status" data-status="type">Off-plan &middot; Nyali</span>
+              <div class="proj-caption">
+                <h3 class="proj-name">Award-Winning Skyline</h3>
+                <p class="proj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Off Links Road, near Nyali Golf Club</p>
+                <p class="proj-price">From KES 12M</p>
+              </div>
+              <span class="proj-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+
+          <a href="listing-home-to-modern-luxury.html" class="proj-card group" aria-label="Home to Modern Luxury, Nyali — from KES 18M">
+            <div class="proj-media">
+              <img class="proj-img" src="brand_assets/optimized/modern-front-610.webp" srcset="brand_assets/optimized/modern-front-610.webp 610w" sizes="(min-width:1024px) 31vw, (min-width:640px) 48vw, 87vw" width="610" height="740" alt="Artist’s impression of a Home to Modern Luxury block, timber-clad, at dusk — the developer’s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
+              <div class="proj-tint" aria-hidden="true"></div>
+              <div class="proj-scrim" aria-hidden="true"></div>
+              <span class="proj-status" data-status="type">Off-plan &middot; Nyali</span>
+              <div class="proj-caption">
+                <h3 class="proj-name">Home to Modern Luxury</h3>
+                <p class="proj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Off Links Road and Baobab Road, Nyali</p>
+                <p class="proj-price">From KES 18M</p>
+              </div>
+              <span class="proj-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+
+          <a href="listing-modern-luxury-living.html" class="proj-card group" aria-label="Modern Luxury Living, Nyali — from KES 12M">
+            <div class="proj-media">
+              <img class="proj-img" src="brand_assets/optimized/living-tower-p-560.webp" srcset="brand_assets/optimized/living-tower-p-560.webp 560w" sizes="(min-width:1024px) 31vw, (min-width:640px) 48vw, 87vw" width="560" height="670" alt="Artist’s impression of the Modern Luxury Living tower in Nyali — the developer’s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
+              <div class="proj-tint" aria-hidden="true"></div>
+              <div class="proj-scrim" aria-hidden="true"></div>
+              <span class="proj-status" data-status="type">Off-plan &middot; Nyali</span>
+              <div class="proj-caption">
+                <h3 class="proj-name">Modern Luxury Living</h3>
+                <p class="proj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Nyali, Mombasa</p>
+                <p class="proj-price">From KES 12M</p>
+              </div>
+              <span class="proj-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+
+          <a href="listing-unrivaled-luxury-apartments.html" class="proj-card group" aria-label="Unrivaled Luxury Apartments, Nyali — from KES 21M">
+            <div class="proj-media">
+              <img class="proj-img" src="brand_assets/optimized/unrivaled-tower-p-430.webp" srcset="brand_assets/optimized/unrivaled-tower-p-430.webp 430w" sizes="(min-width:1024px) 31vw, (min-width:640px) 48vw, 87vw" width="430" height="770" alt="Artist’s impression of an Unrivaled Luxury Apartments tower in Nyali — the developer’s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
+              <div class="proj-tint" aria-hidden="true"></div>
+              <div class="proj-scrim" aria-hidden="true"></div>
+              <span class="proj-status" data-status="type">Off-plan &middot; Nyali</span>
+              <div class="proj-caption">
+                <h3 class="proj-name">Unrivaled Luxury Apartments</h3>
+                <p class="proj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Nyali, near Nyali Golf &amp; Country Club</p>
+                <p class="proj-price">From KES 21M</p>
+              </div>
+              <span class="proj-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+
+          <a href="listing-seaside-elegance.html" class="proj-card group" aria-label="Seaside Elegance, Nyali — from KES 17M">
+            <div class="proj-media">
+              <img class="proj-img" src="brand_assets/optimized/seaside-tower-520.webp" srcset="brand_assets/optimized/seaside-tower-520.webp 520w" sizes="(min-width:1024px) 31vw, (min-width:640px) 48vw, 87vw" width="520" height="845" alt="Artist’s impression of the Seaside Elegance tower in Nyali at dusk — the developer’s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
+              <div class="proj-tint" aria-hidden="true"></div>
+              <div class="proj-scrim" aria-hidden="true"></div>
+              <span class="proj-status" data-status="type">Off-plan &middot; Nyali</span>
+              <div class="proj-caption">
+                <h3 class="proj-name">Seaside Elegance</h3>
+                <p class="proj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Nyali, a walk from Voyager Beach Resort</p>
+                <p class="proj-price">From KES 17M</p>
+              </div>
+              <span class="proj-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+
+          <a href="listing-wavecrest-residency.html" class="proj-card group" aria-label="Wavecrest Residency, Nyali — from KES 16M (3 BR)">
+            <div class="proj-media">
+              <img class="proj-img" src="brand_assets/optimized/wavecrest-aerial-1080.webp" srcset="brand_assets/optimized/wavecrest-aerial-640.webp 640w, brand_assets/optimized/wavecrest-aerial-1080.webp 1080w" sizes="(min-width:1024px) 31vw, (min-width:640px) 48vw, 87vw" width="1080" height="735" alt="Artist’s impression of Wavecrest Residency on 2nd Avenue, Nyali — the developer’s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
+              <div class="proj-tint" aria-hidden="true"></div>
+              <div class="proj-scrim" aria-hidden="true"></div>
+              <span class="proj-status" data-status="type">Off-plan &middot; Nyali</span>
+              <div class="proj-caption">
+                <h3 class="proj-name">Wavecrest Residency</h3>
+                <p class="proj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>2nd Avenue, Nyali</p>
+                <p class="proj-price">From KES 16M (3 BR)</p>
+              </div>
+              <span class="proj-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+
+          <a href="listing-family-residential-resort-kizingo.html" class="proj-card group" aria-label="Family Residential Resort, Kizingo — from KES 15M">
+            <div class="proj-media">
+              <img class="proj-img" src="brand_assets/optimized/kizingo-tower-p-620.webp" srcset="brand_assets/optimized/kizingo-tower-p-620.webp 620w" sizes="(min-width:1024px) 31vw, (min-width:640px) 48vw, 87vw" width="620" height="755" alt="Artist’s impression of the Family Residential Resort tower in Kizingo — the developer’s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
+              <div class="proj-tint" aria-hidden="true"></div>
+              <div class="proj-scrim" aria-hidden="true"></div>
+              <span class="proj-status" data-status="type">Off-plan &middot; Kizingo</span>
+              <div class="proj-caption">
+                <h3 class="proj-name">Family Residential Resort</h3>
+                <p class="proj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Kizingo, Mombasa Island</p>
+                <p class="proj-price">From KES 15M</p>
+              </div>
+              <span class="proj-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+
+          <a href="listing-emaar-apartments-stadium.html" class="proj-card group" aria-label="Emaar Apartments, Stadium — from KES 5M">
+            <div class="proj-media">
+              <img class="proj-img" src="brand_assets/optimized/emaar-tower-455.webp" srcset="brand_assets/optimized/emaar-tower-455.webp 455w" sizes="(min-width:1024px) 31vw, (min-width:640px) 48vw, 87vw" width="455" height="1050" alt="Artist’s impression of the Emaar Apartments tower in Stadium, Mombasa — the developer’s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
+              <div class="proj-tint" aria-hidden="true"></div>
+              <div class="proj-scrim" aria-hidden="true"></div>
+              <span class="proj-status" data-status="type">For sale &middot; Stadium</span>
+              <div class="proj-caption">
+                <h3 class="proj-name">Emaar Apartments</h3>
+                <p class="proj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Stadium, Mombasa</p>
+                <p class="proj-price">From KES 5M</p>
+              </div>
+              <span class="proj-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+<!-- /GEN:proj-cards -->
+        </div>
+      </div>
+
+      <div class="projects-note" data-reveal>
+        <div class="projects-emblem" aria-hidden="true">
+          <img src="brand_assets/blu-mark.svg?v=blu1" width="234" height="388" alt="" class="h-[26px] w-auto" loading="lazy" />
+        </div>
+        <div class="projects-note-row">
+          <span class="projects-note-rule" aria-hidden="true"></span>
+          <p class="projects-tagline">Renders posted by Blu: artist&rsquo;s impressions, not photographs.<br />Prices from Blu&rsquo;s Instagram, March&ndash;July 2026.</p>
+          <span class="projects-note-rule" aria-hidden="true"></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ WHY BLU (pinned image-stack) ============ -->
+  <section id="why" data-why-scroll class="why-scroll scroll-mt-24" aria-labelledby="why-heading">
+    <div class="why-stage">
+      <div class="why-canvas">
+
+        <svg class="why-grid" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 1440 900" fill="none">
+          <line x1="227" y1="0" x2="227" y2="900" stroke="#002865" stroke-opacity="0.05"/>
+          <line x1="496" y1="0" x2="496" y2="900" stroke="#002865" stroke-opacity="0.05"/>
+          <line x1="942" y1="0" x2="942" y2="900" stroke="#002865" stroke-opacity="0.05"/>
+          <line x1="1211" y1="0" x2="1211" y2="900" stroke="#002865" stroke-opacity="0.05"/>
+          <line x1="0" y1="284" x2="1440" y2="284" stroke="#002865" stroke-opacity="0.035"/>
+          <line x1="0" y1="753" x2="1440" y2="753" stroke="#002865" stroke-opacity="0.035"/>
+        </svg>
+
+        <div class="why-head">
+          <p class="why-eyebrow">Why Blu</p>
+          <h2 id="why-heading" class="why-title">Plain figures, one number</h2>
+        </div>
+
+        <!-- progress rail (left) · scroll cue (right) · hairline divider -->
+        <div class="why-rail-l" aria-hidden="true">
+          <span class="cur" data-why-current>01</span>
+          <span class="tick"></span>
+          <span class="tot">04</span>
+        </div>
+        <div class="why-rail-r" aria-hidden="true" data-why-hint>
+          <span>Scroll to<br />Explore</span>
+          <svg width="12" height="64" viewBox="0 0 12 64" fill="none" stroke="#82601C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v52"/><path d="M2 49l4 8 4-8"/></svg>
+        </div>
+        <div class="why-divider" aria-hidden="true"></div>
+
+        <div class="why-topics">
+
+          <article class="why-topic" data-why-topic>
+            <div class="why-media">
+              <img class="why-img" src="brand_assets/optimized/unrivaled-tower-p-430.webp" width="430" height="770" alt="Artist&rsquo;s impression of an Unrivaled Luxury Apartments tower in Nyali &mdash; the developer&rsquo;s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
+              <span class="why-badge" aria-hidden="true">01</span>
+            </div>
+            <div class="why-body">
+              <h3 class="why-topic-title">Prices on the page</h3>
+              <p class="why-topic-desc">Every listing shows the prices Blu published, plan by plan, with the date they were published.</p>
+              <div class="why-points">
+                <div class="why-point">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 12.4 21.6a2 2 0 0 1-2.8 0L3 15V4h11l6.6 6.6a2 2 0 0 1 0 2.8Z"/><circle cx="8" cy="8" r="1.3"/></svg>
+                  <p><b>KES 5M to KES 35M.</b> The range across the eight listings, from Stadium to a Nyali penthouse.</p>
+                </div>
+                <div class="why-point">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="1.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></svg>
+                  <p><b>Dated, not vague.</b> Each listing links to the Instagram post its figures came from.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="why-topic" data-why-topic>
+            <div class="why-media">
+              <img class="why-img" src="brand_assets/optimized/wavecrest-aerial-640.webp" srcset="brand_assets/optimized/wavecrest-aerial-640.webp 640w, brand_assets/optimized/wavecrest-aerial-1080.webp 1080w" sizes="(min-width:1024px) 280px, 640px" width="1080" height="735" alt="Artist&rsquo;s impression of Wavecrest Residency on 2nd Avenue, Nyali, from above &mdash; the developer&rsquo;s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
+              <span class="why-badge" aria-hidden="true">02</span>
+            </div>
+            <div class="why-body">
+              <h3 class="why-topic-title">Three areas</h3>
+              <p class="why-topic-desc">Nyali, Kizingo and Stadium: the parts of Mombasa where Blu&rsquo;s listings are.</p>
+              <div class="why-points">
+                <div class="why-point">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                  <p><b>Nyali.</b> Six developments: off Links Road, on 2nd Avenue, by the golf club and near Voyager.</p>
+                </div>
+                <div class="why-point">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M6 20v-5h4v5M10 20v-9h4v9M14 20V6h4v14"/></svg>
+                  <p><b>Kizingo and Stadium.</b> A 14-floor family block in Kizingo; 45 apartments in Stadium.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="why-topic" data-why-topic>
+            <div class="why-media">
+              <img class="why-img" src="brand_assets/optimized/modern-front-610.webp" width="610" height="740" alt="Artist&rsquo;s impression of a Home to Modern Luxury block in Nyali &mdash; the developer&rsquo;s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
+              <span class="why-badge" aria-hidden="true">03</span>
+            </div>
+            <div class="why-body">
+              <h3 class="why-topic-title">Off-plan, explained</h3>
+              <p class="why-topic-desc">Buying before a building is finished: a deposit, staged payments, and the balance at handover.</p>
+              <div class="why-points">
+                <div class="why-point">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+                  <p><b>30 &middot; 30 &middot; 30 &middot; 10.</b> Deposit, six months, six more, then handover: Blu&rsquo;s usual plan.</p>
+                </div>
+                <div class="why-point">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+                  <p><b>Longer, or cheaper.</b> Some offer up to 36 months, or a discount for cash.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="why-topic" data-why-topic>
+            <div class="why-media">
+              <img class="why-img" src="brand_assets/optimized/kizingo-living-640.webp" srcset="brand_assets/optimized/kizingo-living-640.webp 640w, brand_assets/optimized/kizingo-living-1080.webp 1080w" sizes="(min-width:1024px) 280px, 640px" width="1080" height="920" alt="Artist&rsquo;s impression of a living room with a sea view at Family Residential Resort, Kizingo &mdash; developer&rsquo;s render" loading="lazy" decoding="async" />
+              <span class="why-badge" aria-hidden="true">04</span>
+            </div>
+            <div class="why-body">
+              <h3 class="why-topic-title">One number</h3>
+              <p class="why-topic-desc">Call or WhatsApp +254 740 777 888 about any listing, or to book a site visit.</p>
+              <div class="why-points">
+                <div class="why-point">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/></svg>
+                  <p><b>Call or WhatsApp.</b> The same number for every listing.</p>
+                </div>
+                <div class="why-point">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="6" width="16" height="14" rx="1"/><path d="M4 10.5h16M8.5 4v4M15.5 4v4"/><path d="m9.5 15 2 2 3.5-3.5"/></svg>
+                  <p><b>Book a site visit.</b> Ask for a time and Blu will arrange it.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- topic bar -->
+        <nav class="why-bar" aria-label="Why Blu topics">
+          <button type="button" class="why-bar-item is-on" data-why-go="0"><span class="n">01</span><span class="lab">Prices</span></button>
+          <button type="button" class="why-bar-item" data-why-go="1"><span class="n">02</span><span class="lab">Areas</span></button>
+          <button type="button" class="why-bar-item" data-why-go="2"><span class="n">03</span><span class="lab">Off-plan</span></button>
+          <button type="button" class="why-bar-item" data-why-go="3"><span class="n">04</span><span class="lab">One number</span></button>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT BLU DOES (drafted grid + arched window) ============ -->
+  <section id="services" class="bg-limestone scroll-mt-24" aria-labelledby="wwd-heading">
+    <div class="wwd-frame">
+
+      <div class="wwd-head" data-reveal>
+        <p class="wwd-eyebrow">What Blu does</p>
+        <h2 id="wwd-heading" class="wwd-title">
+          <span class="block">Buy, sell</span>
+          <em class="block">or rent.</em>
+        </h2>
+      </div>
+
+      <div class="wwd-grid">
+
+        <div class="wwd-lines" aria-hidden="true">
+          <span class="wwd-v" style="left:25%"></span>
+          <span class="wwd-v" style="left:50%"></span>
+          <span class="wwd-v" style="left:75%"></span>
+          <span class="wwd-hline"></span>
+        </div>
+
+        <article class="wwd-cell wwd-cell--tl" data-reveal>
+          <p class="wwd-num">Buy</p>
+          <h3 class="wwd-cell-title">Buying off-plan</h3>
+          <p class="wwd-cell-copy">Apartments still being built, paid for in stages. Blu shows you the schedule before you commit.</p>
+        </article>
+
+        <article class="wwd-cell wwd-cell--tr" data-reveal style="--reveal-delay:90ms">
+          <p class="wwd-num">Visit</p>
+          <h3 class="wwd-cell-title">Site visits</h3>
+          <p class="wwd-cell-copy">See the location for yourself. Book a time on WhatsApp and Blu will arrange it.</p>
+        </article>
+
+        <article class="wwd-cell wwd-cell--bl" data-reveal style="--reveal-delay:180ms">
+          <p class="wwd-num">Sell</p>
+          <h3 class="wwd-cell-title">Selling</h3>
+          <p class="wwd-cell-copy">Selling a home in Mombasa? Blu markets property on Instagram and TikTok, to more than 15,000 followers.</p>
+        </article>
+
+        <article class="wwd-cell wwd-cell--br" data-reveal style="--reveal-delay:270ms">
+          <p class="wwd-num">Rent</p>
+          <h3 class="wwd-cell-title">Renting</h3>
+          <p class="wwd-cell-copy">Looking to rent, or to let a place you own? Tell Blu what you have, or what you need.</p>
+        </article>
+
+        <div class="wwd-media-layer">
+          <figure class="wwd-media" data-reveal>
+            <div class="wwd-media-clip">
+              <img class="wwd-video" src="brand_assets/optimized/seaside-tower-520.webp"
+                   width="520" height="845" loading="lazy" decoding="async"
+                   alt="Artist&rsquo;s impression of the Seaside Elegance tower in Nyali at dusk &mdash; the developer&rsquo;s render, posted by Blu Real Estate" />
+              <div class="wwd-media-grade" aria-hidden="true"></div>
+            </div>
+          </figure>
+        </div>
+
+        <div class="wwd-plaque">
+          <span class="wwd-plaque-row" data-reveal style="--reveal-delay:350ms">
+            <span>Buy</span><i aria-hidden="true"></i><span>Sell</span><i aria-hidden="true"></i><span>Rent</span>
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AT A GLANCE ============ -->
+  <section id="overview" class="bg-limestone scroll-mt-24" aria-labelledby="overview-heading">
+    <div class="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-24">
+      <div class="stats-head" data-reveal>
+        <div>
+          <span class="stats-eyebrow">At a glance</span>
+          <h2 id="overview-heading" class="stats-title">Blu, <span>in numbers</span></h2>
+        </div>
+        <p class="stats-lead">What is on this site, where it is, and how many people follow Blu.</p>
+      </div>
+
+      <div class="stats-grid">
+
+        <a href="properties.html" class="stat-card" data-reveal>
+          <div class="stat-card-top">
+            <span class="stat-label">Listings</span>
+            <span class="stat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20V9l6-4.5V20"/><path d="M9.5 20V11l7 3.2V20"/><path d="M2 20h20"/><path d="M6 12h.01M6 15.5h.01M13 16h.01"/></svg></span>
+          </div>
+          <p class="stat-num">8</p>
+          <p class="stat-cap">Developments on this site</p>
+        </a>
+
+        <div class="stat-card" data-reveal style="--reveal-delay:90ms">
+          <div class="stat-card-top">
+            <span class="stat-label">Areas</span>
+            <span class="stat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.4-6.5-10.2a6.5 6.5 0 0 1 13 0C18.5 15.6 12 21 12 21Z"/><circle cx="12" cy="10.5" r="2.4"/></svg></span>
+          </div>
+          <p class="stat-num">3</p>
+          <p class="stat-cap">Nyali, Kizingo, Stadium</p>
+        </div>
+
+        <a href="listing-emaar-apartments-stadium.html" class="stat-card" data-reveal style="--reveal-delay:180ms">
+          <div class="stat-card-top">
+            <span class="stat-label">Prices from</span>
+            <span class="stat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 12.4 21.6a2 2 0 0 1-2.8 0L3 15V4h11l6.6 6.6a2 2 0 0 1 0 2.8Z"/><circle cx="8" cy="8" r="1.3"/></svg></span>
+          </div>
+          <p class="stat-num"><small>KES</small>5M</p>
+          <p class="stat-cap">Emaar Apartments, Stadium</p>
+        </a>
+
+        <a href="https://www.instagram.com/blurealestate.ke/" target="_blank" rel="noopener" class="stat-card stat-card--feature" data-reveal style="--reveal-delay:270ms">
+          <div class="stat-card-top">
+            <span class="stat-label">Instagram</span>
+            <span class="stat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/></svg></span>
+          </div>
+          <p class="stat-num">10.9K</p>
+          <p class="stat-cap">Followers, October 2026</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SELLING OR LETTING ============ -->
+  <section id="sell" class="bg-deep scroll-mt-24" aria-labelledby="sell-heading">
+    <div class="mx-auto grid max-w-[1280px] gap-14 px-6 py-24 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:py-32">
+      <div class="lg:col-span-5" data-reveal>
+        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-gold">For owners</p>
+        <h2 id="sell-heading" class="mt-5 font-display text-[34px] leading-[1.1] tracking-[-0.04em] text-white lg:text-[46px]">
+          Selling or letting <em class="text-gold">on the coast?</em>
+        </h2>
+        <p class="mt-7 max-w-md text-base leading-[1.8] text-white/70">
+          Tell Blu where the property is, what it is and what you are asking. Blu markets homes on
+          Instagram and TikTok, to more than 15,000 followers between them.
+        </p>
+        <a href="https://wa.me/254740777888?text=Hi%20Blu%2C%20I%27d%20like%20to%20sell%20or%20let%20my%20property.%20" target="_blank" rel="noopener" class="btn-gold mt-10">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/></svg>Tell Blu about it
+        </a>
+      </div>
+      <div class="flex flex-col justify-center divide-y divide-white/10 lg:col-span-6 lg:col-start-7">
+        <div class="py-8 first:pt-0" data-reveal>
+          <h3 class="text-[15px] font-semibold uppercase tracking-[0.06em] text-white">Selling</h3>
+          <p class="mt-3 max-w-lg text-sm leading-[1.7] text-white/65">An apartment or a house: tell Blu the area, the size and your price.</p>
+        </div>
+        <div class="py-8" data-reveal style="--reveal-delay:120ms">
+          <h3 class="text-[15px] font-semibold uppercase tracking-[0.06em] text-white">Letting</h3>
+          <p class="mt-3 max-w-lg text-sm leading-[1.7] text-white/65">A home to let: the bedrooms, the rent and the date it is free.</p>
+        </div>
+        <div class="py-8 last:pb-0" data-reveal style="--reveal-delay:240ms">
+          <h3 class="text-[15px] font-semibold uppercase tracking-[0.06em] text-white">One number</h3>
+          <p class="mt-3 max-w-lg text-sm leading-[1.7] text-white/65"><a href="tel:+254740777888" class="text-white underline decoration-gold/50 underline-offset-4 transition-colors duration-300 hover:text-gold">+254 740 777 888</a>, for calls and WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="bg-limestone">
+    <div class="mx-auto max-w-[1280px] px-6 py-24 text-center lg:px-10 lg:py-32" data-reveal>
+      <p class="text-xs font-semibold uppercase tracking-[0.3em] text-goldtext">Start here</p>
+      <h2 class="mx-auto mt-5 max-w-2xl font-display text-[34px] leading-[1.1] tracking-[-0.04em] text-forest lg:text-[46px]">
+        Tell Blu what you&rsquo;re <em class="text-goldtext">looking for.</em>
+      </h2>
+      <div class="mt-11 flex flex-wrap items-center justify-center gap-8">
+        <a href="https://wa.me/254740777888?text=Hi%20Blu%2C%20I%27m%20looking%20for%20" target="_blank" rel="noopener" class="btn-navy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/></svg>WhatsApp Blu
+        </a>
+        <a href="properties.html" class="rule-link inline-flex items-center gap-3 text-[13px] font-semibold uppercase tracking-[0.18em] text-forest">
+          See the listings <span class="arrow" aria-hidden="true">&#10230;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <!-- GEN:footer -->
+<footer class="bg-deep text-white">
+    <div class="mx-auto max-w-[1280px] px-6 pb-10 pt-20 lg:px-10">
+      <div class="grid gap-14 pb-16 lg:grid-cols-12 [&>div]:min-w-0">
+        <div class="lg:col-span-4">
+          <img src="brand_assets/blu-logo.svg?v=blu1" width="775" height="564" alt="Blu Real Estate" class="h-[88px] w-auto" loading="lazy" />
+          <p class="mt-7 text-[11px] font-semibold uppercase tracking-[0.28em] text-gold">Buy <span class="mx-1.5 text-white/30">&middot;</span> Sell <span class="mx-1.5 text-white/30">&middot;</span> Rent</p>
+          <p class="mt-5 max-w-sm text-sm leading-[1.8] text-white/60">Blu Real Estate is a property consultancy in Mombasa, Kenya, listing new homes in Nyali, Kizingo and Stadium.</p>
+        </div>
+        <div class="lg:col-span-2">
+          <h3 class="text-[12px] font-semibold uppercase tracking-[0.2em] text-white/60">Explore</h3>
+          <ul class="mt-6 space-y-4 text-sm">
+            <li><a href="index.html" class="text-white/75 transition-colors duration-300 hover:text-white">Home</a></li>
+            <li><a href="index.html#about" class="text-white/75 transition-colors duration-300 hover:text-white">About</a></li>
+            <li><a href="properties.html" class="text-white/75 transition-colors duration-300 hover:text-white">Listings</a></li>
+            <li><a href="index.html#services" class="text-white/75 transition-colors duration-300 hover:text-white">Services</a></li>
+            <li><a href="index.html#sell" class="text-white/75 transition-colors duration-300 hover:text-white">Sell</a></li>
+            <li><a href="contact.html" class="text-white/75 transition-colors duration-300 hover:text-white">Contact</a></li>
+          </ul>
+        </div>
+        <div class="lg:col-span-3">
+          <h3 class="text-[12px] font-semibold uppercase tracking-[0.2em] text-white/60">Where the listings are</h3>
+          <ul class="mt-6 space-y-4 text-sm">
+            <li><a href="properties.html#nyali" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Nyali</span><span class="text-[12px] text-white/60 group-hover:text-gold">6 listings</span></a></li>
+            <li><a href="properties.html#kizingo" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Kizingo</span><span class="text-[12px] text-white/60 group-hover:text-gold">1 listing</span></a></li>
+            <li><a href="properties.html#stadium" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Stadium</span><span class="text-[12px] text-white/60 group-hover:text-gold">1 listing</span></a></li>
+          </ul>
+          <p class="mt-6 text-[13px] leading-[1.7] text-white/60">Mombasa, Kenya</p>
+        </div>
+        <div class="lg:col-span-3">
+          <h3 class="text-[12px] font-semibold uppercase tracking-[0.2em] text-white/60">Call or WhatsApp</h3>
+          <p class="mt-6 text-sm leading-[1.8]">
+            <a href="tel:+254740777888" class="block text-[19px] font-medium tracking-[0.01em] text-white transition-colors duration-300 hover:text-gold">+254 740 777 888</a>
+            <a href="https://wa.me/254740777888?text=Hi%20Blu%2C%20I%20found%20you%20through%20your%20website.%20" target="_blank" rel="noopener" class="mt-2 inline-flex items-center gap-2 text-white/75 transition-colors duration-300 hover:text-white"><span class="h-4 w-4 text-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/><path d="M9.2 9.3c.2 1.9 1.6 3.6 3.6 4.3l1-1 1.8.8-.4 1.6c-3 .2-6.2-2.6-6.4-5.7l1.5-.5.9 1.7-1 .8"/></svg></span>Message on WhatsApp</a>
+          </p>
+          <div class="mt-7 flex flex-wrap gap-5" aria-label="Social media">
+            <a href="https://www.instagram.com/blurealestate.ke/" target="_blank" rel="noopener" class="text-white/60 transition-colors duration-300 hover:text-gold" aria-label="Blu Real Estate on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.tiktok.com/@blurealestate.ke" target="_blank" rel="noopener" class="text-white/60 transition-colors duration-300 hover:text-gold" aria-label="Blu Real Estate on TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M14 3.5v11.2a3.8 3.8 0 1 1-3.8-3.8"/><path d="M14 3.5c.4 2.6 2.2 4.4 5 4.6"/></svg></a>
+            <a href="https://www.threads.com/@blurealestate.ke" target="_blank" rel="noopener" class="text-white/60 transition-colors duration-300 hover:text-gold" aria-label="Blu Real Estate on Threads"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M16.8 11.2c-.6-3-2.6-4.3-5-4.2-2.8.1-4.7 2.2-4.7 5.1 0 3.4 2 5.6 5.1 5.6 2.5 0 4.6-1.6 4.6-3.8 0-2-1.6-3.1-3.9-3.1-1.9 0-3.1 1-3.1 2.3 0 1.2 1 2 2.4 2 2.2 0 3.5-1.9 3.5-5.4"/><path d="M19.5 12c0 4.6-3.2 8.5-7.6 8.5S4.5 16.8 4.5 12 7.6 3.5 12 3.5c3.4 0 5.9 1.7 7 4.6"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-7 text-center text-xs text-white/60 sm:flex-row sm:text-left">
+        <p>&copy; <span id="year">2026</span> Blu Real Estate. All rights reserved.</p>
+        <p>Prices as Blu published them on Instagram, March&ndash;July 2026. Confirm before you pay.</p>
+      </div>
+    </div>
+  </footer>
+<!-- /GEN:footer -->
+
+  <script src="assets/site.min.js?v=blu1" defer></script>
+</body>
+</html>
