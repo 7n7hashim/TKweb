@@ -1,0 +1,19 @@
+{
+  "primary": "#002865",
+  "primaryDeep": "#001B45",
+  "primaryDarkest": "#00112B",
+  "primaryHover": "#1A2E52",
+  "ink": "#0B1A33",
+  "muted": "#4F5B6E",
+  "accent": "#C59332",
+  "accentText": "#82601C",
+  "accentLight": "#E2BE73",
+  "accentHover": "#D4A54A",
+  "accentWash": "#F7F0E1",
+  "ground": "#EEF2F7",
+  "paper": "#F9FBFD",
+  "line": "#DCE3EC",
+  "cool": "#9DBBE0",
+  "coolText": "#2C5791",
+  "coolWash": "#E9EFF7"
+}

@@ -2,8 +2,9 @@
    for a decorative colour being used as text on an unreviewed ground.
    Exits non-zero on any failure so it can gate a commit.
 
-   Blu Real Estate palette — see tailwind.config.js. `forest`, `sage` and the `clay` family are
-   inherited token NAMES now carrying Blu navy, slate and sea blue; `gold` is the logo's gold. */
+   Palette: THEME in scripts/site-data.mjs, mirrored in tailwind.config.js. `forest`, `sage` and
+   the `clay` family are inherited token NAMES carrying navy, slate and sea blue. After
+   `node scripts/apply-theme.mjs` swaps the palette, update T below to the new values and re-run. */
 import { readFileSync, globSync } from 'node:fs';
 
 const T = {
@@ -76,10 +77,15 @@ const DARK_GROUND_OK = [
   ['.faq-help',                  'link on the navy help panel'],
   ['.lbox',                      'lightbox controls on the near-black overlay'],
   ['.res-arrow:hover',           'gallery arrow hover (deep icon on gold)'],
+  ['.res-row.is-dark .res-plan-link','floor-plan link hover on a dark unit row (light gold on deep, 9.5:1)'],
+  ['.cons-step.is-now',          'current construction stage in the navy progress section (light gold on deep)'],
+  ['.agent-mini-label',          'label on the navy consultant panel (light gold on forest, 7.9:1)'],
+  ['.brand-desc',                'descriptor under the wordmark, on the navy brand plate / footer'],
+  ['.agent-mono span::first-letter', 'monogram initial on the navy portrait tile (light gold on forest)'],
   ['.res-expand:hover',          'gallery expand hover (deep icon on gold)'],
 ];
 
-const SCANNED = [...globSync('*.html'), 'assets/listing-sections.css'];
+const SCANNED = [...globSync('*.html'), 'assets/listing-sections.css', 'assets/components.css'];
 
 let failed = 0;
 

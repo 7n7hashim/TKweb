@@ -1,0 +1,521 @@
+{
+ "azure-tower": {
+  "widths": [
+   640,
+   1080,
+   1600
+  ],
+  "w": 1600,
+  "h": 1067,
+  "avif": false
+ },
+ "azure-tower-p": {
+  "widths": [
+   480,
+   800
+  ],
+  "w": 800,
+  "h": 1000,
+  "avif": false
+ },
+ "azure-living-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "azure-pool-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "azure-bedroom-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "azure-kitchen-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "grand-tower": {
+  "widths": [
+   640,
+   1080,
+   1600
+  ],
+  "w": 1600,
+  "h": 1067,
+  "avif": false
+ },
+ "grand-tower-p": {
+  "widths": [
+   480,
+   800
+  ],
+  "w": 800,
+  "h": 1000,
+  "avif": false
+ },
+ "grand-living-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "grand-kitchen-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "grand-bedroom-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "parkside-block": {
+  "widths": [
+   640,
+   1080,
+   1600
+  ],
+  "w": 1600,
+  "h": 1067,
+  "avif": false
+ },
+ "parkside-p": {
+  "widths": [
+   480,
+   800
+  ],
+  "w": 800,
+  "h": 1000,
+  "avif": false
+ },
+ "parkside-living-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "parkside-kitchen-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "parkside-bedroom-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "cove-aerial": {
+  "widths": [
+   640,
+   1080,
+   1600
+  ],
+  "w": 1600,
+  "h": 1067,
+  "avif": false
+ },
+ "cove-aerial-hero": {
+  "widths": [
+   768,
+   1152,
+   1536,
+   1920
+  ],
+  "w": 1920,
+  "h": 866,
+  "avif": true
+ },
+ "cove-villa-p": {
+  "widths": [
+   480,
+   800
+  ],
+  "w": 800,
+  "h": 1000,
+  "avif": false
+ },
+ "cove-pool-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "cove-garden-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "cove-garden-p": {
+  "widths": [
+   480,
+   800
+  ],
+  "w": 800,
+  "h": 1000,
+  "avif": false
+ },
+ "cove-bedroom-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "ocean-villa": {
+  "widths": [
+   640,
+   1080,
+   1600
+  ],
+  "w": 1600,
+  "h": 1067,
+  "avif": false
+ },
+ "ocean-villa-p": {
+  "widths": [
+   480,
+   800
+  ],
+  "w": 800,
+  "h": 1000,
+  "avif": false
+ },
+ "ocean-pool-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "ocean-living-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "ocean-bath-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "ocean-view-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "palm-house": {
+  "widths": [
+   640,
+   1080,
+   1600
+  ],
+  "w": 1600,
+  "h": 1067,
+  "avif": false
+ },
+ "palm-house-p": {
+  "widths": [
+   480,
+   800
+  ],
+  "w": 800,
+  "h": 1000,
+  "avif": false
+ },
+ "palm-garden-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "palm-living-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "palm-bedroom-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "atrium-facade": {
+  "widths": [
+   640,
+   1080,
+   1600
+  ],
+  "w": 1600,
+  "h": 1067,
+  "avif": false
+ },
+ "atrium-meeting": {
+  "widths": [
+   640,
+   1080,
+   1600
+  ],
+  "w": 1600,
+  "h": 1067,
+  "avif": false
+ },
+ "atrium-tower-p": {
+  "widths": [
+   480,
+   800
+  ],
+  "w": 800,
+  "h": 1000,
+  "avif": false
+ },
+ "atrium-hall-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "atrium-floor-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "atrium-meeting-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "land-palms": {
+  "widths": [
+   640,
+   1080,
+   1600
+  ],
+  "w": 1600,
+  "h": 1067,
+  "avif": false
+ },
+ "land-palms-p": {
+  "widths": [
+   480,
+   800
+  ],
+  "w": 800,
+  "h": 1000,
+  "avif": false
+ },
+ "land-aerial-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "land-forest-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "land-palms-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "riverside-tower": {
+  "widths": [
+   640,
+   1080,
+   1600
+  ],
+  "w": 1600,
+  "h": 1067,
+  "avif": false
+ },
+ "riverside-lounge-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "riverside-dining-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "riverside-bedroom-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "linden-block": {
+  "widths": [
+   640,
+   1080,
+   1600
+  ],
+  "w": 1600,
+  "h": 1067,
+  "avif": false
+ },
+ "linden-living-p": {
+  "widths": [
+   480,
+   800
+  ],
+  "w": 800,
+  "h": 1000,
+  "avif": false
+ },
+ "linden-living-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "linden-kitchen-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "linden-bedroom-g": {
+  "widths": [
+   640,
+   1080
+  ],
+  "w": 1080,
+  "h": 920,
+  "avif": false
+ },
+ "azure-pool": {
+  "widths": [
+   640,
+   1080,
+   1600
+  ],
+  "w": 1600,
+  "h": 1067,
+  "avif": false
+ },
+ "grand-living": {
+  "widths": [
+   640,
+   1080,
+   1600
+  ],
+  "w": 1600,
+  "h": 1067,
+  "avif": false
+ }
+}

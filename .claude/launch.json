@@ -2,7 +2,7 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "blu-site",
+      "name": "site",
       "runtimeExecutable": "node",
       "runtimeArgs": ["serve.mjs"],
       "port": 3002,

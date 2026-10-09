@@ -2,8 +2,8 @@ import puppeteer from 'puppeteer';
 
 import { readdirSync } from 'node:fs';
 
-// Every page in the root: index, properties, contact and one listing-*.html per listing (generated
-// by scripts/build-pages.mjs), so a new listing is checked without editing this file.
+// Every page in the root: the five hand-written pages plus every generated listing-*.html and agent-*.html
+// (scripts/build-pages.mjs), so a new listing or agent is checked without editing this file.
 const pages = ['', ...readdirSync('.').filter((f) => f.endsWith('.html') && f !== 'index.html').map((f) => f.replace(/\.html$/, ''))];
 
 // Port 3000 is often taken by another project's dev server, which answers 200 for every path

@@ -2,10 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===== Blu display type =====
-   Montserrat, set the way Blu's logo sets it: a light word against a heavy one ("blu" / "real").
-   Display headings are light (300); any <em>, <strong> or <b> inside one turns heavy (800). Never
-   italic — no italic is shipped, and the logo never slants. The emphasis rule needs real
+/* ===== Display type =====
+   Montserrat, set light against heavy: display headings are light (300); any <em>, <strong> or
+   <b> inside one turns heavy (800). Never italic — no italic is shipped. The emphasis rule needs real
    specificity: Tailwind's preflight sets `b, strong { font-weight: bolder }` (0,0,1), which
    beat a zero-specificity :where() version and left "heavy" words at 400. */
 @layer base {
@@ -15,29 +14,27 @@
 
 @layer components {
   /* ===== Brand plate =====
-     Blu's logo exactly as they designed it — white and gold on navy — hung from the top edge
-     of the header like a tag. The lockup is only legible on its own navy, so it never sits on
-     the light header directly. */
+     The company lockup (mark + name, or a client logo built for dark grounds) on a navy plate
+     hung from the top edge of the header like a tag, so the logo always sits on its own colour
+     whatever the page behind it. Lockup details are in assets/components.css. */
   .brand-plate {
-    display: inline-flex; align-items: flex-end; justify-content: center;
+    display: inline-flex; align-items: center; gap: 12px;
     align-self: flex-start; background: #002865; color: #fff;
-    padding: 18px 14px 12px; border-radius: 0 0 10px 10px;
+    padding: 24px 16px 16px; border-radius: 0 0 10px 10px; min-width: 0;
     box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 16px 30px -16px rgba(0,27,69,0.6);
     transition: background-color 0.3s ease, transform 0.45s cubic-bezier(0.22,1,0.36,1), box-shadow 0.45s ease;
   }
-  .brand-plate img { display: block; height: 52px; width: auto; }
   @media (min-width: 1024px) {
-    .brand-plate { padding: 20px 17px 14px; }
-    .brand-plate img { height: 60px; }
+    .brand-plate { padding: 28px 20px 18px; gap: 14px; }
   }
   .brand-plate:hover { background: #001B45; transform: translateY(2px); box-shadow: 0 20px 36px -16px rgba(0,27,69,0.7); }
   .brand-plate:active { transform: translateY(3px); }
   .brand-plate:focus-visible { outline: 2px solid #C59332; outline-offset: 3px; }
 
-  /* ===== The spec strip — Blu's own flyer panel, set as type =====
-     Every Blu flyer opens "BOOK A HOME IN NYALI FOR" over three cells: bedrooms, square feet,
-     price, split by thin rules, the numbers heavy and the units small. That panel is the
-     signature of this site: on the hero, under each listing's hero, and on every card. */
+  /* ===== The spec strip — a property flyer's figures panel, set as type =====
+     A lead line ("FOR SALE IN DIANI") over three cells — bedrooms, floor area, price — split by
+     thin rules, the numbers heavy and the units small. That panel is the signature of this site:
+     on the homepage hero, under each listing's hero, and on every card. */
   .spec { display: flex; flex-direction: column; gap: 10px; }
   .spec-lead {
     font-family: Montserrat, "Helvetica Neue", Arial, sans-serif; font-weight: 700;

@@ -3,18 +3,25 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Blu Real Estate — New Homes in Nyali, Kizingo &amp; Stadium, Mombasa</title>
-  <meta name="description" content="Blu Real Estate lists new apartments in Nyali, Kizingo and Stadium, Mombasa, with the floor areas, prices and payment plans it has published. Call or WhatsApp +254 740 777 888." />
-  <link rel="icon" type="image/svg+xml" href="brand_assets/favicon.svg?v=blu1" />
-  <link rel="icon" type="image/png" sizes="32x32" href="brand_assets/favicon-32.png?v=blu1" />
-  <link rel="apple-touch-icon" href="brand_assets/favicon-180.png?v=blu1" />
+  <!-- GEN:head -->
+  <title>Your Company Name — Properties for Sale, Rent &amp; New Developments</title>
+  <meta name="description" content="Homes for sale and to let, new developments, land and commercial space across Nairobi and the Kenyan coast — with one team from the first viewing to the keys." />
+  <meta property="og:title" content="Your Company Name — Properties for Sale, Rent &amp; New Developments" />
+  <meta property="og:description" content="Homes for sale and to let, new developments, land and commercial space across Nairobi and the Kenyan coast — with one team from the first viewing to the keys." />
+  <meta property="og:site_name" content="Your Company Name" />
+  <meta name="whatsapp" content="254700000000" />
+  <link rel="icon" type="image/svg+xml" href="brand_assets/favicon.svg?v=demo1" />
+  <link rel="icon" type="image/png" sizes="32x32" href="brand_assets/favicon-32.png?v=demo1" />
+  <link rel="apple-touch-icon" href="brand_assets/favicon-180.png?v=demo1" />
   <meta name="theme-color" content="#001B45" />
-  <!-- Preload only the LCP hero image: the Wavecrest aerial, AVIF where supported -->
-  <link rel="preload" as="image" type="image/avif" fetchpriority="high" imagesizes="100vw" imagesrcset="brand_assets/optimized/wavecrest-hero-768.avif 768w, brand_assets/optimized/wavecrest-hero-1152.avif 1152w, brand_assets/optimized/wavecrest-hero-1536.avif 1536w, brand_assets/optimized/wavecrest-hero-1920.avif 1920w" />
+  <!-- /GEN:head -->
+  <!-- Preload only the LCP hero image, AVIF where supported -->
+  <link rel="preload" as="image" type="image/avif" fetchpriority="high" imagesizes="100vw" imagesrcset="brand_assets/optimized/cove-aerial-hero-768.avif 768w, brand_assets/optimized/cove-aerial-hero-1152.avif 1152w, brand_assets/optimized/cove-aerial-hero-1536.avif 1536w, brand_assets/optimized/cove-aerial-hero-1920.avif 1920w" />
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/Montserrat-var-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/Inter-var-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="assets/fonts.css?v=blu1" />
-  <link rel="stylesheet" href="assets/tailwind.css?v=blu1" />
+  <link rel="stylesheet" href="assets/fonts.css?v=demo1" />
+  <link rel="stylesheet" href="assets/tailwind.css?v=demo1" />
+  <link rel="stylesheet" href="assets/components.css?v=demo1" />
   <style>
     ::selection { background: #002865; color: #F9FBFD; }
     body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
@@ -37,7 +44,7 @@
     .img-reveal.is-revealed img { transform: scale(1); }
 
     /* ===== Buying off-plan — scroll-scrubbed build sequence =====
-       How Blu's off-plan payment plan maps onto a building going up. Same pinned stage as the sections around it: progress is a
+       How an off-plan payment plan maps onto a building going up. Same pinned stage as the sections around it: progress is a
        pure function of scroll, so scrubbing back reverses the build exactly. Frames are
        pre-extracted WebP stills (see extract-frames.mjs) — no video-seek stutter and no
        HTTP Range dependency. Lazy: the set only warms once the section is ~1.5 screens away. */
@@ -324,7 +331,7 @@
     .no-anim [data-reveal], .no-anim .hero-in { opacity: 1; transform: none; animation: none; transition: none; }
     .no-anim .img-reveal img { transform: none; transition: none; }
 
-    /* ===== Why Blu — pinned, image-stack scroll ===== */
+    /* ===== Why us — pinned, image-stack scroll ===== */
     /* Base (mobile + static fallback): a clean stacked list of the four topics */
     .why-scroll { position: relative; background: #EEF2F7; }
     .why-stage { position: relative; }
@@ -510,6 +517,13 @@
       color: #002865; box-shadow: 0 18px 36px -18px rgba(0,27,69,0.35); }
     .wwd-plaque-row { display: inline-flex; align-items: center; gap: 13px; }
     .wwd-plaque i { width: 3px; height: 3px; border-radius: 999px; background: #C59332; }
+    @media (max-width: 420px) { .wwd-plaque { padding: 11px 14px 11px 16px; letter-spacing: 0.16em; } .wwd-plaque-row { gap: 8px; } }
+    /* the services that sit outside the four corners */
+    .wwd-also { flex: none; margin-top: 46px; text-align: center; font-size: 14px; line-height: 1.7; color: #4F5B6E; }
+    .wwd-also a { color: #82601C; text-decoration: underline; text-decoration-color: rgba(130,96,28,0.35);
+      text-underline-offset: 4px; transition: color 0.3s ease, text-decoration-color 0.3s ease; }
+    .wwd-also a:hover { color: #002865; text-decoration-color: currentColor; }
+    @media (max-width: 1023px) { .wwd-also { margin-top: 30px; text-align: left; } }
 
     /* desktop: the whole section composes into one viewport */
     @media (min-width: 1024px) {
@@ -693,39 +707,38 @@
 </head>
 <body class="bg-limestone font-sans text-ink">
 
-  <!-- ============ HERO (nav overlaid on the render) ============ -->
-  <section class="hero relative isolate flex min-h-[780px] flex-col overflow-hidden bg-deep lg:h-[900px] lg:min-h-0" aria-label="Blu Real Estate introduction">
+  <!-- ============ HERO (nav overlaid on the photograph) ============ -->
+  <section class="hero relative isolate flex min-h-[780px] flex-col overflow-hidden bg-deep lg:h-[900px] lg:min-h-0" aria-label="Introduction">
 
-    <!-- Wavecrest Residency, 2nd Avenue: the developer's render that Blu posted, cropped clear of its
-         flyer panel. The listing on the strip below is the building in the picture. -->
+    <!-- The featured development (The Cove, by default). Swap the image in optimize-images.mjs;
+         the caption, figures and link in the band below follow the listing marked with a hero image. -->
     <picture>
-      <source type="image/avif" sizes="100vw" srcset="brand_assets/optimized/wavecrest-hero-768.avif 768w, brand_assets/optimized/wavecrest-hero-1152.avif 1152w, brand_assets/optimized/wavecrest-hero-1536.avif 1536w, brand_assets/optimized/wavecrest-hero-1920.avif 1920w" />
-      <img src="brand_assets/optimized/wavecrest-hero-1536.webp" sizes="100vw" srcset="brand_assets/optimized/wavecrest-hero-768.webp 768w, brand_assets/optimized/wavecrest-hero-1152.webp 1152w, brand_assets/optimized/wavecrest-hero-1536.webp 1536w, brand_assets/optimized/wavecrest-hero-1920.webp 1920w" width="1920" height="866" alt="Artist&rsquo;s impression of Wavecrest Residency above the beach on 2nd Avenue, Nyali &mdash; the developer&rsquo;s render, posted by Blu Real Estate" fetchpriority="high"
-           class="pointer-events-none absolute inset-0 -z-20 h-full w-full object-cover object-[50%_60%] lg:object-[0%_50%]" />
+      <source type="image/avif" sizes="100vw" srcset="brand_assets/optimized/cove-aerial-hero-768.avif 768w, brand_assets/optimized/cove-aerial-hero-1152.avif 1152w, brand_assets/optimized/cove-aerial-hero-1536.avif 1536w, brand_assets/optimized/cove-aerial-hero-1920.avif 1920w" />
+      <img src="brand_assets/optimized/cove-aerial-hero-1536.webp" sizes="100vw" srcset="brand_assets/optimized/cove-aerial-hero-768.webp 768w, brand_assets/optimized/cove-aerial-hero-1152.webp 1152w, brand_assets/optimized/cove-aerial-hero-1536.webp 1536w, brand_assets/optimized/cove-aerial-hero-1920.webp 1920w" width="1920" height="866" alt="Aerial view of villas in tropical gardens behind a white-sand beach and turquoise water" fetchpriority="high"
+           class="pointer-events-none absolute inset-0 -z-20 h-full w-full object-cover object-[60%_50%] lg:object-[50%_50%]" />
     </picture>
 
-    <!-- Colour treatment: Blu navy, deepest where the copy sits, clearing toward the building.
-         Phones stack the copy over the top of the picture; desktop sets it left, beside the tower. -->
+    <!-- Colour treatment: brand navy, deepest where the copy sits, clearing toward the picture.
+         Phones stack the copy over the top of the picture; desktop sets it left. -->
     <div class="pointer-events-none absolute inset-0 -z-10 lg:hidden" aria-hidden="true"
          style="background:linear-gradient(180deg, rgba(0,17,43,0.95) 0%, rgba(0,17,43,0.84) 34%, rgba(0,17,43,0.4) 66%, rgba(0,17,43,0.78) 100%)"></div>
     <div class="pointer-events-none absolute inset-0 -z-10 hidden lg:block" aria-hidden="true"
-         style="background:linear-gradient(90deg, rgba(0,17,43,0.96) 0%, rgba(0,17,43,0.88) 30%, rgba(0,17,43,0.5) 50%, rgba(0,17,43,0.32) 70%, rgba(0,17,43,0.4) 100%), linear-gradient(180deg, rgba(0,17,43,0.55) 0%, rgba(0,17,43,0) 22%, rgba(0,17,43,0) 70%, rgba(0,17,43,0.6) 100%)"></div>
+         style="background:linear-gradient(90deg, rgba(0,17,43,0.96) 0%, rgba(0,17,43,0.86) 30%, rgba(0,17,43,0.45) 52%, rgba(0,17,43,0.18) 72%, rgba(0,17,43,0.3) 100%), linear-gradient(180deg, rgba(0,17,43,0.55) 0%, rgba(0,17,43,0) 22%, rgba(0,17,43,0) 70%, rgba(0,17,43,0.6) 100%)"></div>
     <div class="pointer-events-none absolute inset-0 -z-10 mix-blend-multiply" aria-hidden="true" style="background:rgba(0,40,101,0.16)"></div>
 
     <!-- NAV -->
     <!-- GEN:header -->
 <header class="site-header--hero relative z-40">
       <div class="mx-auto flex h-24 max-w-[1400px] items-center justify-between px-6 lg:px-10">
-        <a href="index.html" class="brand-plate"><img src="brand_assets/blu-logo.svg?v=blu1" width="775" height="564" alt="Blu Real Estate — home" /></a>
-        <nav class="hidden items-center gap-7 lg:flex xl:gap-12" aria-label="Primary">
-          <a href="index.html" aria-current="page" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-white">Home</a>
-          <a href="index.html#about" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-white/80 hover:text-white">About</a>
-          <a href="properties.html" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-white/80 hover:text-white">Listings</a>
+        <a href="index.html" class="brand-plate" aria-label="Your Company Name — home"><img src="brand_assets/mark.svg?v=demo1" width="40" height="40" alt="" class="brand-mark" /><span class="brand-words"><span class="brand-name">Your Company Name</span><span class="brand-desc">Properties &amp; Developments</span></span></a>
+        <nav class="hidden items-center gap-8 lg:flex xl:gap-10" aria-label="Primary">
+          <a href="properties.html" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-white/80 hover:text-white">Properties</a>
+          <a href="developments.html" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-white/80 hover:text-white">Developments</a>
+          <a href="agents.html" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-white/80 hover:text-white">Agents</a>
           <a href="index.html#services" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-white/80 hover:text-white">Services</a>
-          <a href="index.html#sell" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-white/80 hover:text-white">Sell</a>
           <a href="contact.html" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-white/80 hover:text-white">Contact</a>
         </nav>
-        <a href="https://wa.me/254740777888?text=Hi%20Blu%2C%20I%20found%20you%20through%20your%20website.%20" target="_blank" rel="noopener" class="btn-gold hidden lg:inline-flex"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/><path d="M9.2 9.3c.2 1.9 1.6 3.6 3.6 4.3l1-1 1.8.8-.4 1.6c-3 .2-6.2-2.6-6.4-5.7l1.5-.5.9 1.7-1 .8"/></svg>WhatsApp Blu</a>
+        <a href="contact.html?intent=viewing#enquire" class="btn-gold hidden xl:inline-flex"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="1.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></svg>Book a viewing</a>
         <button id="nav-toggle" aria-expanded="false" aria-controls="nav-panel" class="inline-flex h-11 w-11 items-center justify-center text-white lg:hidden" aria-label="Open menu">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
         </button>
@@ -733,12 +746,12 @@
       <div id="nav-panel" class="hidden border-t border-white/10 bg-deep/95 px-6 pb-8 pt-4 lg:hidden">
         <nav class="flex flex-col gap-5" aria-label="Mobile">
           <a href="index.html" aria-current="page" class="text-sm font-medium uppercase tracking-[0.08em] text-gold">Home</a>
-          <a href="index.html#about" class="text-sm font-medium uppercase tracking-[0.08em] text-white/80">About</a>
-          <a href="properties.html" class="text-sm font-medium uppercase tracking-[0.08em] text-white/80">Listings</a>
+          <a href="properties.html" class="text-sm font-medium uppercase tracking-[0.08em] text-white/80">Properties</a>
+          <a href="developments.html" class="text-sm font-medium uppercase tracking-[0.08em] text-white/80">Developments</a>
+          <a href="agents.html" class="text-sm font-medium uppercase tracking-[0.08em] text-white/80">Agents</a>
           <a href="index.html#services" class="text-sm font-medium uppercase tracking-[0.08em] text-white/80">Services</a>
-          <a href="index.html#sell" class="text-sm font-medium uppercase tracking-[0.08em] text-white/80">Sell</a>
           <a href="contact.html" class="text-sm font-medium uppercase tracking-[0.08em] text-white/80">Contact</a>
-          <a href="https://wa.me/254740777888?text=Hi%20Blu%2C%20I%20found%20you%20through%20your%20website.%20" target="_blank" rel="noopener" class="btn-gold mt-2 w-fit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/><path d="M9.2 9.3c.2 1.9 1.6 3.6 3.6 4.3l1-1 1.8.8-.4 1.6c-3 .2-6.2-2.6-6.4-5.7l1.5-.5.9 1.7-1 .8"/></svg>WhatsApp Blu</a>
+          <a href="contact.html?intent=viewing#enquire" class="btn-gold mt-2 w-fit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="1.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></svg>Book a viewing</a>
         </nav>
       </div>
     </header>
@@ -747,60 +760,61 @@
     <!-- Hero copy -->
     <div class="relative z-20 mx-auto flex w-full max-w-[1400px] flex-col items-center px-6 pt-4 text-center sm:pt-8 lg:items-start lg:px-10 lg:pt-20 lg:text-left">
       <p class="hero-in text-[10px] font-semibold uppercase tracking-[0.18em] text-[#E2BE73] sm:text-[12px] sm:tracking-[0.32em]" style="--d:100ms">
-        Nyali <span class="mx-1.5 font-normal text-white/40 sm:mx-3">&middot;</span> Kizingo <span class="mx-1.5 font-normal text-white/40 sm:mx-3">&middot;</span> Stadium <span class="mx-1.5 font-normal text-white/40 sm:mx-3">&middot;</span> Mombasa
+        Homes <span class="mx-1.5 font-normal text-white/40 sm:mx-3">&middot;</span> Developments <span class="mx-1.5 font-normal text-white/40 sm:mx-3">&middot;</span> Land <span class="mx-1.5 font-normal text-white/40 sm:mx-3">&middot;</span> Commercial
       </p>
       <h1 class="hero-in mt-5 font-display text-white" style="--d:220ms">
-        <span class="block text-[27px] leading-[1.08] tracking-[-0.035em] sm:text-[44px] lg:text-[52px] xl:text-[58px]">New homes in Mombasa,</span>
-        <strong class="block text-[27px] leading-[1.08] tracking-[-0.035em] text-gold sm:text-[44px] lg:text-[52px] xl:text-[58px]">prices on the page.</strong>
+        <span class="block text-[31px] leading-[1.06] tracking-[-0.035em] sm:text-[48px] lg:text-[58px] xl:text-[66px]">Exceptional properties.</span>
+        <strong class="block text-[31px] leading-[1.06] tracking-[-0.035em] text-gold sm:text-[48px] lg:text-[58px] xl:text-[66px]">Remarkable places.</strong>
       </h1>
       <p class="hero-in mx-auto mt-6 max-w-2xl text-[15px] leading-[1.75] text-white/80 sm:text-base lg:mx-0 lg:max-w-[34rem]" style="--d:340ms">
-        Blu Real Estate sells apartments in Nyali, Kizingo and Stadium. Every listing here gives the
-        floor areas, prices and payment plan Blu has published, and one number to call or WhatsApp.
+        Discover homes for sale and to let, new developments, land and investment opportunities
+        in Nairobi and along the Kenyan coast, each with its price, plans and a consultant who knows it.
       </p>
       <div class="hero-in mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start" style="--d:460ms">
-        <a href="properties.html" class="btn-gold">See the eight listings <span class="arrow" aria-hidden="true">&#10230;</span></a>
-        <a href="https://wa.me/254740777888?text=Hi%20Blu%2C%20I%20found%20you%20through%20your%20website.%20" target="_blank" rel="noopener" class="btn-ghost">WhatsApp Blu</a>
+        <a href="properties.html" class="btn-gold">Explore properties <span class="arrow" aria-hidden="true">&#10230;</span></a>
+        <a href="developments.html" class="btn-ghost">Discover developments</a>
       </div>
     </div>
 
-    <!-- The building in the picture, in Blu's own flyer format -->
+    <!-- The building in the picture, as a spec strip -->
     <div class="hero-in relative z-20 mt-auto border-t border-white/15 bg-[rgba(0,17,43,0.72)] backdrop-blur-md" style="--d:560ms">
       <div class="mx-auto flex max-w-[1400px] flex-wrap items-end justify-between gap-x-10 gap-y-6 px-6 py-6 lg:px-10 lg:py-7">
-        <div class="min-w-0">
+        <div class="min-w-0"><!-- GEN:hero-caption -->
           <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/60">In the picture</p>
-          <p class="mt-2 font-display text-[19px] font-bold tracking-[-0.02em] text-white sm:text-[22px]">Wavecrest Residency <span class="font-light text-white/70">&middot; 2nd Avenue, Nyali</span></p>
-        </div>
+          <p class="mt-2 font-display text-[19px] font-bold tracking-[-0.02em] text-white sm:text-[22px]">The Cove <span class="font-light text-white/70">&middot; Vipingo</span></p>
+        <!-- /GEN:hero-caption --></div>
         <!-- GEN:hero-spec -->
-<div class="spec spec--dark"><p class="spec-lead">Book a home in Nyali for</p><div class="spec-cells"><div class="spec-cell"><span class="spec-num">3<small>BR</small></span><span class="spec-note">plus DSQ</span></div><div class="spec-cell"><span class="spec-num">2,850</span><span class="spec-note">square feet</span></div><div class="spec-cell"><span class="spec-num"><span class="pre">KES</span>16<small>M</small></span><span class="spec-note">3-bed price</span></div></div></div>
+<div class="spec spec--dark"><div class="spec-cells"><div class="spec-cell"><span class="spec-num">3–5<small>BR</small></span><span class="spec-note">bedrooms</span></div><div class="spec-cell"><span class="spec-num">2,800</span><span class="spec-note">sq ft and up</span></div><div class="spec-cell"><span class="spec-num"><span class="pre">KES</span>42<small>M</small></span><span class="spec-note">from</span></div></div></div>
 <!-- /GEN:hero-spec -->
-        <a href="listing-wavecrest-residency.html" class="rule-link inline-flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-white">View the listing <span class="arrow" aria-hidden="true">&#10230;</span></a>
+        <!-- GEN:hero-link -->
+        <a href="listing-the-cove.html" class="rule-link inline-flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-white">View the development <span class="arrow" aria-hidden="true">&#10230;</span></a>
+        <!-- /GEN:hero-link -->
       </div>
     </div>
   </section>
 
-  <!-- ============ BUYING OFF-PLAN (scroll-scrubbed build) ============ -->
-  <section data-build-scroll class="build-scroll" aria-label="Buying off-plan: the payment plan as the building goes up">
+  <!-- ============ NEW DEVELOPMENTS (scroll-scrubbed build) ============ -->
+  <section data-build-scroll class="build-scroll" aria-label="New developments: paying in stages as the building goes up">
     <div class="build-stage">
       <div class="build-overlay">
-        <p class="build-eyebrow">Buying off-plan</p>
-        <h2 class="build-headline">Pay as it rises.<br /><em>Move in when it&rsquo;s done.</em></h2>
-        <p class="build-sub">Most of the homes Blu sells are bought before they are built, in four payments
-          spread over the build. This is the schedule in Blu&rsquo;s round-up of its Nyali and Kizingo listings;
-          some developments offer longer plans or a discount for cash.</p>
+        <p class="build-eyebrow">New developments</p>
+        <h2 class="build-headline">Buy as it rises.<br /><em>Move in when it&rsquo;s done.</em></h2>
+        <p class="build-sub">Reserve a home before it is finished and pay in stages as the building goes up,
+          with construction updates every month and a fixed price from the day you sign.</p>
       </div>
 
       <div class="build-frame-wrap">
         <div class="build-frame">
-          <img class="build-poster" src="brand_assets/build-frames/frame-119.webp" alt="Construction footage of a building going up &mdash; stock imagery, not a Blu development" />
+          <img class="build-poster" src="brand_assets/build-frames/frame-119.webp" alt="Construction footage of a building going up (stock footage)" />
           <canvas class="build-canvas" aria-hidden="true"></canvas>
           <div class="build-grade" aria-hidden="true"></div>
         </div>
       </div>
 
       <div class="build-captions" aria-hidden="true">
-        <span class="build-cap" data-build-cap="0"><i>30%</i>Deposit</span>
-        <span class="build-cap" data-build-cap="1"><i>30%</i>Within 6 months</span>
-        <span class="build-cap" data-build-cap="2"><i>30%</i>The next 6</span>
+        <span class="build-cap" data-build-cap="0"><i>20%</i>Deposit</span>
+        <span class="build-cap" data-build-cap="1"><i>30%</i>Structure</span>
+        <span class="build-cap" data-build-cap="2"><i>40%</i>Finishes</span>
         <span class="build-cap" data-build-cap="3"><i>10%</i>Handover</span>
       </div>
 
@@ -808,7 +822,7 @@
     </div>
   </section>
 
-  <!-- ============ BUY · SELL · RENT (integrated About) ============ -->
+  <!-- ============ BUY · RENT · INVEST (integrated About) ============ -->
   <section id="about" data-values-scroll class="values-scroll bg-limestone scroll-mt-24" aria-labelledby="values-heading">
     <div data-values-stage class="values-stage">
       <div class="values-canvas">
@@ -821,7 +835,7 @@
           <line x1="0" y1="450" x2="1440" y2="450" stroke="#002865" stroke-opacity="0.04"/>
         </svg>
 
-        <!-- the line weaves through the centre of each photo, tying the three services together -->
+        <!-- the line weaves through the centre of each photo, tying the three together -->
         <div class="values-line-wrap" aria-hidden="true">
           <svg preserveAspectRatio="none" viewBox="0 0 1440 900" fill="none">
             <path data-values-line class="values-line" d="M -60 420 C 20 428 60 380 102 352 C 140 328 175 330 213 338 C 290 355 340 380 380 430 C 420 480 430 560 490 560 C 540 560 552 512 507 496 C 468 483 462 524 505 543 C 555 563 625 528 688 500 C 755 472 800 442 852 420 C 920 392 952 330 1002 340 C 1050 350 1042 408 992 404 C 952 400 958 352 1010 346 C 1075 340 1125 378 1192 410 C 1258 440 1302 428 1340 392 C 1368 366 1386 344 1392 328" />
@@ -840,182 +854,122 @@
 
         <!-- heading -->
         <div class="values-head" data-reveal>
-          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-goldtext">About Blu</p>
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-goldtext">About us</p>
           <h2 id="values-heading" class="mx-auto mt-5 max-w-3xl font-display text-[34px] leading-[1.08] tracking-[-0.04em] text-forest sm:text-5xl lg:text-[54px]">
-            Buy, sell or rent, <em class="text-goldtext">on the coast.</em>
+            Buy, rent or invest, <em class="text-goldtext">with one team.</em>
           </h2>
-          <p class="mx-auto mt-6 max-w-md text-sm leading-[1.7] text-sage">Blu Real Estate is a property consultancy in Mombasa. One number handles all three, by call or WhatsApp.</p>
+          <p class="mx-auto mt-6 max-w-md text-sm leading-[1.7] text-sage"><!-- GEN:brand-name -->Your Company Name<!-- /GEN:brand-name --> sells and lets property, markets new developments and manages homes for their owners, in the city and on the coast.</p>
         </div>
 
         <!-- buy -->
         <article class="values-block values-block-1" data-values-block data-attach="center">
           <div class="values-photo">
-            <img src="brand_assets/optimized/kizingo-tower-p-620.webp" width="620" height="755" alt="Artist&rsquo;s impression of the Family Residential Resort tower in Kizingo &mdash; the developer&rsquo;s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
+            <img src="brand_assets/optimized/palm-house-p-480.webp" sizes="(min-width:1024px) 18vw, 320px" srcset="brand_assets/optimized/palm-house-p-480.webp 480w, brand_assets/optimized/palm-house-p-800.webp 800w" width="800" height="1000" alt="Modern house lit at dusk beneath a large tree" loading="lazy" decoding="async" />
           </div>
           <h3 class="values-title mt-6 font-display text-[30px] font-extrabold tracking-[-0.03em] text-forest lg:text-[34px]">Buy</h3>
-          <p class="mt-3 text-sm leading-[1.7] text-sage">New apartments in Nyali, Kizingo and Stadium: eight developments on this site, each with the prices Blu published.</p>
-        </article>
-
-        <!-- sell -->
-        <article class="values-block values-block-2" data-values-block data-attach="center">
-          <div class="values-photo">
-            <img src="brand_assets/optimized/living-lounge-640.webp" sizes="(min-width:1024px) 18vw, 320px" srcset="brand_assets/optimized/living-lounge-640.webp 640w, brand_assets/optimized/living-lounge-1080.webp 1080w" width="1080" height="920" alt="Artist&rsquo;s impression of a living room at Modern Luxury Living, Nyali &mdash; developer&rsquo;s render" loading="lazy" decoding="async" />
-          </div>
-          <h3 class="values-title mt-6 font-display text-[30px] font-extrabold tracking-[-0.03em] text-forest lg:text-[34px]">Sell</h3>
-          <p class="mt-3 text-sm leading-[1.7] text-sage">Selling a home in Mombasa? Blu markets property on Instagram and TikTok, to more than 15,000 followers between them.</p>
+          <p class="mt-3 text-sm leading-[1.7] text-sage">Apartments, family houses, beach villas and penthouses, each listed with its price, floor area and a consultant to show you round.</p>
         </article>
 
         <!-- rent -->
-        <article class="values-block values-block-3" data-values-block data-attach="center">
+        <article class="values-block values-block-2" data-values-block data-attach="center">
           <div class="values-photo">
-            <img src="brand_assets/optimized/seaside-dining-640.webp" sizes="(min-width:1024px) 18vw, 320px" srcset="brand_assets/optimized/seaside-dining-640.webp 640w, brand_assets/optimized/seaside-dining-1080.webp 1080w" width="1080" height="920" alt="Artist&rsquo;s impression of a dining room with a sea view at Seaside Elegance, Nyali &mdash; developer&rsquo;s render" loading="lazy" decoding="async" />
+            <img src="brand_assets/optimized/linden-living-p-480.webp" sizes="(min-width:1024px) 18vw, 320px" srcset="brand_assets/optimized/linden-living-p-480.webp 480w, brand_assets/optimized/linden-living-p-800.webp 800w" width="800" height="1000" alt="Bright living room with a red armchair and tall windows" loading="lazy" decoding="async" />
           </div>
           <h3 class="values-title mt-6 font-display text-[30px] font-extrabold tracking-[-0.03em] text-forest lg:text-[34px]">Rent</h3>
-          <p class="mt-3 text-sm leading-[1.7] text-sage">Looking for a place to rent? Tell Blu the area, the number of bedrooms and your budget.</p>
+          <p class="mt-3 text-sm leading-[1.7] text-sage">Furnished and unfurnished homes and offices to let, with viewings booked online and leases handled for you.</p>
+        </article>
+
+        <!-- invest -->
+        <article class="values-block values-block-3" data-values-block data-attach="center">
+          <div class="values-photo">
+            <img src="brand_assets/optimized/cove-villa-p-480.webp" sizes="(min-width:1024px) 18vw, 320px" srcset="brand_assets/optimized/cove-villa-p-480.webp 480w, brand_assets/optimized/cove-villa-p-800.webp 800w" width="800" height="1000" alt="Villa with a thatched roof and a lit pool among palm trees at dusk" loading="lazy" decoding="async" />
+          </div>
+          <h3 class="values-title mt-6 font-display text-[30px] font-extrabold tracking-[-0.03em] text-forest lg:text-[34px]">Invest</h3>
+          <p class="mt-3 text-sm leading-[1.7] text-sage">Off-plan homes, land and income property, with the payment plan, the build schedule and the numbers set out first.</p>
         </article>
 
       </div>
     </div>
   </section>
 
-  <!-- ============ LISTINGS (horizontal showcase) ============ -->
+  <!-- ============ FEATURED DEVELOPMENTS (horizontal showcase) ============ -->
   <section class="projects scroll-mt-24" aria-labelledby="projects-heading">
     <div class="projects-inner">
 
       <div class="projects-head" data-reveal>
         <div class="projects-head-l">
-          <span class="projects-eyebrow">Listings</span>
-          <h2 id="projects-heading" class="projects-title">Eight developments, <em>priced.</em></h2>
-          <p class="projects-desc">Sizes and prices as Blu published them between March and July 2026. Availability moves, so ask before you visit.</p>
+          <span class="projects-eyebrow">Featured developments</span>
+          <h2 id="projects-heading" class="projects-title">Explore new <em>developments.</em></h2>
+          <p class="projects-desc">Discover thoughtfully designed residences in exceptional locations, each with unit availability, floor plans and construction progress.</p>
         </div>
-        <a href="properties.html" class="projects-viewall">All eight listings <span class="arrow" aria-hidden="true">&#10230;</span></a>
+        <a href="developments.html" class="projects-viewall">All developments <span class="arrow" aria-hidden="true">&#10230;</span></a>
       </div>
 
       <div class="projects-stage" data-reveal style="--reveal-delay:120ms">
-        <button type="button" class="proj-nav proj-nav-prev" data-proj-prev aria-label="Previous listings">
+        <button type="button" class="proj-nav proj-nav-prev" data-proj-prev aria-label="Previous developments">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
         </button>
-        <button type="button" class="proj-nav proj-nav-next" data-proj-next aria-label="Next listings">
+        <button type="button" class="proj-nav proj-nav-next" data-proj-next aria-label="Next developments">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
         </button>
 
         <div class="proj-track" data-proj-track>
           <!-- GEN:proj-cards -->
-<a href="listing-award-winning-skyline.html" class="proj-card group" aria-label="Award-Winning Skyline, Nyali — from KES 12M">
+<a href="listing-azure-residences.html" class="proj-card group" aria-label="Azure Residences, Nyali — From KES 14.5M">
             <div class="proj-media">
-              <img class="proj-img" src="brand_assets/optimized/skyline-tower-520.webp" srcset="brand_assets/optimized/skyline-tower-520.webp 520w" sizes="(min-width:1024px) 31vw, (min-width:640px) 48vw, 87vw" width="520" height="830" alt="Artist’s impression of the Award-Winning Skyline tower in Nyali — the developer’s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
+              <img class="proj-img" src="brand_assets/optimized/azure-tower-p-800.webp" srcset="brand_assets/optimized/azure-tower-p-480.webp 480w, brand_assets/optimized/azure-tower-p-800.webp 800w" sizes="(min-width:1024px) 31vw, (min-width:640px) 48vw, 87vw" width="800" height="1000" alt="Glass-fronted balconies stacked up the side of a white apartment tower" loading="lazy" decoding="async" />
               <div class="proj-tint" aria-hidden="true"></div>
               <div class="proj-scrim" aria-hidden="true"></div>
               <span class="proj-status" data-status="type">Off-plan &middot; Nyali</span>
               <div class="proj-caption">
-                <h3 class="proj-name">Award-Winning Skyline</h3>
-                <p class="proj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Off Links Road, near Nyali Golf Club</p>
-                <p class="proj-price">From KES 12M</p>
+                <h3 class="proj-name">Azure Residences</h3>
+                <p class="proj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Links Road, Nyali, Mombasa</p>
+                <p class="proj-price">From KES 14.5M</p>
               </div>
               <span class="proj-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </div>
           </a>
 
-          <a href="listing-home-to-modern-luxury.html" class="proj-card group" aria-label="Home to Modern Luxury, Nyali — from KES 18M">
+          <a href="listing-the-grand-heights.html" class="proj-card group" aria-label="The Grand Heights, Westlands — From KES 8.9M">
             <div class="proj-media">
-              <img class="proj-img" src="brand_assets/optimized/modern-front-610.webp" srcset="brand_assets/optimized/modern-front-610.webp 610w" sizes="(min-width:1024px) 31vw, (min-width:640px) 48vw, 87vw" width="610" height="740" alt="Artist’s impression of a Home to Modern Luxury block, timber-clad, at dusk — the developer’s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
+              <img class="proj-img" src="brand_assets/optimized/grand-tower-p-800.webp" srcset="brand_assets/optimized/grand-tower-p-480.webp 480w, brand_assets/optimized/grand-tower-p-800.webp 800w" sizes="(min-width:1024px) 31vw, (min-width:640px) 48vw, 87vw" width="800" height="1000" alt="Tall residential tower with curved balconies against a blue sky" loading="lazy" decoding="async" />
               <div class="proj-tint" aria-hidden="true"></div>
               <div class="proj-scrim" aria-hidden="true"></div>
-              <span class="proj-status" data-status="type">Off-plan &middot; Nyali</span>
+              <span class="proj-status" data-status="type">Under construction &middot; Westlands</span>
               <div class="proj-caption">
-                <h3 class="proj-name">Home to Modern Luxury</h3>
-                <p class="proj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Off Links Road and Baobab Road, Nyali</p>
-                <p class="proj-price">From KES 18M</p>
+                <h3 class="proj-name">The Grand Heights</h3>
+                <p class="proj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Rhapta Road, Westlands, Nairobi</p>
+                <p class="proj-price">From KES 8.9M</p>
               </div>
               <span class="proj-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </div>
           </a>
 
-          <a href="listing-modern-luxury-living.html" class="proj-card group" aria-label="Modern Luxury Living, Nyali — from KES 12M">
+          <a href="listing-parkside-residences.html" class="proj-card group" aria-label="Parkside Residences, Kilimani — From KES 16.5M">
             <div class="proj-media">
-              <img class="proj-img" src="brand_assets/optimized/living-tower-p-560.webp" srcset="brand_assets/optimized/living-tower-p-560.webp 560w" sizes="(min-width:1024px) 31vw, (min-width:640px) 48vw, 87vw" width="560" height="670" alt="Artist’s impression of the Modern Luxury Living tower in Nyali — the developer’s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
+              <img class="proj-img" src="brand_assets/optimized/parkside-p-800.webp" srcset="brand_assets/optimized/parkside-p-480.webp 480w, brand_assets/optimized/parkside-p-800.webp 800w" sizes="(min-width:1024px) 31vw, (min-width:640px) 48vw, 87vw" width="800" height="1000" alt="Apartment building with a brick and timber top floor under a pale sky" loading="lazy" decoding="async" />
               <div class="proj-tint" aria-hidden="true"></div>
               <div class="proj-scrim" aria-hidden="true"></div>
-              <span class="proj-status" data-status="type">Off-plan &middot; Nyali</span>
+              <span class="proj-status" data-status="type">Completing 2027 &middot; Kilimani</span>
               <div class="proj-caption">
-                <h3 class="proj-name">Modern Luxury Living</h3>
-                <p class="proj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Nyali, Mombasa</p>
-                <p class="proj-price">From KES 12M</p>
+                <h3 class="proj-name">Parkside Residences</h3>
+                <p class="proj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Argwings Kodhek Road, Kilimani, Nairobi</p>
+                <p class="proj-price">From KES 16.5M</p>
               </div>
               <span class="proj-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </div>
           </a>
 
-          <a href="listing-unrivaled-luxury-apartments.html" class="proj-card group" aria-label="Unrivaled Luxury Apartments, Nyali — from KES 21M">
+          <a href="listing-the-cove.html" class="proj-card group" aria-label="The Cove, Vipingo — From KES 42M">
             <div class="proj-media">
-              <img class="proj-img" src="brand_assets/optimized/unrivaled-tower-p-430.webp" srcset="brand_assets/optimized/unrivaled-tower-p-430.webp 430w" sizes="(min-width:1024px) 31vw, (min-width:640px) 48vw, 87vw" width="430" height="770" alt="Artist’s impression of an Unrivaled Luxury Apartments tower in Nyali — the developer’s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
+              <img class="proj-img" src="brand_assets/optimized/cove-villa-p-800.webp" srcset="brand_assets/optimized/cove-villa-p-480.webp 480w, brand_assets/optimized/cove-villa-p-800.webp 800w" sizes="(min-width:1024px) 31vw, (min-width:640px) 48vw, 87vw" width="800" height="1000" alt="Villa with a thatched roof and a lit pool among palm trees at dusk" loading="lazy" decoding="async" />
               <div class="proj-tint" aria-hidden="true"></div>
               <div class="proj-scrim" aria-hidden="true"></div>
-              <span class="proj-status" data-status="type">Off-plan &middot; Nyali</span>
+              <span class="proj-status" data-status="type">Off-plan &middot; Vipingo</span>
               <div class="proj-caption">
-                <h3 class="proj-name">Unrivaled Luxury Apartments</h3>
-                <p class="proj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Nyali, near Nyali Golf &amp; Country Club</p>
-                <p class="proj-price">From KES 21M</p>
-              </div>
-              <span class="proj-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-          </a>
-
-          <a href="listing-seaside-elegance.html" class="proj-card group" aria-label="Seaside Elegance, Nyali — from KES 17M">
-            <div class="proj-media">
-              <img class="proj-img" src="brand_assets/optimized/seaside-tower-520.webp" srcset="brand_assets/optimized/seaside-tower-520.webp 520w" sizes="(min-width:1024px) 31vw, (min-width:640px) 48vw, 87vw" width="520" height="845" alt="Artist’s impression of the Seaside Elegance tower in Nyali at dusk — the developer’s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
-              <div class="proj-tint" aria-hidden="true"></div>
-              <div class="proj-scrim" aria-hidden="true"></div>
-              <span class="proj-status" data-status="type">Off-plan &middot; Nyali</span>
-              <div class="proj-caption">
-                <h3 class="proj-name">Seaside Elegance</h3>
-                <p class="proj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Nyali, a walk from Voyager Beach Resort</p>
-                <p class="proj-price">From KES 17M</p>
-              </div>
-              <span class="proj-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-          </a>
-
-          <a href="listing-wavecrest-residency.html" class="proj-card group" aria-label="Wavecrest Residency, Nyali — from KES 16M (3 BR)">
-            <div class="proj-media">
-              <img class="proj-img" src="brand_assets/optimized/wavecrest-aerial-1080.webp" srcset="brand_assets/optimized/wavecrest-aerial-640.webp 640w, brand_assets/optimized/wavecrest-aerial-1080.webp 1080w" sizes="(min-width:1024px) 31vw, (min-width:640px) 48vw, 87vw" width="1080" height="735" alt="Artist’s impression of Wavecrest Residency on 2nd Avenue, Nyali — the developer’s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
-              <div class="proj-tint" aria-hidden="true"></div>
-              <div class="proj-scrim" aria-hidden="true"></div>
-              <span class="proj-status" data-status="type">Off-plan &middot; Nyali</span>
-              <div class="proj-caption">
-                <h3 class="proj-name">Wavecrest Residency</h3>
-                <p class="proj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>2nd Avenue, Nyali</p>
-                <p class="proj-price">From KES 16M (3 BR)</p>
-              </div>
-              <span class="proj-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-          </a>
-
-          <a href="listing-family-residential-resort-kizingo.html" class="proj-card group" aria-label="Family Residential Resort, Kizingo — from KES 15M">
-            <div class="proj-media">
-              <img class="proj-img" src="brand_assets/optimized/kizingo-tower-p-620.webp" srcset="brand_assets/optimized/kizingo-tower-p-620.webp 620w" sizes="(min-width:1024px) 31vw, (min-width:640px) 48vw, 87vw" width="620" height="755" alt="Artist’s impression of the Family Residential Resort tower in Kizingo — the developer’s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
-              <div class="proj-tint" aria-hidden="true"></div>
-              <div class="proj-scrim" aria-hidden="true"></div>
-              <span class="proj-status" data-status="type">Off-plan &middot; Kizingo</span>
-              <div class="proj-caption">
-                <h3 class="proj-name">Family Residential Resort</h3>
-                <p class="proj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Kizingo, Mombasa Island</p>
-                <p class="proj-price">From KES 15M</p>
-              </div>
-              <span class="proj-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-          </a>
-
-          <a href="listing-emaar-apartments-stadium.html" class="proj-card group" aria-label="Emaar Apartments, Stadium — from KES 5M">
-            <div class="proj-media">
-              <img class="proj-img" src="brand_assets/optimized/emaar-tower-455.webp" srcset="brand_assets/optimized/emaar-tower-455.webp 455w" sizes="(min-width:1024px) 31vw, (min-width:640px) 48vw, 87vw" width="455" height="1050" alt="Artist’s impression of the Emaar Apartments tower in Stadium, Mombasa — the developer’s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
-              <div class="proj-tint" aria-hidden="true"></div>
-              <div class="proj-scrim" aria-hidden="true"></div>
-              <span class="proj-status" data-status="type">For sale &middot; Stadium</span>
-              <div class="proj-caption">
-                <h3 class="proj-name">Emaar Apartments</h3>
-                <p class="proj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Stadium, Mombasa</p>
-                <p class="proj-price">From KES 5M</p>
+                <h3 class="proj-name">The Cove</h3>
+                <p class="proj-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Vipingo, Kilifi County</p>
+                <p class="proj-price">From KES 42M</p>
               </div>
               <span class="proj-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </div>
@@ -1026,11 +980,11 @@
 
       <div class="projects-note" data-reveal>
         <div class="projects-emblem" aria-hidden="true">
-          <img src="brand_assets/blu-mark.svg?v=blu1" width="234" height="388" alt="" class="h-[26px] w-auto" loading="lazy" />
+          <img src="brand_assets/mark-ink.svg?v=demo1" width="40" height="40" alt="" class="h-[28px] w-auto" loading="lazy" />
         </div>
         <div class="projects-note-row">
           <span class="projects-note-rule" aria-hidden="true"></span>
-          <p class="projects-tagline">Renders posted by Blu: artist&rsquo;s impressions, not photographs.<br />Prices from Blu&rsquo;s Instagram, March&ndash;July 2026.</p>
+          <p class="projects-tagline">New phases are offered to registered buyers first.<br />Register your interest on any development page.</p>
           <span class="projects-note-rule" aria-hidden="true"></span>
         </div>
       </div>
@@ -1038,7 +992,150 @@
     </div>
   </section>
 
-  <!-- ============ WHY BLU (pinned image-stack) ============ -->
+  <!-- ============ FEATURED PROPERTIES ============ -->
+  <section id="properties" class="bg-paper scroll-mt-24" aria-labelledby="props-heading">
+    <div class="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-goldtext">For sale and to let</p>
+          <h2 id="props-heading" class="mt-5 font-display text-[34px] leading-[1.08] tracking-[-0.04em] text-forest sm:text-[44px] lg:text-[50px]">Featured <strong>properties</strong></h2>
+          <p class="mt-5 max-w-lg text-[15px] leading-[1.7] text-sage">Villas, family homes, penthouses, apartments and office space, chosen from the full portfolio.</p>
+        </div>
+        <a href="properties.html" class="rule-link inline-flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-forest">View all properties <span class="arrow" aria-hidden="true">&#10230;</span></a>
+      </div>
+      <div class="dev-grid mt-14">
+        <!-- GEN:prop-cards -->
+<a href="listing-ocean-house.html" class="dev-card" data-dev-card data-purpose="sale" data-location="diani" data-type="house" data-beds="5" data-reveal style="--reveal-delay:0ms" aria-label="Ocean House, Villa in Diani — KES 165M. View the property.">
+          <div class="dev-media">
+            <img class="dev-img" src="brand_assets/optimized/ocean-villa-640.webp" srcset="brand_assets/optimized/ocean-villa-640.webp 640w, brand_assets/optimized/ocean-villa-1080.webp 1080w, brand_assets/optimized/ocean-villa-1600.webp 1600w" sizes="(min-width:1024px) 31vw, (min-width:640px) 46vw, 92vw" width="1600" height="1067" alt="White contemporary villa with a pool and lawn under a clear sky" loading="lazy" decoding="async" />
+            <span class="card-badge" data-tone="sale">For sale</span>
+          </div>
+          <div class="dev-body">
+            <div class="dev-top">
+              <span class="dev-status"><i aria-hidden="true"></i>Villa &middot; Diani</span>
+              <span class="dev-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+            <h3 class="dev-name">Ocean House</h3>
+            <p class="dev-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Beach Road, Diani, Kwale County</p>
+            <div class="dev-divider" aria-hidden="true"></div>
+            <div class="spec spec--light spec--compact"><div class="spec-cells"><div class="spec-cell"><span class="spec-num">5<small>BR</small></span><span class="spec-note">bedrooms</span></div><div class="spec-cell"><span class="spec-num">6</span><span class="spec-note">bathrooms</span></div><div class="spec-cell"><span class="spec-num">6,400</span><span class="spec-note">sq ft</span></div></div></div>
+            <div class="dev-foot">
+              <p class="dev-price">KES 165M</p>
+              <span class="dev-explore">View property <span class="arrow" aria-hidden="true">&#10230;</span></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="listing-palm-court.html" class="dev-card" data-dev-card data-purpose="rent" data-location="lavington" data-type="house" data-beds="4" data-reveal style="--reveal-delay:80ms" aria-label="Palm Court, House in Lavington — KES 450K / month. View the property.">
+          <div class="dev-media">
+            <img class="dev-img" src="brand_assets/optimized/palm-house-640.webp" srcset="brand_assets/optimized/palm-house-640.webp 640w, brand_assets/optimized/palm-house-1080.webp 1080w, brand_assets/optimized/palm-house-1600.webp 1600w" sizes="(min-width:1024px) 31vw, (min-width:640px) 46vw, 92vw" width="1600" height="1067" alt="Timber and dark-clad modern house lit at dusk around a lawn and a large tree" loading="lazy" decoding="async" />
+            <span class="card-badge" data-tone="rent">To let</span>
+          </div>
+          <div class="dev-body">
+            <div class="dev-top">
+              <span class="dev-status"><i aria-hidden="true"></i>House &middot; Lavington</span>
+              <span class="dev-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+            <h3 class="dev-name">Palm Court</h3>
+            <p class="dev-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>James Gichuru Road, Lavington, Nairobi</p>
+            <div class="dev-divider" aria-hidden="true"></div>
+            <div class="spec spec--light spec--compact"><div class="spec-cells"><div class="spec-cell"><span class="spec-num">4<small>BR</small></span><span class="spec-note">bedrooms</span></div><div class="spec-cell"><span class="spec-num">4</span><span class="spec-note">bathrooms</span></div><div class="spec-cell"><span class="spec-num">4,200</span><span class="spec-note">sq ft</span></div></div></div>
+            <div class="dev-foot">
+              <p class="dev-price">KES 450K / month</p>
+              <span class="dev-explore">View property <span class="arrow" aria-hidden="true">&#10230;</span></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="listing-the-atrium.html" class="dev-card" data-dev-card data-purpose="rent" data-location="upper-hill" data-type="office" data-beds="0" data-reveal style="--reveal-delay:160ms" aria-label="The Atrium, Office space in Upper Hill — KES 140 / sq ft / month. View the space.">
+          <div class="dev-media">
+            <img class="dev-img" src="brand_assets/optimized/atrium-facade-640.webp" srcset="brand_assets/optimized/atrium-facade-640.webp 640w, brand_assets/optimized/atrium-facade-1080.webp 1080w, brand_assets/optimized/atrium-facade-1600.webp 1600w" sizes="(min-width:1024px) 31vw, (min-width:640px) 46vw, 92vw" width="1600" height="1067" alt="Curved glass facade of an office building against a pale blue sky" loading="lazy" decoding="async" />
+            <span class="card-badge" data-tone="rent">To let</span>
+          </div>
+          <div class="dev-body">
+            <div class="dev-top">
+              <span class="dev-status"><i aria-hidden="true"></i>Office space &middot; Upper Hill</span>
+              <span class="dev-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+            <h3 class="dev-name">The Atrium</h3>
+            <p class="dev-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Upper Hill Road, Nairobi</p>
+            <div class="dev-divider" aria-hidden="true"></div>
+            <div class="spec spec--light spec--compact"><div class="spec-cells"><div class="spec-cell"><span class="spec-num">2,500</span><span class="spec-note">sq ft, smallest suite</span></div><div class="spec-cell"><span class="spec-num">12,000</span><span class="spec-note">sq ft, full floor</span></div><div class="spec-cell"><span class="spec-num">A</span><span class="spec-note">grade</span></div></div></div>
+            <div class="dev-foot">
+              <p class="dev-price">KES 140 / sq ft / month</p>
+              <span class="dev-explore">View space <span class="arrow" aria-hidden="true">&#10230;</span></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="listing-creekside-land-kilifi.html" class="dev-card" data-dev-card data-purpose="sale" data-location="kilifi" data-type="land" data-beds="0" data-reveal style="--reveal-delay:0ms" aria-label="Creekside Land, Land in Kilifi — KES 28M. View the plot.">
+          <div class="dev-media">
+            <img class="dev-img" src="brand_assets/optimized/land-palms-640.webp" srcset="brand_assets/optimized/land-palms-640.webp 640w, brand_assets/optimized/land-palms-1080.webp 1080w, brand_assets/optimized/land-palms-1600.webp 1600w" sizes="(min-width:1024px) 31vw, (min-width:640px) 46vw, 92vw" width="1600" height="1067" alt="Open green land edged by a line of coconut palms" loading="lazy" decoding="async" />
+            <span class="card-badge" data-tone="sale">For sale</span>
+          </div>
+          <div class="dev-body">
+            <div class="dev-top">
+              <span class="dev-status"><i aria-hidden="true"></i>Land &middot; Kilifi</span>
+              <span class="dev-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+            <h3 class="dev-name">Creekside Land</h3>
+            <p class="dev-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Off the Malindi Road, Kilifi Creek</p>
+            <div class="dev-divider" aria-hidden="true"></div>
+            <div class="spec spec--light spec--compact"><div class="spec-cells"><div class="spec-cell"><span class="spec-num">2</span><span class="spec-note">acres</span></div><div class="spec-cell"><span class="spec-num">Freehold</span><span class="spec-note">title</span></div><div class="spec-cell"><span class="spec-num">Level</span><span class="spec-note">ground</span></div></div></div>
+            <div class="dev-foot">
+              <p class="dev-price">KES 28M</p>
+              <span class="dev-explore">View plot <span class="arrow" aria-hidden="true">&#10230;</span></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="listing-riverside-penthouse.html" class="dev-card" data-dev-card data-purpose="sale" data-location="westlands" data-type="penthouse" data-beds="4" data-reveal style="--reveal-delay:80ms" aria-label="Riverside Penthouse, Penthouse in Westlands — KES 78M. View the property.">
+          <div class="dev-media">
+            <img class="dev-img" src="brand_assets/optimized/riverside-tower-640.webp" srcset="brand_assets/optimized/riverside-tower-640.webp 640w, brand_assets/optimized/riverside-tower-1080.webp 1080w, brand_assets/optimized/riverside-tower-1600.webp 1600w" sizes="(min-width:1024px) 31vw, (min-width:640px) 46vw, 92vw" width="1600" height="1067" alt="Corner of a contemporary apartment building with dark cladding against a blue sky" loading="lazy" decoding="async" />
+            <span class="card-badge" data-tone="sale">For sale</span>
+          </div>
+          <div class="dev-body">
+            <div class="dev-top">
+              <span class="dev-status"><i aria-hidden="true"></i>Penthouse &middot; Westlands</span>
+              <span class="dev-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+            <h3 class="dev-name">Riverside Penthouse</h3>
+            <p class="dev-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Riverside Drive, Westlands, Nairobi</p>
+            <div class="dev-divider" aria-hidden="true"></div>
+            <div class="spec spec--light spec--compact"><div class="spec-cells"><div class="spec-cell"><span class="spec-num">4<small>BR</small></span><span class="spec-note">bedrooms</span></div><div class="spec-cell"><span class="spec-num">5</span><span class="spec-note">bathrooms</span></div><div class="spec-cell"><span class="spec-num">4,600</span><span class="spec-note">sq ft</span></div></div></div>
+            <div class="dev-foot">
+              <p class="dev-price">KES 78M</p>
+              <span class="dev-explore">View property <span class="arrow" aria-hidden="true">&#10230;</span></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="listing-the-linden-kilimani.html" class="dev-card" data-dev-card data-purpose="rent" data-location="kilimani" data-type="apartment" data-beds="2" data-reveal style="--reveal-delay:160ms" aria-label="The Linden, Apartment 4B, Apartment in Kilimani — KES 120K / month. View the property.">
+          <div class="dev-media">
+            <img class="dev-img" src="brand_assets/optimized/linden-block-640.webp" srcset="brand_assets/optimized/linden-block-640.webp 640w, brand_assets/optimized/linden-block-1080.webp 1080w, brand_assets/optimized/linden-block-1600.webp 1600w" sizes="(min-width:1024px) 31vw, (min-width:640px) 46vw, 92vw" width="1600" height="1067" alt="Cream apartment block among palms and flowering gardens" loading="lazy" decoding="async" />
+            <span class="card-badge" data-tone="rent">To let</span>
+          </div>
+          <div class="dev-body">
+            <div class="dev-top">
+              <span class="dev-status"><i aria-hidden="true"></i>Apartment &middot; Kilimani</span>
+              <span class="dev-open" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+            <h3 class="dev-name">The Linden, Apartment 4B</h3>
+            <p class="dev-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Lenana Road, Kilimani, Nairobi</p>
+            <div class="dev-divider" aria-hidden="true"></div>
+            <div class="spec spec--light spec--compact"><div class="spec-cells"><div class="spec-cell"><span class="spec-num">2<small>BR</small></span><span class="spec-note">bedrooms</span></div><div class="spec-cell"><span class="spec-num">2</span><span class="spec-note">bathrooms</span></div><div class="spec-cell"><span class="spec-num">1,100</span><span class="spec-note">sq ft</span></div></div></div>
+            <div class="dev-foot">
+              <p class="dev-price">KES 120K / month</p>
+              <span class="dev-explore">View property <span class="arrow" aria-hidden="true">&#10230;</span></span>
+            </div>
+          </div>
+        </a>
+<!-- /GEN:prop-cards -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY US (pinned image-stack) ============ -->
   <section id="why" data-why-scroll class="why-scroll scroll-mt-24" aria-labelledby="why-heading">
     <div class="why-stage">
       <div class="why-canvas">
@@ -1053,8 +1150,8 @@
         </svg>
 
         <div class="why-head">
-          <p class="why-eyebrow">Why Blu</p>
-          <h2 id="why-heading" class="why-title">Plain figures, one number</h2>
+          <p class="why-eyebrow">Why work with us</p>
+          <h2 id="why-heading" class="why-title">Clear information, one team</h2>
         </div>
 
         <!-- progress rail (left) · scroll cue (right) · hairline divider -->
@@ -1073,20 +1170,20 @@
 
           <article class="why-topic" data-why-topic>
             <div class="why-media">
-              <img class="why-img" src="brand_assets/optimized/unrivaled-tower-p-430.webp" width="430" height="770" alt="Artist&rsquo;s impression of an Unrivaled Luxury Apartments tower in Nyali &mdash; the developer&rsquo;s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
+              <img class="why-img" src="brand_assets/optimized/grand-tower-p-480.webp" srcset="brand_assets/optimized/grand-tower-p-480.webp 480w, brand_assets/optimized/grand-tower-p-800.webp 800w" sizes="(min-width:1024px) 280px, 480px" width="800" height="1000" alt="Tall residential tower with curved balconies against a blue sky" loading="lazy" decoding="async" />
               <span class="why-badge" aria-hidden="true">01</span>
             </div>
             <div class="why-body">
-              <h3 class="why-topic-title">Prices on the page</h3>
-              <p class="why-topic-desc">Every listing shows the prices Blu published, plan by plan, with the date they were published.</p>
+              <h3 class="why-topic-title">Every detail up front</h3>
+              <p class="why-topic-desc">Each listing shows its price, floor area, layout and availability, so you can compare before you visit.</p>
               <div class="why-points">
                 <div class="why-point">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 12.4 21.6a2 2 0 0 1-2.8 0L3 15V4h11l6.6 6.6a2 2 0 0 1 0 2.8Z"/><circle cx="8" cy="8" r="1.3"/></svg>
-                  <p><b>KES 5M to KES 35M.</b> The range across the eight listings, from Stadium to a Nyali penthouse.</p>
+                  <p><b>Priced, not &ldquo;on request&rdquo;.</b> Every home and every unit type carries its price.</p>
                 </div>
                 <div class="why-point">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="1.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></svg>
-                  <p><b>Dated, not vague.</b> Each listing links to the Instagram post its figures came from.</p>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg>
+                  <p><b>Plans and figures.</b> Floor areas, floor plans and availability, updated as units sell.</p>
                 </div>
               </div>
             </div>
@@ -1094,20 +1191,20 @@
 
           <article class="why-topic" data-why-topic>
             <div class="why-media">
-              <img class="why-img" src="brand_assets/optimized/wavecrest-aerial-640.webp" srcset="brand_assets/optimized/wavecrest-aerial-640.webp 640w, brand_assets/optimized/wavecrest-aerial-1080.webp 1080w" sizes="(min-width:1024px) 280px, 640px" width="1080" height="735" alt="Artist&rsquo;s impression of Wavecrest Residency on 2nd Avenue, Nyali, from above &mdash; the developer&rsquo;s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
+              <img class="why-img" src="brand_assets/optimized/ocean-villa-p-480.webp" srcset="brand_assets/optimized/ocean-villa-p-480.webp 480w, brand_assets/optimized/ocean-villa-p-800.webp 800w" sizes="(min-width:1024px) 280px, 480px" width="800" height="1000" alt="White contemporary villa beside its pool" loading="lazy" decoding="async" />
               <span class="why-badge" aria-hidden="true">02</span>
             </div>
             <div class="why-body">
-              <h3 class="why-topic-title">Three areas</h3>
-              <p class="why-topic-desc">Nyali, Kizingo and Stadium: the parts of Mombasa where Blu&rsquo;s listings are.</p>
+              <h3 class="why-topic-title">City and coast</h3>
+              <p class="why-topic-desc">One portfolio across Nairobi&rsquo;s best addresses and the beaches and creeks of the coast.</p>
               <div class="why-points">
                 <div class="why-point">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-                  <p><b>Nyali.</b> Six developments: off Links Road, on 2nd Avenue, by the golf club and near Voyager.</p>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M6 20v-5h4v5M10 20v-9h4v9M14 20V6h4v14"/></svg>
+                  <p><b>Nairobi.</b> Westlands, Kilimani, Lavington and Upper Hill.</p>
                 </div>
                 <div class="why-point">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M6 20v-5h4v5M10 20v-9h4v9M14 20V6h4v14"/></svg>
-                  <p><b>Kizingo and Stadium.</b> A 14-floor family block in Kizingo; 45 apartments in Stadium.</p>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                  <p><b>The coast.</b> Nyali, Vipingo, Kilifi and Diani.</p>
                 </div>
               </div>
             </div>
@@ -1115,20 +1212,20 @@
 
           <article class="why-topic" data-why-topic>
             <div class="why-media">
-              <img class="why-img" src="brand_assets/optimized/modern-front-610.webp" width="610" height="740" alt="Artist&rsquo;s impression of a Home to Modern Luxury block in Nyali &mdash; the developer&rsquo;s render, posted by Blu Real Estate" loading="lazy" decoding="async" />
+              <img class="why-img" src="brand_assets/optimized/parkside-p-480.webp" srcset="brand_assets/optimized/parkside-p-480.webp 480w, brand_assets/optimized/parkside-p-800.webp 800w" sizes="(min-width:1024px) 280px, 480px" width="800" height="1000" alt="Apartment building with a brick and timber top floor under a pale sky" loading="lazy" decoding="async" />
               <span class="why-badge" aria-hidden="true">03</span>
             </div>
             <div class="why-body">
-              <h3 class="why-topic-title">Off-plan, explained</h3>
-              <p class="why-topic-desc">Buying before a building is finished: a deposit, staged payments, and the balance at handover.</p>
+              <h3 class="why-topic-title">Developments, start to finish</h3>
+              <p class="why-topic-desc">From the first reservation to the keys: staged payments, monthly construction updates and a managed handover.</p>
               <div class="why-points">
                 <div class="why-point">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
-                  <p><b>30 &middot; 30 &middot; 30 &middot; 10.</b> Deposit, six months, six more, then handover: Blu&rsquo;s usual plan.</p>
+                  <p><b>Pay in stages.</b> Deposit, instalments over the build, balance at handover.</p>
                 </div>
                 <div class="why-point">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
-                  <p><b>Longer, or cheaper.</b> Some offer up to 36 months, or a discount for cash.</p>
+                  <p><b>Progress you can see.</b> Every development page shows how far the build has come.</p>
                 </div>
               </div>
             </div>
@@ -1136,20 +1233,20 @@
 
           <article class="why-topic" data-why-topic>
             <div class="why-media">
-              <img class="why-img" src="brand_assets/optimized/kizingo-living-640.webp" srcset="brand_assets/optimized/kizingo-living-640.webp 640w, brand_assets/optimized/kizingo-living-1080.webp 1080w" sizes="(min-width:1024px) 280px, 640px" width="1080" height="920" alt="Artist&rsquo;s impression of a living room with a sea view at Family Residential Resort, Kizingo &mdash; developer&rsquo;s render" loading="lazy" decoding="async" />
+              <img class="why-img" src="brand_assets/optimized/atrium-tower-p-480.webp" srcset="brand_assets/optimized/atrium-tower-p-480.webp 480w, brand_assets/optimized/atrium-tower-p-800.webp 800w" sizes="(min-width:1024px) 280px, 480px" width="800" height="1000" alt="Glass office building lit from within against a deep blue evening sky" loading="lazy" decoding="async" />
               <span class="why-badge" aria-hidden="true">04</span>
             </div>
             <div class="why-body">
-              <h3 class="why-topic-title">One number</h3>
-              <p class="why-topic-desc">Call or WhatsApp +254 740 777 888 about any listing, or to book a site visit.</p>
+              <h3 class="why-topic-title">A consultant who answers</h3>
+              <p class="why-topic-desc">The person who lists a property shows it, answers for it and sees it through to the keys.</p>
               <div class="why-points">
                 <div class="why-point">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/></svg>
-                  <p><b>Call or WhatsApp.</b> The same number for every listing.</p>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="6" width="16" height="14" rx="1"/><path d="M4 10.5h16M8.5 4v4M15.5 4v4"/><path d="m9.5 15 2 2 3.5-3.5"/></svg>
+                  <p><b>Book a viewing.</b> Pick a day and a time; your consultant confirms it.</p>
                 </div>
                 <div class="why-point">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="6" width="16" height="14" rx="1"/><path d="M4 10.5h16M8.5 4v4M15.5 4v4"/><path d="m9.5 15 2 2 3.5-3.5"/></svg>
-                  <p><b>Book a site visit.</b> Ask for a time and Blu will arrange it.</p>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/></svg>
+                  <p><b>Call, WhatsApp or email.</b> Whichever suits you, with the listing reference.</p>
                 </div>
               </div>
             </div>
@@ -1158,25 +1255,25 @@
         </div>
 
         <!-- topic bar -->
-        <nav class="why-bar" aria-label="Why Blu topics">
-          <button type="button" class="why-bar-item is-on" data-why-go="0"><span class="n">01</span><span class="lab">Prices</span></button>
-          <button type="button" class="why-bar-item" data-why-go="1"><span class="n">02</span><span class="lab">Areas</span></button>
-          <button type="button" class="why-bar-item" data-why-go="2"><span class="n">03</span><span class="lab">Off-plan</span></button>
-          <button type="button" class="why-bar-item" data-why-go="3"><span class="n">04</span><span class="lab">One number</span></button>
+        <nav class="why-bar" aria-label="Why work with us">
+          <button type="button" class="why-bar-item is-on" data-why-go="0"><span class="n">01</span><span class="lab">Details</span></button>
+          <button type="button" class="why-bar-item" data-why-go="1"><span class="n">02</span><span class="lab">Locations</span></button>
+          <button type="button" class="why-bar-item" data-why-go="2"><span class="n">03</span><span class="lab">Developments</span></button>
+          <button type="button" class="why-bar-item" data-why-go="3"><span class="n">04</span><span class="lab">Consultants</span></button>
         </nav>
       </div>
     </div>
   </section>
 
-  <!-- ============ WHAT BLU DOES (drafted grid + arched window) ============ -->
+  <!-- ============ SERVICES (drafted grid + arched window) ============ -->
   <section id="services" class="bg-limestone scroll-mt-24" aria-labelledby="wwd-heading">
     <div class="wwd-frame">
 
       <div class="wwd-head" data-reveal>
-        <p class="wwd-eyebrow">What Blu does</p>
+        <p class="wwd-eyebrow">Services</p>
         <h2 id="wwd-heading" class="wwd-title">
-          <span class="block">Buy, sell</span>
-          <em class="block">or rent.</em>
+          <span class="block">Sell, let,</span>
+          <em class="block">develop, manage.</em>
         </h2>
       </div>
 
@@ -1190,35 +1287,35 @@
         </div>
 
         <article class="wwd-cell wwd-cell--tl" data-reveal>
-          <p class="wwd-num">Buy</p>
-          <h3 class="wwd-cell-title">Buying off-plan</h3>
-          <p class="wwd-cell-copy">Apartments still being built, paid for in stages. Blu shows you the schedule before you commit.</p>
+          <p class="wwd-num">Sales</p>
+          <h3 class="wwd-cell-title">Property sales</h3>
+          <p class="wwd-cell-copy">Valuation, photography, marketing and viewings, then the offer, the paperwork and the transfer.</p>
         </article>
 
         <article class="wwd-cell wwd-cell--tr" data-reveal style="--reveal-delay:90ms">
-          <p class="wwd-num">Visit</p>
-          <h3 class="wwd-cell-title">Site visits</h3>
-          <p class="wwd-cell-copy">See the location for yourself. Book a time on WhatsApp and Blu will arrange it.</p>
+          <p class="wwd-num">Developments</p>
+          <h3 class="wwd-cell-title">New developments</h3>
+          <p class="wwd-cell-copy">Launch, pricing and sales for developers: unit releases, payment plans and buyer updates through handover.</p>
         </article>
 
         <article class="wwd-cell wwd-cell--bl" data-reveal style="--reveal-delay:180ms">
-          <p class="wwd-num">Sell</p>
-          <h3 class="wwd-cell-title">Selling</h3>
-          <p class="wwd-cell-copy">Selling a home in Mombasa? Blu markets property on Instagram and TikTok, to more than 15,000 followers.</p>
+          <p class="wwd-num">Lettings</p>
+          <h3 class="wwd-cell-title">Rentals and lettings</h3>
+          <p class="wwd-cell-copy">Homes and offices let to checked tenants, on clear leases, with the move-in handled for you.</p>
         </article>
 
         <article class="wwd-cell wwd-cell--br" data-reveal style="--reveal-delay:270ms">
-          <p class="wwd-num">Rent</p>
-          <h3 class="wwd-cell-title">Renting</h3>
-          <p class="wwd-cell-copy">Looking to rent, or to let a place you own? Tell Blu what you have, or what you need.</p>
+          <p class="wwd-num">Management</p>
+          <h3 class="wwd-cell-title">Property management</h3>
+          <p class="wwd-cell-copy">Rent collection, maintenance and inspections, reported to owners every month.</p>
         </article>
 
         <div class="wwd-media-layer">
           <figure class="wwd-media" data-reveal>
             <div class="wwd-media-clip">
-              <img class="wwd-video" src="brand_assets/optimized/seaside-tower-520.webp"
-                   width="520" height="845" loading="lazy" decoding="async"
-                   alt="Artist&rsquo;s impression of the Seaside Elegance tower in Nyali at dusk &mdash; the developer&rsquo;s render, posted by Blu Real Estate" />
+              <img class="wwd-video" src="brand_assets/optimized/cove-garden-p-480.webp" srcset="brand_assets/optimized/cove-garden-p-480.webp 480w, brand_assets/optimized/cove-garden-p-800.webp 800w" sizes="(min-width:1024px) 22vw, 60vw"
+                   width="800" height="1000" loading="lazy" decoding="async"
+                   alt="Villa courtyard from above: a winding pool through lush tropical garden" />
               <div class="wwd-media-grade" aria-hidden="true"></div>
             </div>
           </figure>
@@ -1226,10 +1323,68 @@
 
         <div class="wwd-plaque">
           <span class="wwd-plaque-row" data-reveal style="--reveal-delay:350ms">
-            <span>Buy</span><i aria-hidden="true"></i><span>Sell</span><i aria-hidden="true"></i><span>Rent</span>
+            <span>Residential</span><i aria-hidden="true"></i><span>Commercial</span><i aria-hidden="true"></i><span>Land</span>
           </span>
         </div>
 
+      </div>
+
+      <p class="wwd-also" data-reveal>Also: <a href="properties.html?type=office">commercial property</a>, <a href="properties.html?type=land">land</a> and <a href="contact.html?intent=investment#enquire">investment advisory</a>.</p>
+    </div>
+  </section>
+
+  <!-- ============ TEAM ============ -->
+  <section id="team" class="bg-paper scroll-mt-24" aria-labelledby="team-heading">
+    <div class="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-28">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-goldtext">Our team</p>
+          <h2 id="team-heading" class="mt-5 font-display text-[34px] leading-[1.08] tracking-[-0.04em] text-forest sm:text-[44px] lg:text-[50px]">Consultants who <strong>know the ground</strong></h2>
+        </div>
+        <a href="agents.html" class="rule-link inline-flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-forest">Meet the team <span class="arrow" aria-hidden="true">&#10230;</span></a>
+      </div>
+      <div class="agent-grid mt-14">
+        <!-- GEN:agent-cards -->
+<a href="agent-amina-hassan.html" class="agent-card" data-reveal style="--reveal-delay:0ms" aria-label="Amina Hassan, Senior Property Consultant — view profile and listings">
+          <span class="agent-mono" aria-hidden="true"><span>AH</span></span>
+          <div class="agent-body">
+            <h3 class="agent-name">Amina Hassan</h3>
+            <p class="agent-title">Senior Property Consultant</p>
+            <p class="agent-focus">Luxury residential <span aria-hidden="true">|</span> Coastal property</p>
+            <span class="agent-more">4 listings <span class="arrow" aria-hidden="true">&#10230;</span></span>
+          </div>
+        </a>
+
+        <a href="agent-david-mwangi.html" class="agent-card" data-reveal style="--reveal-delay:70ms" aria-label="David Mwangi, Head of New Developments — view profile and listings">
+          <span class="agent-mono" aria-hidden="true"><span>DM</span></span>
+          <div class="agent-body">
+            <h3 class="agent-name">David Mwangi</h3>
+            <p class="agent-title">Head of New Developments</p>
+            <p class="agent-focus">Off-plan sales <span aria-hidden="true">|</span> Development marketing</p>
+            <span class="agent-more">2 listings <span class="arrow" aria-hidden="true">&#10230;</span></span>
+          </div>
+        </a>
+
+        <a href="agent-grace-wanjiru.html" class="agent-card" data-reveal style="--reveal-delay:140ms" aria-label="Grace Wanjiru, Lettings &amp; Property Manager — view profile and listings">
+          <span class="agent-mono" aria-hidden="true"><span>GW</span></span>
+          <div class="agent-body">
+            <h3 class="agent-name">Grace Wanjiru</h3>
+            <p class="agent-title">Lettings &amp; Property Manager</p>
+            <p class="agent-focus">Rentals <span aria-hidden="true">|</span> Property management</p>
+            <span class="agent-more">2 listings <span class="arrow" aria-hidden="true">&#10230;</span></span>
+          </div>
+        </a>
+
+        <a href="agent-brian-otieno.html" class="agent-card" data-reveal style="--reveal-delay:210ms" aria-label="Brian Otieno, Commercial &amp; Investment Advisor — view profile and listings">
+          <span class="agent-mono" aria-hidden="true"><span>BO</span></span>
+          <div class="agent-body">
+            <h3 class="agent-name">Brian Otieno</h3>
+            <p class="agent-title">Commercial &amp; Investment Advisor</p>
+            <p class="agent-focus">Commercial property <span aria-hidden="true">|</span> Investment advisory</p>
+            <span class="agent-more">2 listings <span class="arrow" aria-hidden="true">&#10230;</span></span>
+          </div>
+        </a>
+<!-- /GEN:agent-cards -->
       </div>
     </div>
   </section>
@@ -1240,80 +1395,81 @@
       <div class="stats-head" data-reveal>
         <div>
           <span class="stats-eyebrow">At a glance</span>
-          <h2 id="overview-heading" class="stats-title">Blu, <span>in numbers</span></h2>
+          <h2 id="overview-heading" class="stats-title">The portfolio, <span>in numbers</span></h2>
         </div>
-        <p class="stats-lead">What is on this site, where it is, and how many people follow Blu.</p>
+        <p class="stats-lead">What is listed today, where it is, and where prices start.</p>
       </div>
 
       <div class="stats-grid">
-
-        <a href="properties.html" class="stat-card" data-reveal>
+        <!-- GEN:stats -->
+<a href="properties.html" class="stat-card" data-reveal>
           <div class="stat-card-top">
-            <span class="stat-label">Listings</span>
-            <span class="stat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20V9l6-4.5V20"/><path d="M9.5 20V11l7 3.2V20"/><path d="M2 20h20"/><path d="M6 12h.01M6 15.5h.01M13 16h.01"/></svg></span>
+            <span class="stat-label">Properties</span>
+            <span class="stat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg></span>
           </div>
-          <p class="stat-num">8</p>
-          <p class="stat-cap">Developments on this site</p>
+          <p class="stat-num">6</p>
+          <p class="stat-cap">Homes, land and offices for sale and to let</p>
         </a>
 
-        <div class="stat-card" data-reveal style="--reveal-delay:90ms">
+        <a href="developments.html" class="stat-card" data-reveal style="--reveal-delay:90ms">
           <div class="stat-card-top">
-            <span class="stat-label">Areas</span>
-            <span class="stat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.4-6.5-10.2a6.5 6.5 0 0 1 13 0C18.5 15.6 12 21 12 21Z"/><circle cx="12" cy="10.5" r="2.4"/></svg></span>
+            <span class="stat-label">Developments</span>
+            <span class="stat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21V4h2v17M3 21h8M8 5h12l-3 3H8M17 8v5"/><rect x="15.5" y="13" width="3" height="3"/></svg></span>
           </div>
-          <p class="stat-num">3</p>
-          <p class="stat-cap">Nyali, Kizingo, Stadium</p>
-        </div>
+          <p class="stat-num">4</p>
+          <p class="stat-cap">85 new homes available</p>
+        </a>
 
-        <a href="listing-emaar-apartments-stadium.html" class="stat-card" data-reveal style="--reveal-delay:180ms">
+        <a href="listing-the-grand-heights.html" class="stat-card" data-reveal style="--reveal-delay:180ms">
           <div class="stat-card-top">
-            <span class="stat-label">Prices from</span>
+            <span class="stat-label">Homes from</span>
             <span class="stat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 12.4 21.6a2 2 0 0 1-2.8 0L3 15V4h11l6.6 6.6a2 2 0 0 1 0 2.8Z"/><circle cx="8" cy="8" r="1.3"/></svg></span>
           </div>
-          <p class="stat-num"><small>KES</small>5M</p>
-          <p class="stat-cap">Emaar Apartments, Stadium</p>
+          <p class="stat-num"><small>KES</small>8.9M</p>
+          <p class="stat-cap">The Grand Heights, Westlands</p>
         </a>
 
-        <a href="https://www.instagram.com/blurealestate.ke/" target="_blank" rel="noopener" class="stat-card stat-card--feature" data-reveal style="--reveal-delay:270ms">
+        <a href="agents.html" class="stat-card stat-card--feature" data-reveal style="--reveal-delay:270ms">
           <div class="stat-card-top">
-            <span class="stat-label">Instagram</span>
-            <span class="stat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/></svg></span>
+            <span class="stat-label">Locations</span>
+            <span class="stat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
           </div>
-          <p class="stat-num">10.9K</p>
-          <p class="stat-cap">Followers, October 2026</p>
+          <p class="stat-num">8</p>
+          <p class="stat-cap">4 consultants across Nairobi and the Coast</p>
         </a>
+<!-- /GEN:stats -->
       </div>
     </div>
   </section>
 
-  <!-- ============ SELLING OR LETTING ============ -->
+  <!-- ============ OWNERS & DEVELOPERS ============ -->
   <section id="sell" class="bg-deep scroll-mt-24" aria-labelledby="sell-heading">
     <div class="mx-auto grid max-w-[1280px] gap-14 px-6 py-24 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:py-32">
       <div class="lg:col-span-5" data-reveal>
-        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-gold">For owners</p>
+        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-gold">For owners and developers</p>
         <h2 id="sell-heading" class="mt-5 font-display text-[34px] leading-[1.1] tracking-[-0.04em] text-white lg:text-[46px]">
-          Selling or letting <em class="text-gold">on the coast?</em>
+          Selling, letting or <em class="text-gold">launching a development?</em>
         </h2>
         <p class="mt-7 max-w-md text-base leading-[1.8] text-white/70">
-          Tell Blu where the property is, what it is and what you are asking. Blu markets homes on
-          Instagram and TikTok, to more than 15,000 followers between them.
+          Tell us what you have and where it is. We will come back with a valuation, a marketing plan
+          and a page like the ones on this site, built around your property.
         </p>
-        <a href="https://wa.me/254740777888?text=Hi%20Blu%2C%20I%27d%20like%20to%20sell%20or%20let%20my%20property.%20" target="_blank" rel="noopener" class="btn-gold mt-10">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/></svg>Tell Blu about it
+        <a href="https://wa.me/254700000000?text=Hello%2C%20I%27d%20like%20to%20talk%20about%20selling%2C%20letting%20or%20marketing%20my%20property.%20" target="_blank" rel="noopener" class="btn-gold mt-10">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/></svg>Talk to us
         </a>
       </div>
       <div class="flex flex-col justify-center divide-y divide-white/10 lg:col-span-6 lg:col-start-7">
         <div class="py-8 first:pt-0" data-reveal>
           <h3 class="text-[15px] font-semibold uppercase tracking-[0.06em] text-white">Selling</h3>
-          <p class="mt-3 max-w-lg text-sm leading-[1.7] text-white/65">An apartment or a house: tell Blu the area, the size and your price.</p>
+          <p class="mt-3 max-w-lg text-sm leading-[1.7] text-white/65">A home, a plot or a building: a valuation, professional photography and a listing page of its own.</p>
         </div>
         <div class="py-8" data-reveal style="--reveal-delay:120ms">
-          <h3 class="text-[15px] font-semibold uppercase tracking-[0.06em] text-white">Letting</h3>
-          <p class="mt-3 max-w-lg text-sm leading-[1.7] text-white/65">A home to let: the bedrooms, the rent and the date it is free.</p>
+          <h3 class="text-[15px] font-semibold uppercase tracking-[0.06em] text-white">Letting and management</h3>
+          <p class="mt-3 max-w-lg text-sm leading-[1.7] text-white/65">Tenants found and checked, rent collected and the property looked after, with a monthly statement.</p>
         </div>
         <div class="py-8 last:pb-0" data-reveal style="--reveal-delay:240ms">
-          <h3 class="text-[15px] font-semibold uppercase tracking-[0.06em] text-white">One number</h3>
-          <p class="mt-3 max-w-lg text-sm leading-[1.7] text-white/65"><a href="tel:+254740777888" class="text-white underline decoration-gold/50 underline-offset-4 transition-colors duration-300 hover:text-gold">+254 740 777 888</a>, for calls and WhatsApp.</p>
+          <h3 class="text-[15px] font-semibold uppercase tracking-[0.06em] text-white">Developers</h3>
+          <p class="mt-3 max-w-lg text-sm leading-[1.7] text-white/65">A launch for your project: unit availability, floor plans, payment plans and construction updates in one place, and a team to sell it.</p>
         </div>
       </div>
     </div>
@@ -1324,14 +1480,14 @@
     <div class="mx-auto max-w-[1280px] px-6 py-24 text-center lg:px-10 lg:py-32" data-reveal>
       <p class="text-xs font-semibold uppercase tracking-[0.3em] text-goldtext">Start here</p>
       <h2 class="mx-auto mt-5 max-w-2xl font-display text-[34px] leading-[1.1] tracking-[-0.04em] text-forest lg:text-[46px]">
-        Tell Blu what you&rsquo;re <em class="text-goldtext">looking for.</em>
+        Tell us what you&rsquo;re <em class="text-goldtext">looking for.</em>
       </h2>
       <div class="mt-11 flex flex-wrap items-center justify-center gap-8">
-        <a href="https://wa.me/254740777888?text=Hi%20Blu%2C%20I%27m%20looking%20for%20" target="_blank" rel="noopener" class="btn-navy">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/></svg>WhatsApp Blu
+        <a href="contact.html?intent=viewing#enquire" class="btn-navy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="1.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></svg>Book a viewing
         </a>
         <a href="properties.html" class="rule-link inline-flex items-center gap-3 text-[13px] font-semibold uppercase tracking-[0.18em] text-forest">
-          See the listings <span class="arrow" aria-hidden="true">&#10230;</span>
+          Explore properties <span class="arrow" aria-hidden="true">&#10230;</span>
         </a>
       </div>
     </div>
@@ -1341,53 +1497,63 @@
   <!-- GEN:footer -->
 <footer class="bg-deep text-white">
     <div class="mx-auto max-w-[1280px] px-6 pb-10 pt-20 lg:px-10">
-      <div class="grid gap-14 pb-16 lg:grid-cols-12 [&>div]:min-w-0">
-        <div class="lg:col-span-4">
-          <img src="brand_assets/blu-logo.svg?v=blu1" width="775" height="564" alt="Blu Real Estate" class="h-[88px] w-auto" loading="lazy" />
-          <p class="mt-7 text-[11px] font-semibold uppercase tracking-[0.28em] text-gold">Buy <span class="mx-1.5 text-white/30">&middot;</span> Sell <span class="mx-1.5 text-white/30">&middot;</span> Rent</p>
-          <p class="mt-5 max-w-sm text-sm leading-[1.8] text-white/60">Blu Real Estate is a property consultancy in Mombasa, Kenya, listing new homes in Nyali, Kizingo and Stadium.</p>
+      <div class="grid gap-14 pb-16 sm:grid-cols-2 lg:grid-cols-12 [&>div]:min-w-0">
+        <div class="sm:col-span-2 lg:col-span-4">
+          <a href="index.html" class="brand-lockup brand-lockup--footer" aria-label="Your Company Name — home"><img src="brand_assets/mark.svg?v=demo1" width="40" height="40" alt="" class="brand-mark" /><span class="brand-words"><span class="brand-name">Your Company Name</span><span class="brand-desc">Properties &amp; Developments</span></span></a>
+          <p class="mt-7 text-[11px] font-semibold uppercase tracking-[0.28em] text-gold">Sales <span class="mx-1.5 text-white/30">&middot;</span> Lettings <span class="mx-1.5 text-white/30">&middot;</span> Developments <span class="mx-1.5 text-white/30">&middot;</span> Management</p>
+          <p class="mt-5 max-w-sm text-sm leading-[1.8] text-white/60">Homes for sale and to let, new developments, land and commercial space across Nairobi and the Kenyan coast — with one team from the first viewing to the keys.</p>
         </div>
         <div class="lg:col-span-2">
           <h3 class="text-[12px] font-semibold uppercase tracking-[0.2em] text-white/60">Explore</h3>
           <ul class="mt-6 space-y-4 text-sm">
             <li><a href="index.html" class="text-white/75 transition-colors duration-300 hover:text-white">Home</a></li>
-            <li><a href="index.html#about" class="text-white/75 transition-colors duration-300 hover:text-white">About</a></li>
-            <li><a href="properties.html" class="text-white/75 transition-colors duration-300 hover:text-white">Listings</a></li>
+            <li><a href="properties.html" class="text-white/75 transition-colors duration-300 hover:text-white">Properties</a></li>
+            <li><a href="developments.html" class="text-white/75 transition-colors duration-300 hover:text-white">Developments</a></li>
+            <li><a href="agents.html" class="text-white/75 transition-colors duration-300 hover:text-white">Agents</a></li>
             <li><a href="index.html#services" class="text-white/75 transition-colors duration-300 hover:text-white">Services</a></li>
-            <li><a href="index.html#sell" class="text-white/75 transition-colors duration-300 hover:text-white">Sell</a></li>
             <li><a href="contact.html" class="text-white/75 transition-colors duration-300 hover:text-white">Contact</a></li>
           </ul>
         </div>
         <div class="lg:col-span-3">
-          <h3 class="text-[12px] font-semibold uppercase tracking-[0.2em] text-white/60">Where the listings are</h3>
-          <ul class="mt-6 space-y-4 text-sm">
-            <li><a href="properties.html#nyali" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Nyali</span><span class="text-[12px] text-white/60 group-hover:text-gold">6 listings</span></a></li>
-            <li><a href="properties.html#kizingo" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Kizingo</span><span class="text-[12px] text-white/60 group-hover:text-gold">1 listing</span></a></li>
-            <li><a href="properties.html#stadium" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Stadium</span><span class="text-[12px] text-white/60 group-hover:text-gold">1 listing</span></a></li>
-          </ul>
-          <p class="mt-6 text-[13px] leading-[1.7] text-white/60">Mombasa, Kenya</p>
+          <h3 class="text-[12px] font-semibold uppercase tracking-[0.2em] text-white/60">Locations</h3>
+            <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.2em] text-gold">Nairobi</p>
+            <ul class="mt-3 space-y-2.5 text-sm">
+              <li><a href="properties.html?location=westlands" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Westlands</span><span class="text-[12px] text-white/60 group-hover:text-gold">2</span></a></li>
+              <li><a href="properties.html?location=kilimani" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Kilimani</span><span class="text-[12px] text-white/60 group-hover:text-gold">2</span></a></li>
+              <li><a href="properties.html?location=lavington" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Lavington</span><span class="text-[12px] text-white/60 group-hover:text-gold">1</span></a></li>
+              <li><a href="properties.html?location=upper-hill" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Upper Hill</span><span class="text-[12px] text-white/60 group-hover:text-gold">1</span></a></li>
+            </ul>
+            <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.2em] text-gold">The Coast</p>
+            <ul class="mt-3 space-y-2.5 text-sm">
+              <li><a href="properties.html?location=nyali" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Nyali</span><span class="text-[12px] text-white/60 group-hover:text-gold">1</span></a></li>
+              <li><a href="properties.html?location=vipingo" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Vipingo</span><span class="text-[12px] text-white/60 group-hover:text-gold">1</span></a></li>
+              <li><a href="properties.html?location=kilifi" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Kilifi</span><span class="text-[12px] text-white/60 group-hover:text-gold">1</span></a></li>
+              <li><a href="properties.html?location=diani" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Diani</span><span class="text-[12px] text-white/60 group-hover:text-gold">1</span></a></li>
+            </ul>
         </div>
         <div class="lg:col-span-3">
-          <h3 class="text-[12px] font-semibold uppercase tracking-[0.2em] text-white/60">Call or WhatsApp</h3>
+          <h3 class="text-[12px] font-semibold uppercase tracking-[0.2em] text-white/60">Get in touch</h3>
           <p class="mt-6 text-sm leading-[1.8]">
-            <a href="tel:+254740777888" class="block text-[19px] font-medium tracking-[0.01em] text-white transition-colors duration-300 hover:text-gold">+254 740 777 888</a>
-            <a href="https://wa.me/254740777888?text=Hi%20Blu%2C%20I%20found%20you%20through%20your%20website.%20" target="_blank" rel="noopener" class="mt-2 inline-flex items-center gap-2 text-white/75 transition-colors duration-300 hover:text-white"><span class="h-4 w-4 text-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/><path d="M9.2 9.3c.2 1.9 1.6 3.6 3.6 4.3l1-1 1.8.8-.4 1.6c-3 .2-6.2-2.6-6.4-5.7l1.5-.5.9 1.7-1 .8"/></svg></span>Message on WhatsApp</a>
+            <a href="tel:+254700000000" class="block text-[19px] font-medium tracking-[0.01em] text-white transition-colors duration-300 hover:text-gold">+254 700 000 000</a>
+            <a href="https://wa.me/254700000000?text=Hello%2C%20I%20found%20you%20through%20your%20website.%20" target="_blank" rel="noopener" class="mt-2 inline-flex items-center gap-2 text-white/75 transition-colors duration-300 hover:text-white"><span class="h-4 w-4 text-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/><path d="M9.2 9.3c.2 1.9 1.6 3.6 3.6 4.3l1-1 1.8.8-.4 1.6c-3 .2-6.2-2.6-6.4-5.7l1.5-.5.9 1.7-1 .8"/></svg></span>Message on WhatsApp</a>
+            <a href="mailto:hello@yourcompany.co.ke" class="mt-1 flex items-center gap-2 text-white/75 transition-colors duration-300 hover:text-white"><span class="h-4 w-4 text-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="m4 7 8 6 8-6"/></svg></span>hello@yourcompany.co.ke</a>
           </p>
+          <p class="mt-5 text-[13px] leading-[1.7] text-white/60">Westlands, Nairobi<br />Nyali, Mombasa</p>
           <div class="mt-7 flex flex-wrap gap-5" aria-label="Social media">
-            <a href="https://www.instagram.com/blurealestate.ke/" target="_blank" rel="noopener" class="text-white/60 transition-colors duration-300 hover:text-gold" aria-label="Blu Real Estate on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none"/></svg></a>
-            <a href="https://www.tiktok.com/@blurealestate.ke" target="_blank" rel="noopener" class="text-white/60 transition-colors duration-300 hover:text-gold" aria-label="Blu Real Estate on TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M14 3.5v11.2a3.8 3.8 0 1 1-3.8-3.8"/><path d="M14 3.5c.4 2.6 2.2 4.4 5 4.6"/></svg></a>
-            <a href="https://www.threads.com/@blurealestate.ke" target="_blank" rel="noopener" class="text-white/60 transition-colors duration-300 hover:text-gold" aria-label="Blu Real Estate on Threads"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M16.8 11.2c-.6-3-2.6-4.3-5-4.2-2.8.1-4.7 2.2-4.7 5.1 0 3.4 2 5.6 5.1 5.6 2.5 0 4.6-1.6 4.6-3.8 0-2-1.6-3.1-3.9-3.1-1.9 0-3.1 1-3.1 2.3 0 1.2 1 2 2.4 2 2.2 0 3.5-1.9 3.5-5.4"/><path d="M19.5 12c0 4.6-3.2 8.5-7.6 8.5S4.5 16.8 4.5 12 7.6 3.5 12 3.5c3.4 0 5.9 1.7 7 4.6"/></svg></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="text-white/60 transition-colors duration-300 hover:text-gold" aria-label="Your Company Name on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="text-white/60 transition-colors duration-300 hover:text-gold" aria-label="Your Company Name on Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M14 8.5h2.5V5H14a3.5 3.5 0 0 0-3.5 3.5V11H8v3.5h2.5V21H14v-6.5h2.5L17 11h-3V9a.5.5 0 0 1 .5-.5Z"/></svg></a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="text-white/60 transition-colors duration-300 hover:text-gold" aria-label="Your Company Name on LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="2.5"/><path d="M8 10.5V16M8 7.6v.3M11.5 16v-5.5M11.5 13c0-1.6 1-2.6 2.4-2.6s2.1 1 2.1 2.6V16"/></svg></a>
           </div>
         </div>
       </div>
       <div class="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-7 text-center text-xs text-white/60 sm:flex-row sm:text-left">
-        <p>&copy; <span id="year">2026</span> Blu Real Estate. All rights reserved.</p>
-        <p>Prices as Blu published them on Instagram, March&ndash;July 2026. Confirm before you pay.</p>
+        <p>&copy; <span id="year">2026</span> Your Company Name. All rights reserved.</p>
+        <p>Prices, availability and specifications are subject to change. Images are for illustration.</p>
       </div>
     </div>
   </footer>
 <!-- /GEN:footer -->
 
-  <script src="assets/site.min.js?v=blu1" defer></script>
+  <script src="assets/site.min.js?v=demo1" defer></script>
 </body>
 </html>

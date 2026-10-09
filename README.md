@@ -1,23 +1,29 @@
-# Blu Real Estate
+# Real-estate website (universal demo)
 
-Website for **Blu Real Estate**, a property consultancy in Mombasa, Kenya: buy, sell or rent.
-It lists eight off-plan developments in Nyali, Kizingo and Stadium, with the floor areas, prices
-and payment plans Blu has published.
-
-Contact: **+254 740 777 888** (call or WhatsApp) · Instagram [@blurealestate.ke](https://www.instagram.com/blurealestate.ke/)
+A premium real-estate website for a fictional company, built to show property developers,
+agencies, brokers and agents what their own site could look like. Static HTML, generated from one
+data file, with no framework or backend: enquiries and viewing bookings hand off to WhatsApp.
 
 ## Pages
-- `index.html` — home
-- `properties.html` — all listings, filterable by area
-- `listing-*.html` — one page per development (generated)
-- `contact.html` — call, WhatsApp, or a form that opens WhatsApp
+- `index.html` — home: hero, featured developments, featured properties,
+  services, team, portfolio stats, owners & developers
+- `properties.html` — every listing, with search by purpose, location, type and bedrooms
+- `developments.html` — new developments with construction progress and availability
+- `agents.html` — the team; `agent-*.html` — one profile per agent, with their listings (generated)
+- `listing-*.html` — one page per property or development (generated): gallery, key facts,
+  units and availability, floor plans, construction progress, payment plan, location, consultant
+- `contact.html` — call, WhatsApp, email, offices, and an enquiry / viewing form
 
-## Editing listings
-All listing data lives in `scripts/site-data.mjs`. After editing it:
+## Setting it up for a client
+Everything lives in `scripts/site-data.mjs`: `BRAND` (name, logo, phone, WhatsApp, email,
+offices, hours, social links), `THEME` (colours), `LOCATIONS`, `AGENTS`, `LISTINGS`.
 
 ```bash
+node scripts/apply-theme.mjs          # only after changing THEME
+node optimize-images.mjs              # only after changing photos
 node scripts/build-pages.mjs
 npx tailwindcss -i assets/tw-input.css -o assets/tailwind.css --minify
+npx terser assets/site.js -c -m -o assets/site.min.js
 ```
 
 ## Running locally
@@ -33,5 +39,5 @@ PORT=3002 node verify-pages.mjs
 node scripts/check-contrast.mjs
 ```
 
-Images are developers' renders posted by Blu (artist's impressions); sources and the origin of
-every figure are in `brand_assets/blu-source/PROVENANCE.md`. Deployed on Vercel from `main`.
+Photography: licensed Unsplash images (ids in `brand_assets/stock-source/sources.tsv`).
+All company, listing and agent details are fictional.

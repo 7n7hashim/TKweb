@@ -1,6 +1,6 @@
 /* Montserrat (display) and Inter (body), self-hosted. Google serves each family as ONE variable
    woff2 per subset, identical for every weight, so each subset needs a single face with a weight
-   range (Montserrat 300-800, Inter 400-600). Blu's logo and flyers are set in Montserrat. */
+   range (Montserrat 300-800, Inter 400-600). */
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;

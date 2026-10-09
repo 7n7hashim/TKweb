@@ -3,16 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact — Blu Real Estate, Mombasa</title>
-  <meta name="description" content="Call or WhatsApp Blu Real Estate on +254 740 777 888 about a listing in Nyali, Kizingo or Stadium, a site visit, or selling and renting in Mombasa." />
-  <link rel="icon" type="image/svg+xml" href="brand_assets/favicon.svg?v=blu1" />
-  <link rel="icon" type="image/png" sizes="32x32" href="brand_assets/favicon-32.png?v=blu1" />
-  <link rel="apple-touch-icon" href="brand_assets/favicon-180.png?v=blu1" />
+  <!-- GEN:head -->
+  <title>Contact | Your Company Name</title>
+  <meta name="description" content="Call, WhatsApp or email Your Company Name to book a viewing, ask about a property or development, or sell, let or manage your property." />
+  <meta property="og:title" content="Contact | Your Company Name" />
+  <meta property="og:description" content="Call, WhatsApp or email Your Company Name to book a viewing, ask about a property or development, or sell, let or manage your property." />
+  <meta property="og:site_name" content="Your Company Name" />
+  <meta name="whatsapp" content="254700000000" />
+  <link rel="icon" type="image/svg+xml" href="brand_assets/favicon.svg?v=demo1" />
+  <link rel="icon" type="image/png" sizes="32x32" href="brand_assets/favicon-32.png?v=demo1" />
+  <link rel="apple-touch-icon" href="brand_assets/favicon-180.png?v=demo1" />
   <meta name="theme-color" content="#001B45" />
+  <!-- /GEN:head -->
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/Montserrat-var-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/Inter-var-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="assets/fonts.css?v=blu1" />
-  <link rel="stylesheet" href="assets/tailwind.css?v=blu1" />
+  <link rel="stylesheet" href="assets/fonts.css?v=demo1" />
+  <link rel="stylesheet" href="assets/tailwind.css?v=demo1" />
+  <link rel="stylesheet" href="assets/components.css?v=demo1" />
   <style>
     ::selection { background: #002865; color: #F9FBFD; }
     body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
@@ -50,6 +57,9 @@
     .bg-deep :focus-visible, footer :focus-visible { outline-color: #C59332; }
 
     /* ---- area cards (where the listings are) ---- */
+    .area-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    @media (min-width: 640px) { .area-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .area-grid { grid-template-columns: repeat(4, 1fr); } }
     .area-card { display: flex; flex-direction: column; padding: 28px 28px 30px; border-radius: 12px; background: #F9FBFD;
       border: 1px solid #DCE3EC; box-shadow: 0 10px 30px -24px rgba(0,27,69,0.4);
       transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.5s ease, border-color 0.5s ease; }
@@ -162,16 +172,15 @@
   <!-- GEN:header -->
 <header class="relative z-40 border-b border-line bg-white">
       <div class="mx-auto flex h-24 max-w-[1400px] items-center justify-between px-6 lg:px-10">
-        <a href="index.html" class="brand-plate"><img src="brand_assets/blu-logo.svg?v=blu1" width="775" height="564" alt="Blu Real Estate — home" /></a>
-        <nav class="hidden items-center gap-7 lg:flex xl:gap-12" aria-label="Primary">
-          <a href="index.html" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-[#1A2E52]">Home</a>
-          <a href="index.html#about" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-[#1A2E52]">About</a>
-          <a href="properties.html" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-[#1A2E52]">Listings</a>
+        <a href="index.html" class="brand-plate" aria-label="Your Company Name — home"><img src="brand_assets/mark.svg?v=demo1" width="40" height="40" alt="" class="brand-mark" /><span class="brand-words"><span class="brand-name">Your Company Name</span><span class="brand-desc">Properties &amp; Developments</span></span></a>
+        <nav class="hidden items-center gap-8 lg:flex xl:gap-10" aria-label="Primary">
+          <a href="properties.html" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-[#1A2E52]">Properties</a>
+          <a href="developments.html" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-[#1A2E52]">Developments</a>
+          <a href="agents.html" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-[#1A2E52]">Agents</a>
           <a href="index.html#services" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-[#1A2E52]">Services</a>
-          <a href="index.html#sell" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-[#1A2E52]">Sell</a>
           <a href="contact.html" aria-current="page" class="nav-link text-[13px] font-medium uppercase tracking-[0.08em] text-forest">Contact</a>
         </nav>
-        <a href="https://wa.me/254740777888?text=Hi%20Blu%2C%20I%20found%20you%20through%20your%20website.%20" target="_blank" rel="noopener" class="btn-navy hidden lg:inline-flex"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/><path d="M9.2 9.3c.2 1.9 1.6 3.6 3.6 4.3l1-1 1.8.8-.4 1.6c-3 .2-6.2-2.6-6.4-5.7l1.5-.5.9 1.7-1 .8"/></svg>WhatsApp Blu</a>
+        <a href="contact.html?intent=viewing#enquire" class="btn-navy hidden xl:inline-flex"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="1.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></svg>Book a viewing</a>
         <button id="nav-toggle" aria-expanded="false" aria-controls="nav-panel" class="inline-flex h-11 w-11 items-center justify-center text-forest lg:hidden" aria-label="Open menu">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
         </button>
@@ -179,12 +188,12 @@
       <div id="nav-panel" class="hidden border-t border-line bg-white px-6 pb-8 pt-4 lg:hidden">
         <nav class="flex flex-col gap-5" aria-label="Mobile">
           <a href="index.html" class="text-sm font-medium uppercase tracking-[0.08em] text-ink/70">Home</a>
-          <a href="index.html#about" class="text-sm font-medium uppercase tracking-[0.08em] text-ink/70">About</a>
-          <a href="properties.html" class="text-sm font-medium uppercase tracking-[0.08em] text-ink/70">Listings</a>
+          <a href="properties.html" class="text-sm font-medium uppercase tracking-[0.08em] text-ink/70">Properties</a>
+          <a href="developments.html" class="text-sm font-medium uppercase tracking-[0.08em] text-ink/70">Developments</a>
+          <a href="agents.html" class="text-sm font-medium uppercase tracking-[0.08em] text-ink/70">Agents</a>
           <a href="index.html#services" class="text-sm font-medium uppercase tracking-[0.08em] text-ink/70">Services</a>
-          <a href="index.html#sell" class="text-sm font-medium uppercase tracking-[0.08em] text-ink/70">Sell</a>
           <a href="contact.html" aria-current="page" class="text-sm font-medium uppercase tracking-[0.08em] text-forest">Contact</a>
-          <a href="https://wa.me/254740777888?text=Hi%20Blu%2C%20I%20found%20you%20through%20your%20website.%20" target="_blank" rel="noopener" class="btn-navy mt-2 w-fit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/><path d="M9.2 9.3c.2 1.9 1.6 3.6 3.6 4.3l1-1 1.8.8-.4 1.6c-3 .2-6.2-2.6-6.4-5.7l1.5-.5.9 1.7-1 .8"/></svg>WhatsApp Blu</a>
+          <a href="contact.html?intent=viewing#enquire" class="btn-navy mt-2 w-fit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="1.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></svg>Book a viewing</a>
         </nav>
       </div>
     </header>
@@ -192,13 +201,13 @@
 
   <!-- ============ HERO ============ -->
   <section class="warm-canvas relative overflow-hidden">
-    <!-- a render from Blu's listings bleeds to the right edge on desktop -->
+    <!-- a listing photograph bleeds to the right edge on desktop -->
     <div class="absolute inset-y-0 right-0 hidden w-[47%] lg:block" aria-hidden="true">
-      <img src="brand_assets/optimized/kizingo-living-1080.webp" srcset="brand_assets/optimized/kizingo-living-640.webp 640w, brand_assets/optimized/kizingo-living-1080.webp 1080w" sizes="47vw" width="1080" height="920"
+      <img src="brand_assets/optimized/ocean-living-g-1080.webp" srcset="brand_assets/optimized/ocean-living-g-640.webp 640w, brand_assets/optimized/ocean-living-g-1080.webp 1080w" sizes="47vw" width="1080" height="920"
            alt="" class="h-full w-full object-cover" decoding="async" />
       <span class="absolute inset-0 bg-deep/15 mix-blend-multiply"></span>
       <span class="absolute inset-y-0 left-0 w-44 bg-gradient-to-r from-[#EEF2F7] to-transparent"></span>
-      <span class="absolute bottom-4 right-4 rounded-[3px] bg-[rgba(0,17,43,0.62)] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/90">Artist&rsquo;s impression &middot; Family Residential Resort, Kizingo</span>
+      <span class="absolute bottom-4 right-4 rounded-[3px] bg-[rgba(0,17,43,0.62)] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/90">Ocean House &middot; Diani</span>
     </div>
     <svg class="absolute inset-y-0 left-0 hidden h-full w-[55%] lg:block" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 720 460" fill="none">
       <line x1="240" y1="0" x2="240" y2="460" stroke="#002865" stroke-opacity="0.05"/>
@@ -209,29 +218,29 @@
       <div class="max-w-xl py-20 lg:max-w-[47%] lg:py-32">
         <p class="text-xs font-semibold uppercase tracking-[0.3em] text-goldtext" data-reveal>Contact</p>
         <h1 class="mt-6 font-display text-[38px] leading-[1.06] tracking-[-0.04em] text-forest sm:text-[52px] lg:text-[60px]" data-reveal style="--reveal-delay:100ms">
-          One number, <strong class="text-goldtext">call or WhatsApp.</strong>
+          Talk to us, <strong class="text-goldtext">however suits you.</strong>
         </h1>
         <p class="mt-8 max-w-xl text-base leading-[1.85] text-sage lg:text-lg" data-reveal style="--reveal-delay:200ms">
-          Ask about a listing, book a site visit, or tell Blu about a home you want to sell or let.
-          The same number takes calls and WhatsApp messages.
+          Book a viewing, ask about a property or a development, or tell us about a property you
+          want to sell, let or have managed. Call, WhatsApp, email or use the form below.
         </p>
         <div class="mt-9 flex flex-wrap items-center gap-4" data-reveal style="--reveal-delay:280ms">
-          <a href="https://wa.me/254740777888?text=Hi%20Blu%2C%20" target="_blank" rel="noopener" class="btn-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/><path d="M9.2 9.3c.2 1.9 1.6 3.6 3.6 4.3l1-1 1.8.8-.4 1.6c-3 .2-6.2-2.6-6.4-5.7l1.5-.5.9 1.7-1 .8"/></svg>WhatsApp Blu</a>
-          <a href="tel:+254740777888" class="btn-navy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3.5l1.7 4.3-2.2 1.5a11 11 0 0 0 6.2 6.2l1.5-2.2L20 15.5V19a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"/></svg>Call +254 740 777 888</a>
+          <a href="https://wa.me/254700000000?text=Hello%2C%20" target="_blank" rel="noopener" class="btn-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/><path d="M9.2 9.3c.2 1.9 1.6 3.6 3.6 4.3l1-1 1.8.8-.4 1.6c-3 .2-6.2-2.6-6.4-5.7l1.5-.5.9 1.7-1 .8"/></svg>WhatsApp us</a>
+          <a href="tel:+254700000000" class="btn-navy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3.5l1.7 4.3-2.2 1.5a11 11 0 0 0 6.2 6.2l1.5-2.2L20 15.5V19a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"/></svg>Call <!-- GEN:phone -->+254 700 000 000<!-- /GEN:phone --></a>
         </div>
       </div>
     </div>
 
-    <!-- the same render on mobile -->
+    <!-- the same photograph on mobile -->
     <div class="relative lg:hidden" aria-hidden="true">
-      <img src="brand_assets/optimized/kizingo-living-640.webp" srcset="brand_assets/optimized/kizingo-living-640.webp 640w, brand_assets/optimized/kizingo-living-1080.webp 1080w" sizes="100vw" width="1080" height="920"
+      <img src="brand_assets/optimized/ocean-living-g-640.webp" srcset="brand_assets/optimized/ocean-living-g-640.webp 640w, brand_assets/optimized/ocean-living-g-1080.webp 1080w" sizes="100vw" width="1080" height="920"
            alt="" class="h-64 w-full object-cover sm:h-80" loading="lazy" decoding="async" />
       <span class="absolute inset-0 bg-deep/10 mix-blend-multiply"></span>
       <span class="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#EEF2F7] to-transparent"></span>
     </div>
   </section>
 
-  <!-- ============ CONTACT — WAYS IN + WHATSAPP FORM ============ -->
+  <!-- ============ CONTACT — WAYS IN + FORM ============ -->
   <section id="enquire" class="warm-canvas relative overflow-hidden scroll-mt-24">
     <svg class="pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1440 900" fill="none">
       <line x1="480" y1="0" x2="480" y2="900" stroke="#002865" stroke-opacity="0.05"/>
@@ -244,64 +253,57 @@
 
       <!-- LEFT — the ways in -->
       <div class="lg:col-span-5" data-reveal>
-        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-goldtext">Ways to reach Blu</p>
+        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-goldtext">Ways to reach us</p>
         <h2 class="mt-6 font-display text-[32px] leading-[1.1] tracking-[-0.04em] text-forest lg:text-[44px]">
-          Call, message, <em class="text-goldtext">or follow.</em>
+          Call, message, <em class="text-goldtext">or visit.</em>
         </h2>
-        <p class="mt-7 max-w-md text-base leading-[1.85] text-sage">
-          Blu publishes one phone number for everything, and posts new listings on Instagram and TikTok first.
-        </p>
 
         <div class="mt-11 divide-y divide-line border-y border-line">
           <div class="flex items-start gap-5 py-7">
             <svg class="mt-0.5 h-[22px] w-[22px] shrink-0 text-goldtext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 5c0 8.284 6.716 15 15 15a2 2 0 0 0 2-2v-2.5a1 1 0 0 0-.757-.97l-3.9-.975a1 1 0 0 0-1.06.41l-.9 1.28a11.5 11.5 0 0 1-5.42-5.42l1.28-.9a1 1 0 0 0 .41-1.06l-.975-3.9A1 1 0 0 0 8.5 3H6a2 2 0 0 0-2 2Z"/></svg>
             <div>
-              <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage">Call</p>
-              <p class="mt-2 text-[19px] leading-snug text-ink"><a href="tel:+254740777888" class="transition-colors duration-300 hover:text-goldtext">+254 740 777 888</a></p>
+              <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage">Call or WhatsApp</p>
+              <p class="mt-2 text-[19px] leading-snug text-ink"><a href="tel:+254700000000" class="transition-colors duration-300 hover:text-goldtext"><!-- GEN:phone -->+254 700 000 000<!-- /GEN:phone --></a></p>
+              <p class="mt-2 text-[14px] leading-[1.6] text-sage"><a href="https://wa.me/254700000000?text=Hello%2C%20" target="_blank" rel="noopener" class="text-goldtext underline decoration-goldtext/30 underline-offset-4 transition-colors duration-300 hover:text-forest">Message us on WhatsApp</a> and quote the listing reference.</p>
             </div>
           </div>
           <div class="flex items-start gap-5 py-7">
-            <span class="mt-0.5 block h-[22px] w-[22px] shrink-0 text-goldtext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/><path d="M9.2 9.3c.2 1.9 1.6 3.6 3.6 4.3l1-1 1.8.8-.4 1.6c-3 .2-6.2-2.6-6.4-5.7l1.5-.5.9 1.7-1 .8"/></svg></span>
+            <svg class="mt-0.5 h-[22px] w-[22px] shrink-0 text-goldtext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="m4 7 8 6 8-6"/></svg>
             <div>
-              <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage">WhatsApp</p>
-              <p class="mt-2 text-[17px] leading-snug text-ink"><a href="https://wa.me/254740777888?text=Hi%20Blu%2C%20" target="_blank" rel="noopener" class="transition-colors duration-300 hover:text-goldtext">Message +254 740 777 888</a></p>
-              <p class="mt-2 text-[14px] leading-[1.6] text-sage">Name the listing and Blu knows which one you mean.</p>
+              <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage">Email</p>
+              <p class="mt-2 break-all text-[17px] leading-snug text-ink"><a href="mailto:hello@yourcompany.co.ke" class="transition-colors duration-300 hover:text-goldtext"><!-- GEN:email -->hello@yourcompany.co.ke<!-- /GEN:email --></a></p>
             </div>
           </div>
           <div class="flex items-start gap-5 py-7">
             <svg class="mt-0.5 h-[22px] w-[22px] shrink-0 text-goldtext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
             <div>
-              <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage">Where</p>
-              <p class="mt-2 text-[17px] leading-[1.55] text-ink">Mombasa, Kenya</p>
-              <p class="mt-2 text-[14px] leading-[1.6] text-sage">Listings in Nyali, Kizingo and Stadium. Site visits are arranged by phone.</p>
+              <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage">Offices</p>
+              <p class="mt-2 text-[17px] leading-[1.55] text-ink"><!-- GEN:office -->Westlands, Nairobi<br />Nyali, Mombasa<!-- /GEN:office --></p>
+              <p class="mt-2 text-[14px] leading-[1.6] text-sage"><!-- GEN:hours -->Monday to Friday, 8:30 to 17:30<br />Saturday, 9:00 to 13:00<!-- /GEN:hours --></p>
             </div>
           </div>
         </div>
 
         <div class="mt-9">
-          <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage">@blurealestate.ke</p>
+          <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage">Follow us</p>
           <div class="mt-4 flex gap-3.5" aria-label="Social media">
-            <a href="https://www.instagram.com/blurealestate.ke/" target="_blank" rel="noopener" class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-line text-sage transition-[transform,color,background-color,border-color] duration-300 hover:-translate-y-0.5 hover:border-goldtext hover:bg-goldtext/10 hover:text-goldtext active:translate-y-0" aria-label="Blu Real Estate on Instagram">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none"/></svg>
-            </a>
-            <a href="https://www.tiktok.com/@blurealestate.ke" target="_blank" rel="noopener" class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-line text-sage transition-[transform,color,background-color,border-color] duration-300 hover:-translate-y-0.5 hover:border-goldtext hover:bg-goldtext/10 hover:text-goldtext active:translate-y-0" aria-label="Blu Real Estate on TikTok">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M14 3.5v11.2a3.8 3.8 0 1 1-3.8-3.8"/><path d="M14 3.5c.4 2.6 2.2 4.4 5 4.6"/></svg>
-            </a>
-            <a href="https://www.threads.com/@blurealestate.ke" target="_blank" rel="noopener" class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-line text-sage transition-[transform,color,background-color,border-color] duration-300 hover:-translate-y-0.5 hover:border-goldtext hover:bg-goldtext/10 hover:text-goldtext active:translate-y-0" aria-label="Blu Real Estate on Threads">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M16.8 11.2c-.6-3-2.6-4.3-5-4.2-2.8.1-4.7 2.2-4.7 5.1 0 3.4 2 5.6 5.1 5.6 2.5 0 4.6-1.6 4.6-3.8 0-2-1.6-3.1-3.9-3.1-1.9 0-3.1 1-3.1 2.3 0 1.2 1 2 2.4 2 2.2 0 3.5-1.9 3.5-5.4"/><path d="M19.5 12c0 4.6-3.2 8.5-7.6 8.5S4.5 16.8 4.5 12 7.6 3.5 12 3.5c3.4 0 5.9 1.7 7 4.6"/></svg>
-            </a>
+            <!-- GEN:social -->
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-line text-sage transition-[transform,color,background-color,border-color] duration-300 hover:-translate-y-0.5 hover:border-goldtext hover:bg-goldtext/10 hover:text-goldtext active:translate-y-0" aria-label="Your Company Name on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-line text-sage transition-[transform,color,background-color,border-color] duration-300 hover:-translate-y-0.5 hover:border-goldtext hover:bg-goldtext/10 hover:text-goldtext active:translate-y-0" aria-label="Your Company Name on Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M14 8.5h2.5V5H14a3.5 3.5 0 0 0-3.5 3.5V11H8v3.5h2.5V21H14v-6.5h2.5L17 11h-3V9a.5.5 0 0 1 .5-.5Z"/></svg></a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-line text-sage transition-[transform,color,background-color,border-color] duration-300 hover:-translate-y-0.5 hover:border-goldtext hover:bg-goldtext/10 hover:text-goldtext active:translate-y-0" aria-label="Your Company Name on LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="2.5"/><path d="M8 10.5V16M8 7.6v.3M11.5 16v-5.5M11.5 13c0-1.6 1-2.6 2.4-2.6s2.1 1 2.1 2.6V16"/></svg></a>
+            <!-- /GEN:social -->
           </div>
         </div>
       </div>
 
-      <!-- RIGHT — the message, written out for WhatsApp -->
+      <!-- RIGHT — the enquiry, written out for WhatsApp -->
       <div class="lg:col-span-6 lg:col-start-7" data-reveal style="--reveal-delay:140ms">
         <div class="glass p-7 sm:p-9 lg:p-11">
           <span class="tick tick-tl" aria-hidden="true"></span>
           <span class="tick tick-br" aria-hidden="true"></span>
 
-          <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-goldtext">Write it here</p>
-          <h2 class="mt-3 font-display text-[28px] tracking-[-0.035em] text-forest sm:text-[32px]">Send Blu a <strong>WhatsApp</strong></h2>
+          <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-goldtext">Send an enquiry</p>
+          <h2 class="mt-3 font-display text-[28px] tracking-[-0.035em] text-forest sm:text-[32px]">How can we <strong>help?</strong></h2>
           <p class="mt-3 text-sm leading-[1.7] text-sage">
             Fill this in and WhatsApp opens with your message written out. Nothing is sent until you press send there.
           </p>
@@ -315,28 +317,37 @@
               <div class="fl">
                 <select id="intent" name="intent" class="fl-input" required>
                   <option value="" selected></option>
-                  <option>Buy a home</option>
-                  <option>Book a site visit</option>
-                  <option>Sell a property</option>
-                  <option>Rent, or let a property</option>
+                  <option value="buy">Buy a property</option>
+                  <option value="rent">Rent a property</option>
+                  <option value="viewing">Book a viewing</option>
+                  <option value="development">Ask about a new development</option>
+                  <option value="sell">Sell my property</option>
+                  <option value="let">Let or manage my property</option>
+                  <option value="investment">Commercial or investment advice</option>
                 </select>
                 <label for="intent" class="fl-label">I&rsquo;d like to</label>
               </div>
               <div class="fl sm:col-span-2">
                 <select id="listing" name="listing" class="fl-input">
-                  <option selected>Not a specific listing</option>
+                  <option value="" selected>Not a specific listing</option>
                   <!-- GEN:listing-options -->
-<option>Award-Winning Skyline (Nyali)</option>
-                  <option>Home to Modern Luxury (Nyali)</option>
-                  <option>Modern Luxury Living (Nyali)</option>
-                  <option>Unrivaled Luxury Apartments (Nyali)</option>
-                  <option>Seaside Elegance (Nyali)</option>
-                  <option>Wavecrest Residency (Nyali)</option>
-                  <option>Family Residential Resort (Kizingo)</option>
-                  <option>Emaar Apartments (Stadium)</option>
-<!-- /GEN:listing-options -->
+                  <option value="azure-residences">Azure Residences (Nyali)</option>
+                  <option value="the-grand-heights">The Grand Heights (Westlands)</option>
+                  <option value="parkside-residences">Parkside Residences (Kilimani)</option>
+                  <option value="the-cove">The Cove (Vipingo)</option>
+                  <option value="ocean-house">Ocean House (Diani)</option>
+                  <option value="palm-court">Palm Court (Lavington)</option>
+                  <option value="the-atrium">The Atrium (Upper Hill)</option>
+                  <option value="creekside-land-kilifi">Creekside Land (Kilifi)</option>
+                  <option value="riverside-penthouse">Riverside Penthouse (Westlands)</option>
+                  <option value="the-linden-kilimani">The Linden, Apartment 4B (Kilimani)</option>
+                  <!-- /GEN:listing-options -->
                 </select>
-                <label for="listing" class="fl-label">Listing</label>
+                <label for="listing" class="fl-label">Property or development</label>
+              </div>
+              <div class="fl sm:col-span-2" data-viewing-only hidden>
+                <input id="when" name="when" type="date" class="fl-input" />
+                <label for="when" class="fl-label">Preferred viewing date</label>
               </div>
               <div class="fl sm:col-span-2">
                 <textarea id="message" name="message" rows="5" placeholder=" " class="fl-input"></textarea>
@@ -352,32 +363,64 @@
     </div>
   </section>
 
-  <!-- ============ WHERE THE LISTINGS ARE ============ -->
+  <!-- ============ LOCATIONS ============ -->
   <section class="warm-canvas relative border-t border-line">
     <div class="mx-auto max-w-[1280px] px-6 py-20 lg:px-10 lg:py-24">
       <div data-reveal>
-        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-goldtext">Where the listings are</p>
-        <h2 class="mt-5 max-w-2xl font-display text-[32px] leading-[1.1] tracking-[-0.04em] text-forest lg:text-[44px]">Three parts of <em class="text-goldtext">Mombasa.</em></h2>
+        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-goldtext">Where we work</p>
+        <h2 class="mt-5 max-w-2xl font-display text-[32px] leading-[1.1] tracking-[-0.04em] text-forest lg:text-[44px]">Nairobi and <em class="text-goldtext">the coast.</em></h2>
       </div>
-      <div class="mt-12 grid gap-5 md:grid-cols-3">
-        <a href="properties.html#nyali" class="area-card" data-reveal>
-          <p class="area-num">6</p>
+      <div class="area-grid mt-12">
+        <!-- GEN:location-cards -->
+<a href="properties.html?location=westlands" class="area-card" data-reveal style="--reveal-delay:0ms">
+          <p class="area-num">2</p>
+          <p class="area-name">Westlands</p>
+          <p class="area-blurb">Nairobi’s business and dining district, ten minutes from the CBD.</p>
+          <span class="area-go">Nairobi &middot; view listings <span class="arrow" aria-hidden="true">&#10230;</span></span>
+        </a>
+        <a href="properties.html?location=kilimani" class="area-card" data-reveal style="--reveal-delay:70ms">
+          <p class="area-num">2</p>
+          <p class="area-name">Kilimani</p>
+          <p class="area-blurb">Leafy, central and close to Yaya Centre and the Arboretum.</p>
+          <span class="area-go">Nairobi &middot; view listings <span class="arrow" aria-hidden="true">&#10230;</span></span>
+        </a>
+        <a href="properties.html?location=lavington" class="area-card" data-reveal style="--reveal-delay:140ms">
+          <p class="area-num">1</p>
+          <p class="area-name">Lavington</p>
+          <p class="area-blurb">Quiet residential roads, gardens and some of the city’s best schools.</p>
+          <span class="area-go">Nairobi &middot; view listing <span class="arrow" aria-hidden="true">&#10230;</span></span>
+        </a>
+        <a href="properties.html?location=upper-hill" class="area-card" data-reveal style="--reveal-delay:210ms">
+          <p class="area-num">1</p>
+          <p class="area-name">Upper Hill</p>
+          <p class="area-blurb">Head offices, hospitals and Grade A commercial space.</p>
+          <span class="area-go">Nairobi &middot; view listing <span class="arrow" aria-hidden="true">&#10230;</span></span>
+        </a>
+        <a href="properties.html?location=nyali" class="area-card" data-reveal style="--reveal-delay:0ms">
+          <p class="area-num">1</p>
           <p class="area-name">Nyali</p>
-          <p class="area-blurb">Off Links Road, on 2nd Avenue, by the golf club and near Voyager: the coast north of the island.</p>
-          <span class="area-go">See Nyali listings <span class="arrow" aria-hidden="true">&#10230;</span></span>
+          <p class="area-blurb">Mombasa’s north shore: beaches, the golf club and the marina.</p>
+          <span class="area-go">Mombasa &middot; view listing <span class="arrow" aria-hidden="true">&#10230;</span></span>
         </a>
-        <a href="properties.html#kizingo" class="area-card" data-reveal style="--reveal-delay:90ms">
+        <a href="properties.html?location=vipingo" class="area-card" data-reveal style="--reveal-delay:70ms">
           <p class="area-num">1</p>
-          <p class="area-name">Kizingo</p>
-          <p class="area-blurb">A gated, 14-floor family block on Mombasa Island.</p>
-          <span class="area-go">See the Kizingo listing <span class="arrow" aria-hidden="true">&#10230;</span></span>
+          <p class="area-name">Vipingo</p>
+          <p class="area-blurb">Gated coastal estates north of Mtwapa, on the ocean and the golf course.</p>
+          <span class="area-go">Kilifi &middot; view listing <span class="arrow" aria-hidden="true">&#10230;</span></span>
         </a>
-        <a href="properties.html#stadium" class="area-card" data-reveal style="--reveal-delay:180ms">
+        <a href="properties.html?location=kilifi" class="area-card" data-reveal style="--reveal-delay:140ms">
           <p class="area-num">1</p>
-          <p class="area-name">Stadium</p>
-          <p class="area-blurb">Forty-five apartments with quick access to Nyali and the city centre.</p>
-          <span class="area-go">See the Stadium listing <span class="arrow" aria-hidden="true">&#10230;</span></span>
+          <p class="area-name">Kilifi</p>
+          <p class="area-blurb">The creek, the open ocean and land with room to build.</p>
+          <span class="area-go">Kilifi &middot; view listing <span class="arrow" aria-hidden="true">&#10230;</span></span>
         </a>
+        <a href="properties.html?location=diani" class="area-card" data-reveal style="--reveal-delay:210ms">
+          <p class="area-num">1</p>
+          <p class="area-name">Diani</p>
+          <p class="area-blurb">Seventeen kilometres of white beach on the south coast.</p>
+          <span class="area-go">Kwale &middot; view listing <span class="arrow" aria-hidden="true">&#10230;</span></span>
+        </a>
+<!-- /GEN:location-cards -->
       </div>
     </div>
   </section>
@@ -387,12 +430,12 @@
     <div class="mx-auto max-w-[1280px] px-6 py-24 text-center lg:px-10 lg:py-28" data-reveal>
       <p class="text-xs font-semibold uppercase tracking-[0.3em] text-gold">Rather talk?</p>
       <h2 class="mx-auto mt-6 max-w-2xl font-display text-[34px] leading-[1.1] tracking-[-0.04em] text-white lg:text-[48px]">
-        Call <strong class="text-gold">+254 740 777 888.</strong>
+        Call <strong class="text-gold"><!-- GEN:phone -->+254 700 000 000<!-- /GEN:phone --></strong>
       </h2>
       <div class="mt-11 flex flex-wrap items-center justify-center gap-8">
-        <a href="tel:+254740777888" class="btn-gold">Call Blu now</a>
+        <a href="tel:+254700000000" class="btn-gold">Call us now</a>
         <a href="properties.html" class="rule-link inline-flex items-center gap-3 text-[13px] font-semibold uppercase tracking-[0.18em] text-white">
-          See the listings <span class="arrow" aria-hidden="true">&#10230;</span>
+          Explore properties <span class="arrow" aria-hidden="true">&#10230;</span>
         </a>
       </div>
     </div>
@@ -402,53 +445,63 @@
   <!-- GEN:footer -->
 <footer class="bg-deep text-white">
     <div class="mx-auto max-w-[1280px] px-6 pb-10 pt-20 lg:px-10">
-      <div class="grid gap-14 pb-16 lg:grid-cols-12 [&>div]:min-w-0">
-        <div class="lg:col-span-4">
-          <img src="brand_assets/blu-logo.svg?v=blu1" width="775" height="564" alt="Blu Real Estate" class="h-[88px] w-auto" loading="lazy" />
-          <p class="mt-7 text-[11px] font-semibold uppercase tracking-[0.28em] text-gold">Buy <span class="mx-1.5 text-white/30">&middot;</span> Sell <span class="mx-1.5 text-white/30">&middot;</span> Rent</p>
-          <p class="mt-5 max-w-sm text-sm leading-[1.8] text-white/60">Blu Real Estate is a property consultancy in Mombasa, Kenya, listing new homes in Nyali, Kizingo and Stadium.</p>
+      <div class="grid gap-14 pb-16 sm:grid-cols-2 lg:grid-cols-12 [&>div]:min-w-0">
+        <div class="sm:col-span-2 lg:col-span-4">
+          <a href="index.html" class="brand-lockup brand-lockup--footer" aria-label="Your Company Name — home"><img src="brand_assets/mark.svg?v=demo1" width="40" height="40" alt="" class="brand-mark" /><span class="brand-words"><span class="brand-name">Your Company Name</span><span class="brand-desc">Properties &amp; Developments</span></span></a>
+          <p class="mt-7 text-[11px] font-semibold uppercase tracking-[0.28em] text-gold">Sales <span class="mx-1.5 text-white/30">&middot;</span> Lettings <span class="mx-1.5 text-white/30">&middot;</span> Developments <span class="mx-1.5 text-white/30">&middot;</span> Management</p>
+          <p class="mt-5 max-w-sm text-sm leading-[1.8] text-white/60">Homes for sale and to let, new developments, land and commercial space across Nairobi and the Kenyan coast — with one team from the first viewing to the keys.</p>
         </div>
         <div class="lg:col-span-2">
           <h3 class="text-[12px] font-semibold uppercase tracking-[0.2em] text-white/60">Explore</h3>
           <ul class="mt-6 space-y-4 text-sm">
             <li><a href="index.html" class="text-white/75 transition-colors duration-300 hover:text-white">Home</a></li>
-            <li><a href="index.html#about" class="text-white/75 transition-colors duration-300 hover:text-white">About</a></li>
-            <li><a href="properties.html" class="text-white/75 transition-colors duration-300 hover:text-white">Listings</a></li>
+            <li><a href="properties.html" class="text-white/75 transition-colors duration-300 hover:text-white">Properties</a></li>
+            <li><a href="developments.html" class="text-white/75 transition-colors duration-300 hover:text-white">Developments</a></li>
+            <li><a href="agents.html" class="text-white/75 transition-colors duration-300 hover:text-white">Agents</a></li>
             <li><a href="index.html#services" class="text-white/75 transition-colors duration-300 hover:text-white">Services</a></li>
-            <li><a href="index.html#sell" class="text-white/75 transition-colors duration-300 hover:text-white">Sell</a></li>
             <li><a href="contact.html" class="text-white/75 transition-colors duration-300 hover:text-white">Contact</a></li>
           </ul>
         </div>
         <div class="lg:col-span-3">
-          <h3 class="text-[12px] font-semibold uppercase tracking-[0.2em] text-white/60">Where the listings are</h3>
-          <ul class="mt-6 space-y-4 text-sm">
-            <li><a href="properties.html#nyali" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Nyali</span><span class="text-[12px] text-white/60 group-hover:text-gold">6 listings</span></a></li>
-            <li><a href="properties.html#kizingo" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Kizingo</span><span class="text-[12px] text-white/60 group-hover:text-gold">1 listing</span></a></li>
-            <li><a href="properties.html#stadium" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Stadium</span><span class="text-[12px] text-white/60 group-hover:text-gold">1 listing</span></a></li>
-          </ul>
-          <p class="mt-6 text-[13px] leading-[1.7] text-white/60">Mombasa, Kenya</p>
+          <h3 class="text-[12px] font-semibold uppercase tracking-[0.2em] text-white/60">Locations</h3>
+            <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.2em] text-gold">Nairobi</p>
+            <ul class="mt-3 space-y-2.5 text-sm">
+              <li><a href="properties.html?location=westlands" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Westlands</span><span class="text-[12px] text-white/60 group-hover:text-gold">2</span></a></li>
+              <li><a href="properties.html?location=kilimani" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Kilimani</span><span class="text-[12px] text-white/60 group-hover:text-gold">2</span></a></li>
+              <li><a href="properties.html?location=lavington" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Lavington</span><span class="text-[12px] text-white/60 group-hover:text-gold">1</span></a></li>
+              <li><a href="properties.html?location=upper-hill" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Upper Hill</span><span class="text-[12px] text-white/60 group-hover:text-gold">1</span></a></li>
+            </ul>
+            <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.2em] text-gold">The Coast</p>
+            <ul class="mt-3 space-y-2.5 text-sm">
+              <li><a href="properties.html?location=nyali" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Nyali</span><span class="text-[12px] text-white/60 group-hover:text-gold">1</span></a></li>
+              <li><a href="properties.html?location=vipingo" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Vipingo</span><span class="text-[12px] text-white/60 group-hover:text-gold">1</span></a></li>
+              <li><a href="properties.html?location=kilifi" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Kilifi</span><span class="text-[12px] text-white/60 group-hover:text-gold">1</span></a></li>
+              <li><a href="properties.html?location=diani" class="group flex items-baseline justify-between gap-4 text-white/75 transition-colors duration-300 hover:text-white"><span>Diani</span><span class="text-[12px] text-white/60 group-hover:text-gold">1</span></a></li>
+            </ul>
         </div>
         <div class="lg:col-span-3">
-          <h3 class="text-[12px] font-semibold uppercase tracking-[0.2em] text-white/60">Call or WhatsApp</h3>
+          <h3 class="text-[12px] font-semibold uppercase tracking-[0.2em] text-white/60">Get in touch</h3>
           <p class="mt-6 text-sm leading-[1.8]">
-            <a href="tel:+254740777888" class="block text-[19px] font-medium tracking-[0.01em] text-white transition-colors duration-300 hover:text-gold">+254 740 777 888</a>
-            <a href="https://wa.me/254740777888?text=Hi%20Blu%2C%20I%20found%20you%20through%20your%20website.%20" target="_blank" rel="noopener" class="mt-2 inline-flex items-center gap-2 text-white/75 transition-colors duration-300 hover:text-white"><span class="h-4 w-4 text-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/><path d="M9.2 9.3c.2 1.9 1.6 3.6 3.6 4.3l1-1 1.8.8-.4 1.6c-3 .2-6.2-2.6-6.4-5.7l1.5-.5.9 1.7-1 .8"/></svg></span>Message on WhatsApp</a>
+            <a href="tel:+254700000000" class="block text-[19px] font-medium tracking-[0.01em] text-white transition-colors duration-300 hover:text-gold">+254 700 000 000</a>
+            <a href="https://wa.me/254700000000?text=Hello%2C%20I%20found%20you%20through%20your%20website.%20" target="_blank" rel="noopener" class="mt-2 inline-flex items-center gap-2 text-white/75 transition-colors duration-300 hover:text-white"><span class="h-4 w-4 text-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"/><path d="M9.2 9.3c.2 1.9 1.6 3.6 3.6 4.3l1-1 1.8.8-.4 1.6c-3 .2-6.2-2.6-6.4-5.7l1.5-.5.9 1.7-1 .8"/></svg></span>Message on WhatsApp</a>
+            <a href="mailto:hello@yourcompany.co.ke" class="mt-1 flex items-center gap-2 text-white/75 transition-colors duration-300 hover:text-white"><span class="h-4 w-4 text-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="m4 7 8 6 8-6"/></svg></span>hello@yourcompany.co.ke</a>
           </p>
+          <p class="mt-5 text-[13px] leading-[1.7] text-white/60">Westlands, Nairobi<br />Nyali, Mombasa</p>
           <div class="mt-7 flex flex-wrap gap-5" aria-label="Social media">
-            <a href="https://www.instagram.com/blurealestate.ke/" target="_blank" rel="noopener" class="text-white/60 transition-colors duration-300 hover:text-gold" aria-label="Blu Real Estate on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none"/></svg></a>
-            <a href="https://www.tiktok.com/@blurealestate.ke" target="_blank" rel="noopener" class="text-white/60 transition-colors duration-300 hover:text-gold" aria-label="Blu Real Estate on TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M14 3.5v11.2a3.8 3.8 0 1 1-3.8-3.8"/><path d="M14 3.5c.4 2.6 2.2 4.4 5 4.6"/></svg></a>
-            <a href="https://www.threads.com/@blurealestate.ke" target="_blank" rel="noopener" class="text-white/60 transition-colors duration-300 hover:text-gold" aria-label="Blu Real Estate on Threads"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M16.8 11.2c-.6-3-2.6-4.3-5-4.2-2.8.1-4.7 2.2-4.7 5.1 0 3.4 2 5.6 5.1 5.6 2.5 0 4.6-1.6 4.6-3.8 0-2-1.6-3.1-3.9-3.1-1.9 0-3.1 1-3.1 2.3 0 1.2 1 2 2.4 2 2.2 0 3.5-1.9 3.5-5.4"/><path d="M19.5 12c0 4.6-3.2 8.5-7.6 8.5S4.5 16.8 4.5 12 7.6 3.5 12 3.5c3.4 0 5.9 1.7 7 4.6"/></svg></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="text-white/60 transition-colors duration-300 hover:text-gold" aria-label="Your Company Name on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="text-white/60 transition-colors duration-300 hover:text-gold" aria-label="Your Company Name on Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M14 8.5h2.5V5H14a3.5 3.5 0 0 0-3.5 3.5V11H8v3.5h2.5V21H14v-6.5h2.5L17 11h-3V9a.5.5 0 0 1 .5-.5Z"/></svg></a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="text-white/60 transition-colors duration-300 hover:text-gold" aria-label="Your Company Name on LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="2.5"/><path d="M8 10.5V16M8 7.6v.3M11.5 16v-5.5M11.5 13c0-1.6 1-2.6 2.4-2.6s2.1 1 2.1 2.6V16"/></svg></a>
           </div>
         </div>
       </div>
       <div class="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-7 text-center text-xs text-white/60 sm:flex-row sm:text-left">
-        <p>&copy; <span id="year">2026</span> Blu Real Estate. All rights reserved.</p>
-        <p>Prices as Blu published them on Instagram, March&ndash;July 2026. Confirm before you pay.</p>
+        <p>&copy; <span id="year">2026</span> Your Company Name. All rights reserved.</p>
+        <p>Prices, availability and specifications are subject to change. Images are for illustration.</p>
       </div>
     </div>
   </footer>
 <!-- /GEN:footer -->
 
-  <script src="assets/site.min.js?v=blu1" defer></script>
+  <script src="assets/site.min.js?v=demo1" defer></script>
 </body>
 </html>

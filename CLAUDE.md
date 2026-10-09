@@ -1,79 +1,77 @@
 # CLAUDE.md — Frontend Website Rules
 
-> This repository is the **Blu Real Estate** website. `main` deploys to production on Vercel.
+> This branch (`universal-demo`) is a **universal premium real-estate website demo**: a finished-
+> looking site for a fictional company, shown to developers, agencies, brokers and agents as
+> "this could be your website". It is set up for a client by editing one data file.
+> (`blu-main` holds the Blu Real Estate client site; don't mix the two.)
 
-## Project: Blu Real Estate
-- **Business:** a property consultancy (agency) in **Mombasa**. Their bio: *"Buy | Sell | Rent ·
-  Real Estate Consultants"*. Everything they post is **off-plan apartments by other developers** in
-  **Nyali, Kizingo and Stadium**, with prices, sizes and payment plans in the captions.
-- **Public presence is social only:** Instagram **@blurealestate.ke** (10.9K followers), TikTok
-  (5K), Threads (1K). **No website, no Google Maps listing, no email, no office address, no hours.**
-  That is the sales argument — plus buyers' questions sitting unanswered under their posts.
-- **One number:** **+254 740 777 888**, calls and WhatsApp (both sourced). WhatsApp is a sourced
-  channel here, so the site uses it: every "contact" ends in a `wa.me/254740777888` link.
-- Pages: `index.html` (anchors `#about`, `#why`, `#services`, `#overview`, `#sell`),
-  `properties.html` (labelled **Listings**), `contact.html`, and **eight generated listing pages**
-  `listing-<slug>.html`. Nav: Home · About · Listings · Services · Sell · Contact.
+## What the demo is
+- **Fictional company**, brand name currently the placeholder **"Your Company Name"** (the user's
+  choice: they swap in each prospect's name before a pitch). Everything else reads as a real firm:
+  no "template", "demo", "sample", "lorem ipsum" or "insert X here" anywhere in the UI.
+- Serves **both developers and agents**: properties for sale/to let, new developments (units,
+  availability, floor plans, construction progress, payment plans), land, commercial space,
+  agent profiles with their listings, property search, viewing bookings, WhatsApp enquiries.
+- Demo content: Kenya — Nairobi (Westlands, Kilimani, Lavington, Upper Hill) and the coast
+  (Nyali, Vipingo, Kilifi, Diani), KES prices. **4 developments + 6 properties, 4 agents.**
+- Phone/WhatsApp **+254 700 000 000** is a placeholder (user's choice). WhatsApp hand-offs to it
+  won't reach anyone; swap in the client's number (or the user's own) for a live pitch.
+- Pages: `index.html` (anchors `#about`, `#properties`, `#why`, `#services`, `#team`, `#overview`,
+  `#sell`), `properties.html` (search), `developments.html`, `agents.html`, `contact.html`, plus
+  generated `listing-<slug>.html` and `agent-<slug>.html`.
+  Nav: Properties · Developments · Agents · Services · Contact on desktop (the brand plate links
+  home; "Home" is in the mobile panel and footer); header CTA "Book a viewing" from `xl`.
 
 ## The generator — edit data, not pages
-- **`scripts/site-data.mjs`** holds all eight listings: figures, source post + date, images, alts.
-- **`node scripts/build-pages.mjs`** writes every `listing-*.html` (they have no inline `<style>`;
-  their CSS is `assets/listing-sections.css`) and injects the shared **header, footer, listing
-  cards, hero spec strip and contact-form options** into index / properties / contact between
-  `<!-- GEN:name -->` … `<!-- /GEN:name -->` markers. **Never hand-edit inside a GEN block** — it
-  is overwritten. Hand-edit everything else on those three pages normally.
-- Removing a listing from the data deletes its page on the next run.
+- **`scripts/site-data.mjs`** is the single place for: `BRAND` (name, descriptor, logo, mark,
+  phone, WhatsApp, email, offices, hours, socials, disclaimer), `THEME` (colours), `LOCATIONS`,
+  `AGENTS`, `LISTINGS` (kind `development` | `property`), and `PAGES` (titles/descriptions).
+- **`node scripts/build-pages.mjs`** writes every `listing-*.html` and `agent-*.html` (no inline
+  `<style>`; their CSS is `assets/components.css` + `assets/listing-sections.css`) and injects
+  head meta, header, footer, cards, search options, stats, contact details and the brand name
+  into the five hand-written pages between `<!-- GEN:name -->` … `<!-- /GEN:name -->` markers.
+  It also rewrites every `wa.me/…`, `tel:` and `mailto:` link on those pages to BRAND's.
+  **Never hand-edit inside a GEN block** or a generated page.
+- Removing a listing or agent from the data deletes its page on the next run.
+- Floor plans are schematic SVGs from `scripts/floor-plans.mjs` (keys: studio, 1br, 2br, 3br,
+  4br, villa), labelled "illustrative" on the page. No per-room areas (they'd be invented precision).
+- `site.js` reads the WhatsApp number from `<meta name="whatsapp">` (written by the generator).
 
-## Real figures (sourced — never invent replacements)
-Every fact, post and date is in `brand_assets/blu-source/PROVENANCE.md`. Rules:
-- A figure appears only if Blu published it (caption or the price panel on its own slide).
-  Where a caption and a flyer disagree, **the caption wins** (two cases, logged in PROVENANCE).
-- Each listing page names its source post and date; the footer says prices are as published
-  March–July 2026. Unpublished price or size → **"Ask Blu"**, never an estimate.
-- **Names:** only two are Blu's own — **Emaar Apartments** (flyer) and **Wavecrest Residency**
-  (TikTok + developer watermark). The other six use Blu's round-up headlines. Confirm all eight
-  with the client before launch.
-- Payment schedules are worded as each listing's own post words them (Skyline: "final instalment";
-  Kizingo: "last 6 months"). Only the homepage explainer says "at handover" — that is the round-up.
-- Not on the site, because Blu never published them: email, office address, hours, staff names,
-  company history/registration, completion dates (except Seaside's posted groundbreaking month),
-  service charges, "leading/best/#1".
+## Branding — making it a client's site
+- Name/contact/locations/team/listings: edit `site-data.mjs`, rebuild.
+- Logo: set `BRAND.logo` to an SVG built for **dark grounds** (it sits on the navy brand plate and
+  in the footer) and `BRAND.logoSize`; `null` = the built-in wordmark (`brand_assets/mark.svg` +
+  the name in Montserrat). Favicons: `brand_assets/favicon.svg` (+ PNGs, re-rendered by apply-theme).
+- Colours: edit `THEME`, run `node scripts/apply-theme.mjs` (rewrites hex, `%23` and rgba literals
+  everywhere from `scripts/theme-applied.json`), rebuild, then update `T` in `check-contrast.mjs`.
+- Photos: put the client's photos in `brand_assets/stock-source/` under the same names (or edit
+  `JOBS` in `optimize-images.mjs`), run `node optimize-images.mjs` (writes webp/avif + 
+  `brand_assets/optimized/manifest.json`, which the generator reads for sizes).
 
 ## Imagery
-- Every image is a **developer's render that Blu posted** — an artist's impression, mostly of
-  unbuilt buildings. **Every `alt` says "Artist's impression … the developer's render, posted by
-  Blu Real Estate"**, cards carry an "Artist's impression" tag, and no render is called a photo.
-- Sources: `brand_assets/blu-source/` (35 files). **`optimize-images.mjs`** crops each one clear of
-  Blu's flyer overlays (price panel, logo, phone), room labels and signage, into
-  `brand_assets/optimized/<slug>-<w>.webp` (+ `.avif` for the hero). A crop rectangle that lets
-  overlay text through would put an **unsourced price in pixels** — check new crops on a contact
-  sheet. The Wavecrest renders keep the developer's faint watermark (not retouched).
-- `brand_assets/build-frames/` (homepage scrub) is inherited **stock** construction footage,
-  labelled as stock in its alt.
+- Demo photos are **licensed Unsplash photographs** (free commercial licence), ids in
+  `brand_assets/stock-source/sources.tsv`. Alts describe what the photo shows. No visible
+  signage, brand names or people; check new crops on a contact sheet.
+- `brand_assets/build-frames/` (homepage scrub) is stock construction footage, labelled stock.
 
-## Brand
-- Palette sampled from **their logo** (`#002865` navy ground, `#C59332` gold mark):
-  `forest #002865` (= logo navy) · `deep #001B45` · `darkest #00112B` · `ink #0B1A33` ·
-  `sage #4F5B6E` (slate) · `gold #C59332` (**dark grounds / decorative only**, 2.67:1 on paper) ·
-  `goldtext #82601C` (gold for text on light, 5.56:1) · `goldsoft #F7F0E1` · `limestone #EEF2F7`
-  ("sea mist") · `paper #F9FBFD` · `line #DCE3EC` · `clay #9DBBE0` (dark only) /
-  `claydeep #2C5791` / `claysoft #E9EFF7`. Light gold `#E2BE73` is dark-ground only.
-  Token **names** are inherited; `forest`/`sage`/`clay` are misnomers (documented in
-  `tailwind.config.js`). Decorative lines and bars use `#C59332`; **text on light uses `#82601C`**.
+## Design system
+- Palette: `forest #002865` (primary navy) · `deep #001B45` · `darkest #00112B` · `ink #0B1A33` ·
+  `sage #4F5B6E` · `gold #C59332` (**dark grounds / decorative only**, 2.67:1 on paper) ·
+  `goldtext #82601C` (gold for text on light) · `goldsoft #F7F0E1` · `limestone #EEF2F7` ·
+  `paper #F9FBFD` · `line #DCE3EC` · `clay #9DBBE0` (dark only) / `claydeep #2C5791` / `claysoft #E9EFF7`.
+  Light gold `#E2BE73` is dark-ground only. Token names are inherited misnomers (see tailwind.config.js).
 - **Contrast is enforced:** `node scripts/check-contrast.mjs` (token pairs, banned-colour scan with
-  a reviewed dark-ground allowlist, and per-rule bg+text pairs). Exit code must be 0.
-- **Type:** **Montserrat** (display; Blu's own face) + **Inter** (body), self-hosted, **one variable
-  woff2 per subset** each (`assets/fonts.css`, regenerate with `fetch-fonts.mjs`). Display is set
-  the way the logo is: **light (300) with heavy (800) emphasis** — any `<em>`/`<strong>`/`<b>`
-  inside a heading or `.font-display` goes 800 and never italic (rule in `assets/tw-input.css`).
-  Montserrat is much wider than the old serif — size headings down, and test at 360px.
-- **Logo:** traced from their 1080 px logo post by `scripts/trace-logo.py` →
-  `brand_assets/blu-logo.svg` (white + gold, for **navy grounds only**) and `blu-mark.svg`
-  (house alone). In the header it sits on a navy **brand plate hung from the top edge**
-  (`.brand-plate`), because the lockup is only legible on its own navy. Favicon: gold house on navy.
-- **Signature: the spec strip.** Blu's flyers open "BOOK A HOME IN NYALI FOR | 3BR plus DSQ |
-  2,850 square feet | KSH 16M". That panel, as type (`.spec`, in `assets/tw-input.css`), appears on
-  the homepage hero, under every listing hero, and on every listing card. Keep it to those.
+  a reviewed dark-ground allowlist, per-rule bg+text pairs). Exit code must be 0.
+- **Type:** Montserrat (display) + Inter (body), self-hosted, one variable woff2 per subset
+  (`assets/fonts.css`, `fetch-fonts.mjs`). Display is light (300) with heavy (800) emphasis — any
+  `<em>/<strong>/<b>` in a heading goes 800, never italic (rule in `assets/tw-input.css`).
+- **Brand plate:** the lockup hangs on a navy plate from the top of the header (`.brand-plate`).
+- **Signature: the spec strip** (`.spec`, in `assets/tw-input.css`): a lead line ("FOR SALE IN
+  DIANI") over three figures — beds | area | price. On the homepage hero band, under every listing
+  hero, and (compact, beds | baths | area) on every card. Keep it to those.
+- Shared components (cards, search/filters, agent cards, developments showcase, page heroes, the
+  enquiry modal) live in **`assets/components.css`**, plain CSS loaded by every page — not a
+  Tailwind layer, because JS-added state classes would be purged.
 
 ## Always Do First
 - **Invoke the `frontend-design` skill** before writing any frontend code, every session.
@@ -81,33 +79,35 @@ Every fact, post and date is in `brand_assets/blu-source/PROVENANCE.md`. Rules:
 ## Build steps — run after editing
 - After editing `scripts/site-data.mjs` or the generator: `node scripts/build-pages.mjs`.
 - **Tailwind is precompiled:** `npx tailwindcss -i assets/tw-input.css -o assets/tailwind.css --minify`
-  (content = `./*.html`, so run it after the generator). Components in `@layer components` are purged
-  unless a page uses them.
+  (content = `./*.html`, so run it after the generator).
 - **Opacity modifiers must be on Tailwind's scale** (`/5` steps) or bracketed (`/[0.62]`).
-- Tailwind **arbitrary values cannot contain spaces**: `rgba(0,27,69,0.6)`, not `rgba(0, 27, 69, 0.6)`.
+- Tailwind **arbitrary values cannot contain spaces**: `rgba(0,27,69,0.6)`.
 - **site.js is minified:** `npx terser assets/site.js -c -m -o assets/site.min.js`.
-- **Bump `?v=` on changed asset refs.** Currently `?v=blu1` (in the three pages, and `V` in the
-  generator for the listing pages).
+- **Bump `?v=` on changed asset refs.** Currently `?v=demo1` (in the five hand-written pages, and
+  `V` in the generator).
 
 ## Local Server
-- `PORT=3002 node serve.mjs`, or the `blu-site` config in `.claude/launch.json`.
+- `PORT=3002 node serve.mjs`, or the `site` config in `.claude/launch.json`.
   **Ports 3000 and 3001 belong to other projects.** Confirm the title before trusting a result:
-  `curl -s http://127.0.0.1:3002/ | grep -o '<title>[^<]*</title>'` must print **Blu Real Estate**.
+  `curl -s http://127.0.0.1:3002/ | grep -o '<title>[^<]*</title>'` must print the BRAND name.
 
 ## Verification before claiming done
-- `PORT=3002 node verify-pages.mjs` → **ALL CLEAN**, exit 0 (checks every `*.html` in the root,
-  so new listings are covered automatically).
+- `PORT=3002 node verify-pages.mjs` → **ALL CLEAN**, exit 0 (checks every `*.html` in the root).
 - `node scripts/check-contrast.mjs` exits 0. **Check the exit code directly, not after a pipe.**
 - Leftover guard finds **no files** (`grep -l` exits 1 when clean — that is success):
-  `grep -rilE 'unsplash|Instrument Serif|lorem ipsum|KSh |placeholder slot' ./*.html assets/*.css assets/*.js tailwind.config.js`
+  `grep -rilE 'blu real|blurealestate|740 777|Instrument Serif|lorem ipsum|KSh |placeholder slot|website template|demo property|sample property|insert property' ./*.html assets/*.css assets/*.js tailwind.config.js`
 - Horizontal-scroll audit at 360 / 390 / 768 / 1024 / 1440px on every page.
-- Desktop nav is `lg:flex` with `gap-7 xl:gap-12`: measured at 1024px, **78px** clear between the
-  brand plate and the links and between the links and the WhatsApp button.
-- Test both WhatsApp hand-offs (listing enquiry modal, contact form): they build a `wa.me` URL with
-  the message written out. `window.open` must not get `'noopener'` as a feature (it returns null).
+- Desktop nav (`gap-8 xl:gap-10`): measured 131px clear of the brand plate at 1024 (no button
+  below 1280), and 76px either side at 1280 with the button. A longer BRAND name widens the plate:
+  re-measure after changing it.
+- Test the WhatsApp hand-offs (listing enquiry, viewing booking with date/time, contact form with
+  `?intent=&listing=` pre-fill): they build a `wa.me` URL with the message written out.
+  `window.open` must not get `'noopener'` as a feature (it returns null).
+- Test the properties search: purpose buttons, location/type/beds selects, URL params
+  (e.g. `properties.html?location=nyali` from the footer), empty state and "Clear filters".
 
 ## Anti-Generic Guardrails
-- **Colors:** never the default Tailwind palette — navy and gold from the logo only.
+- **Colors:** never the default Tailwind palette — the THEME tokens only.
 - **Shadows:** layered, navy-tinted, low opacity — never flat `shadow-md`; no gold-tinted shadows
   except a gold button's own glow.
 - **Typography:** Montserrat display (light + heavy) + Inter body. Body line-height ~1.7.
@@ -117,11 +117,10 @@ Every fact, post and date is in `brand_assets/blu-source/PROVENANCE.md`. Rules:
 - **Images:** gradient overlay + navy treatment layer.
 
 ## Hard Rules
-- Do not invent prices, sizes, names, dates, amenities or locations — data comes from Blu's posts.
-- Do not call a render a photograph; every image alt says "artist's impression".
-- Do not let a crop include Blu's flyer text (prices, phone, logo) — the page copy carries figures.
-- Do not publish an email, office address, hours or a person's name — Blu has published none.
-- Do not hand-edit inside `<!-- GEN:… -->` blocks or the generated `listing-*.html` files.
+- No "template", "demo", "sample", "example" or placeholder wording in the UI (the brand-name
+  placeholder is the one deliberate exception, set by the user).
+- No real company's name, logo, listing, render or contact details — everything is fictional.
+- Do not hand-edit inside `<!-- GEN:… -->` blocks or the generated `listing-*` / `agent-*` pages.
 - Do not use `transition-all`.
 - Do not put `gold`, light gold or `clay` text on a light ground — use `goldtext`.
 - Do not set display emphasis in italic — heavy weight only.

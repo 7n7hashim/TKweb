@@ -3,7 +3,7 @@
 // assets/fonts.css. Removes the render-blocking third-party stylesheet and the two
 // font-domain connections.
 //
-// Montserrat (display — Blu's logo and flyer face) and Inter (body) are both variable fonts:
+// Montserrat (display) and Inter (body) are both variable fonts:
 // Google serves the SAME woff2 for every weight of a subset. Writing one @font-face per weight
 // made pages download an identical file three times, so each subset gets ONE face with a weight
 // range instead. (Keep the header comment free of the at-rule's name: an earlier script split
@@ -27,7 +27,7 @@ const KEEP_SUBSETS = new Set(['latin', 'latin-ext']);
 let out =
   '/* Montserrat (display) and Inter (body), self-hosted. Google serves each family as ONE variable\n' +
   '   woff2 per subset, identical for every weight, so each subset needs a single face with a weight\n' +
-  "   range (Montserrat 300-800, Inter 400-600). Blu's logo and flyers are set in Montserrat. */\n";
+  "   range (Montserrat 300-800, Inter 400-600). */\n";
 let count = 0;
 
 for (const fam of FAMILIES) {
